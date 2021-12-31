@@ -1,5 +1,7 @@
 name: Linter
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -13,4 +15,10 @@ jobs:
           cmd: install
       - uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: validate
+          cmd: lint
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: type:check
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: format:check
