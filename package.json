@@ -42,7 +42,7 @@
     "format:fix": "yarn prettier --write .",
     "lint": "eslint --ext .tsx,.ts .",
     "type:check": "tsc",
-    "validate": "yarn lint & yarn type:check & yarn format:check"
+    "validate": "yarn format:fix & yarn lint & yarn type:check & yarn format:check"
   },
   "eslintConfig": {
     "extends": [
