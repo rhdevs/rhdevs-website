@@ -13,11 +13,12 @@ export const ImageContainer = styled.div<{ image: string }>`
   width: 70%;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 `
 
 export const TextContainer = styled.div`
-  height: 100%;
+  height: 300px;
   width: 50%;
   display: flex;
   flex-direction: column;
