@@ -54,7 +54,7 @@
     "import/prefer-default-export": "off",
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "react/destructuring-assignment": "off"
   }
 }
