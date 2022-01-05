@@ -1,3 +1,5 @@
-export function ProjectPage() {
-  return <>Project Page</>
+const Projects = () => {
+  return <>Projects Page</>
 }
+
+export default Projects

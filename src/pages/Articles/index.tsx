@@ -1,3 +1,5 @@
-export function ArticlesPage() {
+const Articles = () => {
   return <>Articles Page</>
 }
+
+export default Articles
