@@ -1,5 +1,3 @@
-const Articles = () => {
+export default function Articles() {
   return <>Articles Page</>
 }
-
-export default Articles

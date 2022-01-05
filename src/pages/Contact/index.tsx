@@ -1,5 +1,3 @@
-const Contact = () => {
+export default function Contact() {
   return <>Contact Page</>
 }
-
-export default Contact

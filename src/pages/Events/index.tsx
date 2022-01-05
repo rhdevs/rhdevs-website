@@ -1,5 +1,3 @@
-const Events = () => {
+export default function Events() {
   return <>Events Page</>
 }
-
-export default Events
