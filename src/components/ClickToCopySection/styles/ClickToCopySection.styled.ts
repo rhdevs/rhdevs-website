@@ -15,4 +15,8 @@ export const ClickToCopyLink = styled.a`
   font-size: 30px;
 
   cursor: copy;
+
+  &:active {
+    color: white !important;
+  }
 `

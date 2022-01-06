@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTheme } from 'styled-components'
+
 import { ClickToCopyLink, ClickToCopyTitle } from './styles/ClickToCopySection.styled'
 
 function ClickToCopySection({ text, value, title }: { text: string; value?: string; title?: string }) {
