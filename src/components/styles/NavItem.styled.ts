@@ -25,7 +25,7 @@ export const NavDiv = styled.div<{ isActive?: boolean }>`
       cursor: pointer;
       &:hover {
         font-size: 25px;
-  }
+      }
     `
   }}
 `

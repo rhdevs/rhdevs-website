@@ -1,4 +1,3 @@
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react'
 import { NavDiv } from './styles/NavItem.styled'
 
