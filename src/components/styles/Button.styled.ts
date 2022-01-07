@@ -7,21 +7,21 @@ export const BaseButton = styled.div`
     font-size: 20px;
     border: 0px;
     border-bottom: transparent 2px solid;
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #fff;
     padding: 1px;
     padding-bottom: 0px;
     transition: border-bottom 0.4s ease-in-out;
     &:hover {
-      border-bottom: 2px solid white;
+      border-bottom: 2px solid #fff;
     }
     &:active {
-      color: cyan;
-      border-bottom: 2px solid cyan;
+      color: #10bcbc;
+      border-bottom: 2px solid #10bcbc;
     }
     &:focus {
-      color: cyan;
-      border-bottom: 2px solid cyan;
+      color: #10bcbc;
+      border-bottom: 2px solid #10bcbc;
     }
   }
 `
