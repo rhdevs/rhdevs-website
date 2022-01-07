@@ -13,7 +13,15 @@ export const BaseButton = styled.div`
     padding-bottom: 0px;
     transition: border-bottom 0.4s ease-in-out;
     &:hover {
-      border-bottom: 2px solid red;
+      border-bottom: 2px solid white;
+    }
+    &:active {
+      color: cyan;
+      border-bottom: 2px solid cyan;
+    }
+    &:focus {
+      color: cyan;
+      border-bottom: 2px solid cyan;
     }
   }
 `
