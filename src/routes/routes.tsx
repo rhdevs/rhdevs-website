@@ -13,11 +13,11 @@ export function Routes() {
   return (
     <Switch>
       <Route path="/" element={Home} />
-      <Route path={PATHS.ABOUT} element={About} />
-      <Route path={PATHS.ARTICLES} element={Articles} />
-      <Route path={PATHS.CONTACT} element={Contact} />
-      <Route path={PATHS.EVENTS} element={Events} />
-      <Route path={PATHS.PROJECTS} element={Projects} />
+      <Route path={PATHS.ABOUT} element={<About />} />
+      <Route path={PATHS.ARTICLES} element={<Articles />} />
+      <Route path={PATHS.CONTACT} element={<Contact />} />
+      <Route path={PATHS.EVENTS} element={<Events />} />
+      <Route path={PATHS.PROJECTS} element={<Projects />} />
     </Switch>
   )
 }
