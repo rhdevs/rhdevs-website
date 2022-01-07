@@ -11,7 +11,7 @@ function Button(props: Props) {
   return (
     <BaseButton>
       {/* Not opening any link yet */}
-      <AntdButton type="text" onClick={() => () => window.open(`${props.link}`, '_blank')}>
+      <AntdButton type="text" onClick={() => window.open(`${props.link}`, '_blank')}>
         {props.text}
       </AntdButton>
     </BaseButton>
