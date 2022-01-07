@@ -7,7 +7,6 @@ function App() {
     <Theme>
       <GlobalStyle />
       <p>App file</p>
-      <Button text="LinkedIn" link="https://www.google.com" />
     </Theme>
   )
 }
