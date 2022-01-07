@@ -12,7 +12,7 @@ const Projects = React.lazy(() => import(/* webpackChunckName: "Projects" */ '..
 export function Routes() {
   return (
     <Switch>
-      <Route path="/" element={Home} />
+      <Route path="/" element={<Home />} />
       <Route path={PATHS.ABOUT} element={<About />} />
       <Route path={PATHS.ARTICLES} element={<Articles />} />
       <Route path={PATHS.CONTACT} element={<Contact />} />
