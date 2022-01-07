@@ -1,4 +1,6 @@
+import { Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import LoadingSpinner from './components/LoadingSpinner'
 import { Routes } from './routes/routes'
 import { GlobalStyle } from './styles/GlobalStyles'
 import Theme from './styles/Theme'
@@ -6,10 +8,12 @@ import Theme from './styles/Theme'
 function App() {
   return (
     <BrowserRouter>
-      <Theme>
-        <GlobalStyle />
-        <Routes />
-      </Theme>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Theme>
+          <GlobalStyle />
+          <Routes />
+        </Theme>
+      </Suspense>
     </BrowserRouter>
   )
 }

@@ -4,7 +4,7 @@ import { Spin } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Spinner, StyledLoadingOutline } from './styles/LoadingSpinner.styled'
 
-const LoadingSpinner = () => {
+export default function LoadingSpinner() {
   const antIcon = <LoadingOutlined style={StyledLoadingOutline} spin />
   return (
     <Spinner>
@@ -12,5 +12,3 @@ const LoadingSpinner = () => {
     </Spinner>
   )
 }
-
-export default LoadingSpinner
