@@ -1,12 +1,16 @@
+import { BrowserRouter } from 'react-router-dom'
+import { Routes } from './routes/routes'
 import { GlobalStyle } from './styles/GlobalStyles'
 import Theme from './styles/Theme'
 
 function App() {
   return (
-    <Theme>
-      <GlobalStyle />
-      <p>App file</p>
-    </Theme>
+    <BrowserRouter>
+      <Theme>
+        <GlobalStyle />
+        <Routes />
+      </Theme>
+    </BrowserRouter>
   )
 }
 
