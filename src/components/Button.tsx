@@ -15,11 +15,17 @@ const StyledButton = styled(AntdButton)`
   }
 `
 
-function Button() {
+type Props = {
+  text: string
+  link: string
+}
+
+function Button(props: Props) {
   return (
-    // <StyledButton>Facebook</StyledButton>
     <BaseButton>
-      <AntdButton type="text">Facebook</AntdButton>
+      <AntdButton type="text" onClick={() => window.open(`${props.link}`, '_blank')}>
+        {props.text}
+      </AntdButton>
     </BaseButton>
   )
 }
