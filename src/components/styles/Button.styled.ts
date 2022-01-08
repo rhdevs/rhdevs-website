@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-export const BaseButton = styled.div`
+export const BaseButton = styled.div<{ fontSize?: string }>`
   padding: 0.5rem 1rem;
   .ant-btn-text {
     height: auto;
-    font-size: 20px;
+    font-size: ${(props) => props.fontSize};
     border: 0px;
     border-bottom: transparent 2px solid;
     background-color: #000;
