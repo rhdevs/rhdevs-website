@@ -4,6 +4,7 @@ export const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   background-color: black;
   height: 100vh;
 `
@@ -24,6 +25,7 @@ export const LeftArrow = styled.div`
   position: absolute;
   transform: rotate(45deg);
   animation-name: leftIn;
+  animation-delay: 1s;
   animation-duration: 1s;
   animation-fill-mode: both;
 
@@ -40,7 +42,7 @@ export const LeftArrow = styled.div`
 
   @keyframes leftIn {
     from {
-      left: -100%;
+      left: -150%;
     }
     to {
       left: 28%;
@@ -56,7 +58,7 @@ export const RightArrow = styled.div`
   position: absolute;
   transform: rotate(-45deg);
   animation-name: rightIn;
-  animation-delay: 1.5s;
+  animation-delay: 2.5s;
   animation-duration: 1s;
   animation-fill-mode: both;
 
@@ -84,16 +86,16 @@ export const RightArrow = styled.div`
 export const SmallBlock = styled.div`
   width: 50px;
   height: 30px;
-  top: 12%;
-  left: 76%;
+  top: 14%;
+  left: 73%;
   transform: rotate(45deg);
-  background-color: rgb(196, 196, 196, 0);
+  background-color: rgb(196, 196, 196, 1);
   position: relative;
-  animation-name: firstFadeIn;
+  animation: fadeIn;
   animation-delay: 3s;
-  animation-duration: 1.5s;
+  animation-duration: 3s;
 
-  @keyframes firstFadeIn {
+  @keyframes fadeIn {
     0% {
       background-color: rgb(196, 196, 196, 0);
     }
@@ -108,12 +110,12 @@ export const SmallBlock = styled.div`
 
 export const Line = styled.div`
   width: 50px;
-  height: 375px;
+  height: 360px;
   bottom: 8%;
-  left: 45%;
+  left: 44%;
   background: rgb(196, 196, 196, 0.5);
   transform: rotate(45deg);
-  position: relative;
+  position: absolute;
   animation-fill-mode: both;
   animation-delay: 4s;
   animation-name: secondFadeIn;
@@ -122,9 +124,14 @@ export const Line = styled.div`
   @keyframes secondFadeIn {
     from {
       opacity: 0;
+      height: 30px;
+      bottom: 78%;
+      left: 73%;
     }
     to {
       opacity: 1;
+      height: 360px;
+      bottom: 8%;
     }
   }
 `

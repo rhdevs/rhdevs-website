@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LeftArrow, LogoContainer, RightArrow, Line, MainContainer, SmallBlock } from './styles/RHDevLogo.styled'
+import { LeftArrow, LogoContainer, RightArrow, Line, MainContainer } from './styles/RHDevLogo.styled'
 
 function RHDevLogo() {
   return (
@@ -8,7 +8,6 @@ function RHDevLogo() {
       <LogoContainer>
         <LeftArrow />
         <RightArrow />
-        <SmallBlock />
         <Line />
       </LogoContainer>
     </MainContainer>
