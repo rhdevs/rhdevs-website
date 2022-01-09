@@ -86,9 +86,9 @@ export const RightArrow = styled.div`
 export const SmallBlock = styled.div`
   width: 50px;
   height: 30px;
-  top: 14%;
-  left: 73%;
-  transform: rotate(45deg);
+  top: 12%;
+  left: 74%;
+  transform: rotate(47deg);
   background-color: rgb(196, 196, 196, 1);
   position: relative;
   animation: fadeIn;
@@ -114,7 +114,7 @@ export const Line = styled.div`
   bottom: 8%;
   left: 44%;
   background: rgb(196, 196, 196, 0.5);
-  transform: rotate(45deg);
+  transform: rotate(47deg);
   position: absolute;
   animation-fill-mode: both;
   animation-delay: 4s;
@@ -125,13 +125,13 @@ export const Line = styled.div`
     from {
       opacity: 0;
       height: 30px;
-      bottom: 78%;
-      left: 73%;
+      bottom: 80%;
+      left: 74%;
     }
     to {
       opacity: 1;
       height: 360px;
-      bottom: 8%;
+      bottom: 11%;
     }
   }
 `
