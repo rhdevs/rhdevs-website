@@ -83,31 +83,6 @@ export const RightArrow = styled.div`
   }
 `
 
-export const SmallBlock = styled.div`
-  width: 50px;
-  height: 30px;
-  top: 12%;
-  left: 74%;
-  transform: rotate(47deg);
-  background-color: rgb(196, 196, 196, 1);
-  position: relative;
-  animation: fadeIn;
-  animation-delay: 3s;
-  animation-duration: 3s;
-
-  @keyframes fadeIn {
-    0% {
-      background-color: rgb(196, 196, 196, 0);
-    }
-    75% {
-      background-color: rgb(196, 196, 196, 0.35);
-    }
-    100% {
-      background-color: rgb(196, 196, 196, 0);
-    }
-  }
-`
-
 export const Line = styled.div`
   width: 50px;
   height: 360px;
