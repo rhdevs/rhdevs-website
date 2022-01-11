@@ -1,5 +1,6 @@
-import txt from './text.txt'
+import raw from 'raw.macro'
 
 export default function Home() {
-  return <div>{txt}</div>
+  const textfile = raw('../../texts/text.txt')
+  return <div>{textfile || 'Loading...'}</div>
 }
