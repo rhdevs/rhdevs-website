@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const NavDiv = styled.div<{ isActive?: boolean }>`
   height: 60px;
-  width: 100px;
+  width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,9 +16,9 @@ export const NavDiv = styled.div<{ isActive?: boolean }>`
         //css solution for styled underline
         background-image: linear-gradient(to bottom, ${props.theme.palette.primary}, ${props.theme.palette.primary});
         background-repeat: no-repeat;
-        background-position: 50% 100%;
+        background-position: 50% 2em;
         // change this to adjust width and thickness out underline
-        background-size: 60% 2px;
+        background-size: calc(100% - 8px) 2px;
       `
     }
     return `
