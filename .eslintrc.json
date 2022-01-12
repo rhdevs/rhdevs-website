@@ -5,6 +5,9 @@
     "jest": true
   },
   "extends": [
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
     "plugin:react/recommended",
     "airbnb",
     "plugin:security/recommended",
@@ -20,6 +23,11 @@
     "sourceType": "module"
   },
   "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
     "react": {
       "version": "detect"
     }

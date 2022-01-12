@@ -1,7 +1,5 @@
-import raw from 'raw.macro'
+import { displaytext } from 'src/functions/displaytext'
 
 export default function Home() {
-  const defaultpath = '../../texts/'
-  const textfile = raw(`${defaultpath}text.txt`)
-  return <div>{textfile}</div>
+  return <div>{displaytext('text')}</div>
 }
