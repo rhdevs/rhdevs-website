@@ -3,20 +3,20 @@ import { BaseButton } from './styles/Button.styled'
 
 type Props = {
   text: string
-  link?: string
+  link?: string | undefined
   fontSize?: string
   isActive?: boolean
 }
 
 const defaultProps = {
-  link: 'https://www.google.com',
+  link: '',
   fontSize: '20px',
   isActive: false,
 }
 function Button(props: Props) {
   return (
     <BaseButton fontSize={props.fontSize} isActive={props.isActive}>
-      <AntdButton type="text" onClick={() => window.open(`${props.link}`, '_blank')}>
+      <AntdButton type="text" onClick={() => (props.link === null ? undefined : window.open(props.link, '_blank'))}>
         {props.text}
       </AntdButton>
     </BaseButton>
