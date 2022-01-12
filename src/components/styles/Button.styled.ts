@@ -10,7 +10,6 @@ export const BaseButton = styled.div<{ fontSize?: string; isActive?: boolean }>`
     border: 0px;
     border-bottom: transparent 2px solid;
     background-color: transparent;
-    padding-bottom: 0px;
     transition: background-image 0.4s ease-in-out;
     &:hover {
       background-position: 50% 1.2em;
@@ -24,7 +23,8 @@ export const BaseButton = styled.div<{ fontSize?: string; isActive?: boolean }>`
       background-repeat: no-repeat;
       // background-position: 50% 2em;
       // change this to adjust width and thickness out underline
-      background-size: calc(100% - 8px) 8px;
+      // had to use 18 px instead of 8px
+      background-size: calc(100% - 18px) 2px;
     }}
     ${(props) => {
       if (props.isActive) {
@@ -40,7 +40,7 @@ export const BaseButton = styled.div<{ fontSize?: string; isActive?: boolean }>`
           );
           background-repeat: no-repeat;
           // change this to adjust width and thickness out underline
-          background-size: calc(100% - 8px) 4px;
+          background-size: calc(100% - 18px) 2px;
         }}
         `
       }
