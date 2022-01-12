@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button as AntdButton } from 'antd'
 import { BaseButton } from './styles/Button.styled'
 
