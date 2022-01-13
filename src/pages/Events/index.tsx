@@ -1,3 +1,10 @@
+import NavBar from '../../components/NavBar'
+
 export default function Events() {
-  return <>Events Page</>
+  return (
+    <>
+      <NavBar />
+      Events Page
+    </>
+  )
 }

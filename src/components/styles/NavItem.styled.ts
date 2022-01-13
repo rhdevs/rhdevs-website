@@ -9,6 +9,7 @@ export const NavDiv = styled.div<{ isActive?: boolean }>`
   font-size: 22px;
   transition: font-size 0.3s;
   text-transform: capitalize;
+  color: white;
   ${(props) => {
     if (props.isActive) {
       return `
