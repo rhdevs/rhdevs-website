@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/rhdevs-website/static/js/main.d14c3484.js",
+    "static/js/377.6f36dbdc.chunk.js": "/rhdevs-website/static/js/377.6f36dbdc.chunk.js",
+    "service-worker.js": "/rhdevs-website/service-worker.js",
+    "index.html": "/rhdevs-website/index.html",
+    "main.d14c3484.js.map": "/rhdevs-website/static/js/main.d14c3484.js.map",
+    "377.6f36dbdc.chunk.js.map": "/rhdevs-website/static/js/377.6f36dbdc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d14c3484.js"
+  ]
+}
