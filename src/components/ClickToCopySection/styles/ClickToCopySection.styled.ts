@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
 export const ClickToCopyTitle = styled.p`
-  margin: 0px;
+  margin: 0;
 
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 300;
+  font-size: 1.25vw;
   line-height: 50px;
 `
 
 export const ClickToCopyLink = styled.a`
   font-style: normal;
   font-weight: 300;
-  font-size: 30px;
+  font-size: 2vw;
 
   cursor: copy;
 

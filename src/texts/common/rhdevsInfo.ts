@@ -1,5 +1,5 @@
 // Types of contact methods
-export const contactHeaders: String[] = ['Email', 'Contact Number', 'Address', 'Social Media']
+export const contactHeaders: string[] = ['Email', 'Contact Number', 'Address', 'Social Media']
 
 // Value of contact methods
 export const contactMethods: Record<string, string | string[]> = {
