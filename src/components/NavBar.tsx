@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { MainContainer } from './styles/NavBar.styled'
+import { MainContainer, NavContainer } from './styles/NavBar.styled'
 import { navTitles } from '../texts/common/navTitles'
 import NavItem from './NavItem'
 
@@ -41,9 +41,9 @@ function NavBar() {
   const renderedNavItems = navTitles.map((item) => renderNavItem(item))
 
   return (
-    <div>
+    <NavContainer>
       <MainContainer>{renderedNavItems}</MainContainer>
-    </div>
+    </NavContainer>
   )
 }
 
