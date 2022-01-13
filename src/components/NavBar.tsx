@@ -18,7 +18,7 @@ function NavBar() {
             if (item === 'Home') {
               navigate('/')
             } else {
-              navigate(`/${item.replace(/\s/g, '')}`)
+              navigate(`/${item.match('^[a-zA-Z-]*')}`)
             }
           }}
         />
@@ -31,7 +31,7 @@ function NavBar() {
           if (item === 'Home') {
             navigate('/')
           } else {
-            navigate(`/${item.replace(/\s/g, '')}`)
+            navigate(`/${item.match('^[a-zA-Z-]*')}`)
           }
         }}
       />
