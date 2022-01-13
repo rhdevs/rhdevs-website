@@ -22,6 +22,7 @@ export const NavDiv = styled.div<{ isActive?: boolean }>`
       `
     }
     return `
+      color: ${props.theme.palette.common.white};
       cursor: pointer;
       &:hover {
         font-size: 25px;
