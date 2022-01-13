@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-object-injection */
 import {
   MainContainer,
   StaticSection,
@@ -10,7 +11,7 @@ import {
   Logo,
 } from './styles/Contact.styled'
 import { navTitles } from '../../texts/common/navTitles'
-import { contactHeaders, contactMethods } from '../../texts/common/rhdevsInfo'
+import { contactHeaders, contactMethods, contactLinks } from '../../texts/common/rhdevsInfo'
 import ClickToCopySection from '../../components/ClickToCopySection/ClickToCopySection'
 // TODO: Switch image to static logo
 import logo from '../../assets/noimg.png'
@@ -38,7 +39,8 @@ export default function Contact() {
                   {/* TODO: Link to actual socials? */}
                   {/* @ts-ignore */}
                   {contactMethods[header].map((item) => (
-                    <ContactLink>{item}</ContactLink>
+                    // @ts-ignore
+                    <ContactLink href={contactLinks[item]}>{item}</ContactLink>
                   ))}
                 </SectionContent>
               </SectionContainer>

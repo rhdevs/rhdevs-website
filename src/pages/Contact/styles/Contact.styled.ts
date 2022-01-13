@@ -38,14 +38,21 @@ export const SectionTitle = styled.p`
 
 export const SectionContent = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 `
 
-export const ContactLink = styled.div`
+export const ContactLink = styled.a`
   font-style: normal;
   font-weight: 300;
   font-size: 2vw;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: ${(props) => props.theme.palette.primary};
+    text-decoration: underline;
+  }
 `
 
 export const Logo = styled.img`
