@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/399.46471d22.chunk.js","mappings":"8KAAe,SAASA,IACtB,OAAO","sources":["pages/Projects/index.tsx"],"sourcesContent":["export default function Projects() {\n  return <>Projects Page</>\n}\n"],"names":["Projects"],"sourceRoot":""}

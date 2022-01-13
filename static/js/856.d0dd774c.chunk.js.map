@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/856.d0dd774c.chunk.js","mappings":"8KAAe,SAASA,IACtB,OAAO","sources":["pages/Contact/index.tsx"],"sourcesContent":["export default function Contact() {\n  return <>Contact Page</>\n}\n"],"names":["Contact"],"sourceRoot":""}

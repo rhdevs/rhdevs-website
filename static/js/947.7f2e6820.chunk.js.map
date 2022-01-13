@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/947.7f2e6820.chunk.js","mappings":"8KAAe,SAASA,IACtB,OAAO","sources":["pages/Home/index.tsx"],"sourcesContent":["export default function Home() {\n  return <>Home Page</>\n}\n"],"names":["Home"],"sourceRoot":""}
