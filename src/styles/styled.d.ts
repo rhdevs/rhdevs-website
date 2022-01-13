@@ -6,6 +6,7 @@ declare module 'styled-components' {
       common: {
         black: string
         white: string
+        gray: string
       }
       primary: string
       secondary: string

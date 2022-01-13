@@ -4,32 +4,34 @@ export const InputFieldStyled = styled.div`
   width: 100%;
 `
 
-export const InputFieldTitle = styled.p`
+export const InputFieldTitle = styled.p.attrs({ colour: 'white' })`
   margin: 0px;
 
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 50px;
+
+  color: ${(props) => props.colour};
 `
 
-export const TextInput = styled.input.attrs({ type: 'text', responsive: true })`
+export const TextInput = styled.input.attrs({ borderColorInactive: 'gray', borderColor: 'white' })`
   width: 100%;
-  padding: 7px 0;
 
   outline: 0;
   border: 0;
-  border-bottom: 1px solid gray; // TODO useTheme for colour?
+  border-bottom: 1px solid ${(props) => props.borderColorInactive};
 
-  font-weight: 600;
-  font-size: ${(props) => (props.responsive ? 'max(1vw, 15px)' : '15px')};
-  line-height: ${(props) => (props.responsive ? 'max(25px, 1.7vw)' : '25px')};
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 50px;
 
+  color: white;
   background: transparent;
 
   transition: border-color 0.2s;
 
   :focus {
-    border-bottom-color: white;
+    border-bottom-color: ${(props) => props.borderColor};
   }
 `
