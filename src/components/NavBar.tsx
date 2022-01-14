@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { MainContainer } from './styles/NavBar.styled'
+import { MainContainer, NavContainer } from './styles/NavBar.styled'
 import { navTitles } from '../texts/common/navTitles'
 import NavItem from './NavItem'
 
@@ -9,7 +9,12 @@ function NavBar() {
   const pageName = url.substring(url.lastIndexOf('/') + 1)
 
   function renderNavItem(item: string) {
-    if (item === pageName || (item === 'Home' && pageName === '')) {
+    if (
+      item === pageName ||
+      (item === 'Home' && pageName === '') ||
+      (item === 'About Us' && pageName === 'About') ||
+      (item === 'Contact Us' && pageName === 'Contact')
+    ) {
       return (
         <NavItem
           text={item}
@@ -42,7 +47,9 @@ function NavBar() {
 
   return (
     <div>
-      <MainContainer>{renderedNavItems}</MainContainer>
+      <MainContainer>
+        <NavContainer>{renderedNavItems}</NavContainer>
+      </MainContainer>
     </div>
   )
 }
