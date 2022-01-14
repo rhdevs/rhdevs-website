@@ -5,6 +5,7 @@ type Props = {
   description: string
   position: string
   image: string
+  class?: string
 }
 
 function PageSectionComponent(props: Props) {
@@ -12,8 +13,8 @@ function PageSectionComponent(props: Props) {
     <MainContainer>
       {props.position !== 'right' && <ImageContainer image={props.image} />}
       <TextContainer>
-        <Title>{props.title}</Title>
-        <Body>{props.description}</Body>
+        <Title class={props.class}>{props.title}</Title>
+        <Body class={props.class}>{props.description}</Body>
       </TextContainer>
       {props.position === 'right' && <ImageContainer image={props.image} />}
     </MainContainer>
