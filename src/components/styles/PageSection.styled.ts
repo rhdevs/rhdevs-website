@@ -27,7 +27,7 @@ export const TextContainer = styled.div`
 export const Title = styled.div<{ class?: string }>`
   height: 45%;
   text-align: ${(props) => (props.class === 'EVENTS' ? 'left' : 'center')};
-  color: #0cbcbc;
+  color: ${(props) => (props.class === 'EVENTS' ? 'white' : '#0cbcbc')};
   font-size: large;
   display: flex;
   flex-direction: column;
@@ -39,6 +39,6 @@ export const Body = styled.div<{ class?: string }>`
   height: 55%;
   width: 80%;
   text-align: ${(props) => (props.class === 'EVENTS' ? 'left' : 'center')};
-  margin-left: 10%;
+  margin-left: ${(props) => (props.class === 'EVENTS' ? '0' : '10%')};
   color: white;
 `
