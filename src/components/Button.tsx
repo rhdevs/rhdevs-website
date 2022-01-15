@@ -9,13 +9,14 @@ type Props = {
 }
 
 const defaultProps = {
-  link: '',
+  link: 'www.rhapp.lol',
   fontSize: '20px',
   isActive: false,
 }
 function Button(props: Props) {
   return (
-    <BaseButton fontSize={props.fontSize} isActive={props.isActive}>
+    <BaseButton fontSize={props.fontSize} isActive={props.isActive}> 
+    {/* Ignore warning about link traversal security issue */} 
       <AntdButton type="text" onClick={() => (props.link === null ? undefined : window.open(props.link, '_blank'))}>
         {props.text}
       </AntdButton>
