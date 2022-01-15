@@ -13,6 +13,28 @@ const theme: DefaultTheme = {
   },
   typography: {
     main: 'Inter',
+    fontSize: {
+      main: {
+        min: '20px',
+        size: '30px',
+        max: '2rem',
+      },
+      input: {
+        min: '24px',
+        size: '36px',
+        max: '2.4rem',
+      },
+      h2: {
+        min: '16px',
+        size: '24px',
+        max: '1.6rem',
+      },
+      h3: {
+        min: '12px',
+        size: '18px',
+        max: '1.2rem',
+      },
+    },
   },
 }
 

@@ -1,6 +1,11 @@
 import 'styled-components'
 
 declare module 'styled-components' {
+  interface FontType {
+    min: string
+    size: string
+    max: string
+  }
   export interface DefaultTheme {
     palette: {
       common: {
@@ -13,6 +18,12 @@ declare module 'styled-components' {
     }
     typography: {
       main: string
+      fontSize: {
+        main: FontType
+        input: FontType
+        h2: FontType
+        h3: FontType
+      }
     }
   }
 }
