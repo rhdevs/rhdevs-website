@@ -46,9 +46,11 @@ function NavBar() {
   const renderedNavItems = navTitles.map((item) => renderNavItem(item))
 
   return (
-    <NavContainer>
-      <MainContainer>{renderedNavItems}</MainContainer>
-    </NavContainer>
+    <div>
+      <MainContainer>
+        <NavContainer>{renderedNavItems}</NavContainer>
+      </MainContainer>
+    </div>
   )
 }
 
