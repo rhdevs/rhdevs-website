@@ -8,6 +8,6 @@ export const MainContainer = styled.div`
 `
 
 export const NavContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   background: ${(props) => props.theme.palette.common.black};
 `
