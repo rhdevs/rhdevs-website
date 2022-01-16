@@ -1,10 +1,12 @@
 import 'styled-components'
 
 declare module 'styled-components' {
-  interface FontType {
+  export interface FontType {
     min: string
     size: string
     max: string
+    weight: string
+    height: string
   }
   export interface DefaultTheme {
     palette: {

@@ -1,20 +1,18 @@
-import styled from 'styled-components'
+import styled, { FontType } from 'styled-components'
+import { fontTypeCss } from '../../../styles/index.styled'
 
-export const ClickToCopyTitle = styled.p<{ fontSize?: string }>`
+export const ClickToCopyTitle = styled.p<{ fontType: FontType }>`
   margin: 0px;
 
   font-style: normal;
-  font-weight: 500;
-  font-size: ${(props) => props.fontSize ?? '18px'};
-  line-height: 50px;
+  ${fontTypeCss}
 
   color: ${(props) => props.color ?? 'white'};
 `
 
-export const ClickToCopyLink = styled.a<{ fontSize?: string }>`
+export const ClickToCopyLink = styled.a<{ fontType: FontType }>`
   font-style: normal;
-  font-weight: 300;
-  font-size: ${(props) => props.fontSize ?? '30px'};
+  ${fontTypeCss}
 
   color: ${(props) => props.color ?? 'white'};
 

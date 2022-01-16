@@ -7,11 +7,11 @@ import { InputFieldStyled, InputFieldTitle, TextInput } from './styles/InputFiel
 function InputField({
   title,
   value,
-  updateValue,
+  setValue,
 }: {
   title: string
   value: string
-  updateValue: React.Dispatch<React.SetStateAction<string>>
+  setValue: React.Dispatch<React.SetStateAction<string>>
 }) {
   const theme = useTheme()
   const { white, gray } = { ...theme.palette.common }
@@ -19,16 +19,16 @@ function InputField({
 
   return (
     <InputFieldStyled>
-      <InputFieldTitle color={white} fontSize={`clamp(${h2.min}, ${h2.size}, ${h2.max})`}>
+      <InputFieldTitle color={white} fontType={h2}>
         {title}
         <span style={{ paddingLeft: '0.1rem' }}>:</span> {/* buffer between title and colon */}
       </InputFieldTitle>
       <TextInput
-        borderBottomInactive={gray}
-        borderBottom={white}
-        fontSize={`clamp(${input.min}, ${input.size}, ${input.max})`}
+        bottomColorInactive={gray}
+        bottomColor={white}
+        fontType={input}
         value={value}
-        onChange={(e) => updateValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
       />
     </InputFieldStyled>
   )

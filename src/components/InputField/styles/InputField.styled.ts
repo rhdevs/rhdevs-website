@@ -1,33 +1,31 @@
-import styled from 'styled-components'
+import styled, { FontType } from 'styled-components'
+import { fontTypeCss } from '../../../styles/index.styled'
 
 export const InputFieldStyled = styled.div`
   width: 100%;
 `
 
-export const InputFieldTitle = styled.p<{ fontSize?: string }>`
+export const InputFieldTitle = styled.p<{ fontType: FontType }>`
   height: 46px;
   margin: 0;
 
   font-style: normal;
-  font-weight: 600;
-  font-size: ${(props) => props.fontSize ?? '24px'};
-  line-height: 200%;
+  ${fontTypeCss}
 
   color: ${(props) => props.color ?? 'white'};
 `
 
-export const TextInput = styled.input<{ borderBottomInactive?: string; borderBottom?: string; fontSize?: string }>`
+export const TextInput = styled.input<{ fontType: FontType; bottomColorInactive?: string; bottomColor?: string }>`
   width: 100%;
   height: 46px;
 
   outline: 0;
   border: 0;
-  border-bottom: 1px solid ${(props) => props.borderBottomInactive ?? 'gray'};
+  border-bottom: 1px solid ${(props) => props.bottomColorInactive ?? 'gray'};
   margin-top: 12px;
 
-  font-weight: 300;
-  font-size: ${(props) => props.fontSize ?? '36px'};
-  line-height: 200%;
+  font-style: normal;
+  ${fontTypeCss}
 
   color: white;
   background: transparent;
@@ -35,6 +33,6 @@ export const TextInput = styled.input<{ borderBottomInactive?: string; borderBot
   transition: border-color 0.2s;
 
   :focus {
-    border-bottom-color: ${(props) => props.borderBottom ?? 'white'};
+    border-bottom-color: ${(props) => props.bottomColor ?? 'white'};
   }
 `
