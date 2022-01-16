@@ -1,8 +1,8 @@
 import { missionDescription, visionDescription, logoDescription } from '../../texts/descriptions/aboutUs'
-import { MainContainer } from './styles/AboutPage.styled'
+import { MainContainer } from './styles/About.styled'
 import PageSectionComponent from '../../components/PageSection'
 
-export default function AboutPage() {
+export default function About() {
   return (
     <MainContainer>
       <PageSectionComponent title="Mission" description={missionDescription} position="left" image="" />
