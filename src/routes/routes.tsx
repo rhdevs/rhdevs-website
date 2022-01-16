@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes as Switch } from 'react-router-dom'
 import { PATHS } from './PATHS'
+import NavBar from '../components/NavBar'
 
 const Home = React.lazy(() => import(/* webpackChunckName: "Home" */ '../pages/Home'))
 const About = React.lazy(() => import(/* webpackChunckName: "About" */ '../pages/About'))
@@ -11,13 +12,16 @@ const Projects = React.lazy(() => import(/* webpackChunckName: "Projects" */ '..
 
 export function Routes() {
   return (
-    <Switch>
-      <Route path="/" element={<Home />} />
-      <Route path={PATHS.ABOUT} element={<About />} />
-      <Route path={PATHS.ARTICLES} element={<Articles />} />
-      <Route path={PATHS.CONTACT} element={<Contact />} />
-      <Route path={PATHS.EVENTS} element={<Events />} />
-      <Route path={PATHS.PROJECTS} element={<Projects />} />
-    </Switch>
+    <>
+      <NavBar />
+      <Switch>
+        <Route path="/" element={<Home />} />
+        <Route path={PATHS.ABOUT} element={<About />} />
+        <Route path={PATHS.ARTICLES} element={<Articles />} />
+        <Route path={PATHS.CONTACT} element={<Contact />} />
+        <Route path={PATHS.EVENTS} element={<Events />} />
+        <Route path={PATHS.PROJECTS} element={<Projects />} />
+      </Switch>
+    </>
   )
 }

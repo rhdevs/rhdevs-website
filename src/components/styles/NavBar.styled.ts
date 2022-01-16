@@ -4,5 +4,10 @@ export const MainContainer = styled.div`
   width: 65%;
   display: flex;
   margin-left: 10%;
-  justify-content: space-evenly;
+  justify-content: space-between;
+`
+
+export const NavContainer = styled.div`
+  width: 100vw;
+  background: ${(props) => props.theme.palette.common.black};
 `
