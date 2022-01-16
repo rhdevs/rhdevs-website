@@ -4,7 +4,7 @@ import { ClickToCopyLink, ClickToCopyTitle } from './styles/ClickToCopySection.s
 
 function ClickToCopySection({ text, value, title }: { text: string; value?: string; title?: string }) {
   const theme = useTheme()
-  const { main, h3 } = { ...theme.typography.fontSize }
+  const { body, h3 } = { ...theme.typography.fontSize }
 
   return (
     <>
@@ -14,7 +14,7 @@ function ClickToCopySection({ text, value, title }: { text: string; value?: stri
       <ClickToCopyLink
         onClick={() => navigator.clipboard.writeText(value ?? text) /* set text as value if not explicitly specified */}
         color={theme.palette.primary}
-        fontType={main}
+        fontType={body}
       >
         {text}
       </ClickToCopyLink>

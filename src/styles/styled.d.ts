@@ -21,7 +21,7 @@ declare module 'styled-components' {
     typography: {
       main: string
       fontSize: {
-        main: FontType
+        body: FontType
         input: FontType
         h2: FontType
         h3: FontType

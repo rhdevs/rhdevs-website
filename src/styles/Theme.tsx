@@ -14,7 +14,7 @@ const theme: DefaultTheme = {
   typography: {
     main: 'Inter',
     fontSize: {
-      main: {
+      body: {
         min: '20px',
         size: '30px',
         max: '2rem',
