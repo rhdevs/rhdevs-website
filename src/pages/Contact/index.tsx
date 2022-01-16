@@ -36,7 +36,6 @@ export default function Contact() {
               <SectionContainer>
                 <SectionTitle>{header}</SectionTitle>
                 <SectionContent>
-                  {/* TODO: Link to actual socials? */}
                   {/* @ts-ignore */}
                   {contactMethods[header].map((item) => (
                     // @ts-ignore

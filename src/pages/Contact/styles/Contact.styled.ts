@@ -32,8 +32,8 @@ export const SectionTitle = styled.p`
 
   font-style: normal;
   font-weight: 300;
-  font-size: 1.25vw;
-  line-height: 50px;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 3;
 `
 
 export const SectionContent = styled.div`
@@ -45,7 +45,7 @@ export const SectionContent = styled.div`
 export const ContactLink = styled.a`
   font-style: normal;
   font-weight: 300;
-  font-size: 2vw;
+  font-size: clamp(1vw, 2vw, 30px);
   color: inherit;
   text-decoration: none;
 
