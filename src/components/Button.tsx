@@ -16,7 +16,7 @@ const defaultProps = {
 function Button(props: Props) {
   return (
     <BaseButton fontSize={props.fontSize} isActive={props.isActive}>
-      {/* Ignore warning about link traversal security issue */}
+      {/* eslint-disable-next-line security/detect-non-literal-fs-filename */}
       <AntdButton type="text" onClick={() => window.open(props.link, '_blank')}>
         {props.text}
       </AntdButton>
