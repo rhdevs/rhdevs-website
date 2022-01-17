@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { MainContainer, NavContainer, BufferContainer, navBarStyles } from './styles/NavBar.styled'
 import { navTitles } from '../texts/common/navTitles'
 import NavItem from './NavItem'
-import { MainContainer, BufferContainer, navBarStyles } from './styles/NavBar.styled'
 
 function NavBar() {
   const navigate = useNavigate()
@@ -57,12 +57,12 @@ function NavBar() {
   }, [prevScrollPos, visible, handleScroll])
 
   return (
-    <div>
+    <NavContainer>
       <MainContainer>
         <div style={{ ...navBarStyles, top: visible ? '0' : '-60px', position: 'fixed' }}>{renderedNavItems}</div>
       </MainContainer>
       <BufferContainer />
-    </div>
+    </NavContainer>
   )
 }
 
