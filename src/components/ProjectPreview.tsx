@@ -7,7 +7,7 @@ type Props = {
   fontSize: string
   onClick: () => void
 }
-// pass onClick navigate PATHS. into ProjectPreview
+
 export default function ProjectPreview(props: Props) {
   return (
     <PreviewWrapper onClick={props.onClick}>
