@@ -1,4 +1,4 @@
-import RHDevLogo from '../../components/animatedlogo/RHDevLogo'
+import RHDevLogo from '../../components/RHDevLogo'
 
 export default function Home() {
   return <RHDevLogo />
