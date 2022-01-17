@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { MainContainer, NavContainer, BufferContainer, navBarStyles } from './styles/NavBar.styled'
+import { useNavigate } from 'react-router-dom'
+import { NavContainer, BufferContainer, NavBarStyles } from './styles/NavBar.styled'
 import { navTitles } from '../texts/common/navTitles'
 import NavItem from './NavItem'
 
@@ -58,9 +58,7 @@ function NavBar() {
 
   return (
     <NavContainer>
-      <MainContainer>
-        <div style={{ ...navBarStyles, top: visible ? '0' : '-60px', position: 'fixed' }}>{renderedNavItems}</div>
-      </MainContainer>
+      <NavBarStyles isVisible={visible}>{renderedNavItems}</NavBarStyles>
       <BufferContainer />
     </NavContainer>
   )
