@@ -5,11 +5,11 @@ export const BaseButton = styled.div<{ fontSize?: string; isActive?: boolean }>`
   justify-content: center;
   align-items: center;
   .ant-btn-text {
-    color: ${(props) => props.theme.palette.common.black};
+    color: ${(props) => props.theme.palette.common.white};
     font-size: ${(props) => props.fontSize};
     border: 0;
     border-bottom: transparent 2px solid;
-    background-color: transparent;
+    background-color: ${(props) => props.theme.palette.common.black};
     transition: background-image 0.4s ease-in-out;
     &:hover {
       background-position: 50% 1.2em;
