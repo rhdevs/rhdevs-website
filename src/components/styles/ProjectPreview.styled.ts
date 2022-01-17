@@ -25,7 +25,28 @@ export const PreviewText = styled.div<{ hasAnimation: boolean }>`
     `
   }}
 `
-
+export const PreviewTitle = styled.div<{ fontSize?: string }>`
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => props.theme.palette.common.white};
+  font-size: ${(props) => props.fontSize};
+  font-weight: 600;
+  border: 0;
+  background-color: ${(props) => props.theme.palette.common.black};
+  transition: background-image 0.4s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background-position: 50% 1.15em;
+    background-image: linear-gradient(
+      to bottom,
+      ${(props) => props.theme.palette.common.white},
+      ${(props) => props.theme.palette.common.white}
+    );
+    background-repeat: no-repeat;
+    background-size: calc(100% - 18px) 2px;
+  }}
+`
 export const PreviewWrapper = styled.div`
   align-items: center;
   display: flex;
