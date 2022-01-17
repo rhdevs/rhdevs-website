@@ -1,8 +1,16 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled.div`
-  width: 65%;
-  display: flex;
-  margin-left: 10%;
-  justify-content: space-evenly;
+  width: 100%;
 `
+
+export const BufferContainer = styled.div`
+  height: 30px;
+`
+
+export const navBarStyles = {
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  backgroundColor: 'black',
+}
