@@ -42,7 +42,7 @@ function NavBar() {
   const renderedNavItems = navTitles.map((item) => renderNavItem(item))
 
   const [prevScrollPos, setPrevScrollPos] = useState(0)
-  const [visible, setVisible] = useState(true)
+  const [isVisible, setVisible] = useState(true)
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset
@@ -54,11 +54,11 @@ function NavBar() {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [prevScrollPos, visible, handleScroll])
+  }, [prevScrollPos, isVisible, handleScroll])
 
   return (
     <NavContainer>
-      <NavBarStyles isVisible={visible}>{renderedNavItems}</NavBarStyles>
+      <NavBarStyles isVisible={isVisible}>{renderedNavItems}</NavBarStyles>
       <BufferContainer />
     </NavContainer>
   )
