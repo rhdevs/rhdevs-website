@@ -4,13 +4,14 @@ import Button from './Button'
 type Props = {
   title: string
   text: string
+  hasAnimation: boolean
+  onClick: () => void
 }
-
 export default function ProjectPreview(props: Props) {
   return (
-    <PreviewWrapper>
-      <Button text={props.title} link="https://www.google.com" />
-      <PreviewText>{props.text}</PreviewText>
+    <PreviewWrapper onClick={props.onClick}>
+      <Button text={props.title} />
+      <PreviewText hasAnimation={props.hasAnimation}>{props.text}</PreviewText>
     </PreviewWrapper>
   )
 }

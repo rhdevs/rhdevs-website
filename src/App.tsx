@@ -12,8 +12,13 @@ function App() {
       <Suspense fallback={<LoadingSpinner />}>
         <Theme>
           <GlobalStyle />
-          <ProjectPreview title="rhApp" text="Hello" />
           <Routes />
+          <ProjectPreview
+            title="RH app"
+            text="We created a telegram bot to assist Raffles Hall CCA leaders with sending out hall wide announcements."
+            hasAnimation
+            onClick={() => undefined}
+          />
         </Theme>
       </Suspense>
     </BrowserRouter>

@@ -12,6 +12,7 @@ export const BaseButton = styled.div<{ fontSize?: string; isActive?: boolean }>`
     background-color: ${(props) => props.theme.palette.common.black};
     transition: background-image 0.4s ease-in-out;
     &:hover {
+      cursor: pointer;
       background-position: 50% 1.2em;
       color: ${(props) => props.theme.palette.primary};
       background-image: linear-gradient(
