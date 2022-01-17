@@ -17,4 +17,5 @@ export const navBarStyles = {
   width: '100%',
   display: 'flex',
   justifyContent: 'space-evenly',
+  background: 'black',
 }
