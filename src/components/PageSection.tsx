@@ -3,7 +3,7 @@ import { ImageContainer, MainContainer, TextContainer, Title, Body } from './sty
 type Props = {
   title: string
   description: string
-  position: string
+  position: 'left' | 'right'
   image: string
   class?: string
 }
