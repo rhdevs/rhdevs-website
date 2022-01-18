@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import Null from '../../assets/noimg.png'
-import 
 
 export const MainContainer = styled.div`
   height: 33%;
