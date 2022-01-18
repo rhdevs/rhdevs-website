@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css, FontType } from 'styled-components'
 
 export const body = css`
   margin: 0;
@@ -10,4 +10,10 @@ export const body = css`
 
 export const code = css`
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+`
+
+export const fontTypeCss = css<{ fontType: FontType }>`
+  font-weight: ${({ fontType }) => fontType.weight};
+  font-size: ${({ fontType }) => `clamp(${fontType.min}, ${fontType.size}, ${fontType.max})`};
+  line-height: ${({ fontType }) => fontType.height};
 `
