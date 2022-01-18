@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Null from '../../assets/noimg.png'
+import 
 
 export const MainContainer = styled.div`
   height: 33%;
@@ -27,7 +28,7 @@ export const TextContainer = styled.div`
 export const Title = styled.div<{ class?: string }>`
   height: 45%;
   text-align: ${(props) => (props.class === 'EVENTS' ? 'left' : 'center')};
-  color: ${(props) => (props.class === 'EVENTS' ? 'white' : '#0cbcbc')};
+  color: ${(props) => (props.class === 'EVENTS' ? 'white' : props.theme.palette.primary)};
   font-size: large;
   display: flex;
   flex-direction: column;
