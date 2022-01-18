@@ -2,7 +2,10 @@ import styled from 'styled-components'
 
 export const NavContainer = styled.div`
   width: 100vw;
-  background: ${(props) => props.theme.palette.common.black};
+  height: 6vw;
+  display: flex;
+  justify-content: space-evenly;
+  ${(props) => `background-color: ${props.theme.palette.common.black};`}
 `
 
 export const BufferContainer = styled.div`
@@ -10,10 +13,8 @@ export const BufferContainer = styled.div`
 `
 
 export const NavBarStyles = styled.div<{ isVisible: boolean }>`
-  width: 100%;
+  width: 65%;
   display: flex;
   justify-content: space-evenly;
-  background-color: black;
-  position: fixed;
   top: ${(props) => (props.isVisible ? '0' : '-60px')};
 `
