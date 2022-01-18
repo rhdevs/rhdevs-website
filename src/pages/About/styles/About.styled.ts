@@ -8,4 +8,6 @@ export const MainContainer = styled.div`
   background: black;
   z-index: -1;
   position: relative;
+  padding-top: 200px;
+  padding-bottom: 200px;
 `
