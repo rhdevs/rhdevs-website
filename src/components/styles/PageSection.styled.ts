@@ -17,9 +17,9 @@ export const ImageContainer = styled.div<{ image: string }>`
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 `
 
-export const TextContainer = styled.div`
+export const TextContainer = styled.div<{ events?: boolean }>`
   height: 300px;
-  width: 50%;
+  width: ${(props) => (props.events ? '80%' : '50%')};
   display: flex;
   flex-direction: column;
 `

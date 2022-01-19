@@ -10,14 +10,14 @@ export default function Events() {
         description={interHallHackathon.eventDescription}
         position="left"
         image=""
-        class="EVENTS"
+        events
       />
       <PageSectionComponent
         title={interHallHackathon.eventName}
         description={interHallHackathon.eventDescription}
         position="right"
         image=""
-        class="EVENTS"
+        events
       />
     </MainContainer>
   )
