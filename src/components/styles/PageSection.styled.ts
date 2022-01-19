@@ -24,10 +24,10 @@ export const TextContainer = styled.div`
   flex-direction: column;
 `
 
-export const Title = styled.div<{ class?: string }>`
+export const Title = styled.div<{ events?: boolean }>`
   height: 45%;
-  text-align: ${(props) => (props.class === 'EVENTS' ? 'left' : 'center')};
-  color: ${(props) => (props.class === 'EVENTS' ? 'white' : props.theme.palette.primary)};
+  text-align: ${(props) => (props.events === true ? 'left' : 'center')};
+  color: ${(props) => (props.events === true ? 'white' : props.theme.palette.primary)};
   font-size: large;
   display: flex;
   flex-direction: column;
@@ -35,10 +35,10 @@ export const Title = styled.div<{ class?: string }>`
   padding-bottom: 3%;
 `
 
-export const Body = styled.div<{ class?: string }>`
+export const Body = styled.div<{ events?: boolean }>`
   height: 55%;
   width: 80%;
-  text-align: ${(props) => (props.class === 'EVENTS' ? 'left' : 'center')};
-  margin-left: ${(props) => (props.class === 'EVENTS' ? '0' : '10%')};
+  text-align: ${(props) => (props.events === true ? 'left' : 'center')};
+  margin-left: ${(props) => (props.events === true ? '0' : '10%')};
   color: white;
 `
