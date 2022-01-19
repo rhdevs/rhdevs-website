@@ -2,8 +2,8 @@ import { Button as AntdButton } from 'antd'
 import { BaseButton } from './styles/Button.styled'
 
 type Props = {
-  text: string | undefined
-  link?: string | undefined
+  text: string
+  link?: string
   fontSize?: string
   isActive?: boolean
 }
