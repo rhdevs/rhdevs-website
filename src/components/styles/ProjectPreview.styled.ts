@@ -35,8 +35,6 @@ export const PreviewText = styled.div<{ hasAnimation: boolean }>`
   }}
 `
 export const PreviewTitle = styled.div<{ fontSize?: string }>`
-  width: fit-content;
-  justify-content: center;
   align-items: center;
   color: ${(props) => props.theme.palette.common.white};
   font-size: ${(props) => props.fontSize};
@@ -45,7 +43,6 @@ export const PreviewTitle = styled.div<{ fontSize?: string }>`
   background-color: ${(props) => props.theme.palette.common.black};
   transition: background-image 0.4s ease-in-out;
   &:hover {
-    cursor: pointer;
     background-position: 50% 1.15em;
     background-image: linear-gradient(
       to bottom,
@@ -64,7 +61,5 @@ export const PreviewWrapper = styled.div`
   text-align: center;
   padding: 0.5rem;
   background-color: ${(props) => props.theme.palette.common.black};
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `
