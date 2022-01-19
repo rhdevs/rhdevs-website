@@ -1,4 +1,13 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
 
 export const PreviewText = styled.div<{ hasAnimation: boolean }>`
   font-size: 0.9rem;
@@ -11,17 +20,17 @@ export const PreviewText = styled.div<{ hasAnimation: boolean }>`
       opacity: 1;
     }
   }
+  animation-name: ${FadeIn};
+  animation-delay: 1s;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
   ${(props) => {
-    if (props.hasAnimation) {
+    if (!props.hasAnimation) {
       return `
-      animation-name: fadeIn;
-      animation-delay: 1s;
-      animation-duration: 1.5s;
-      animation-fill-mode: both; 
+      animation-name: none;
       `
     }
     return `
-      animation-name: none;
     `
   }}
 `

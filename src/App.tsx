@@ -4,6 +4,7 @@ import LoadingSpinner from './components/LoadingSpinner'
 import { Routes } from './routes/routes'
 import { GlobalStyle } from './styles/GlobalStyles'
 import Theme from './styles/Theme'
+import ProjectPreview from './components/ProjectPreview'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Theme>
           <GlobalStyle />
           <Routes />
+          <ProjectPreview title="Hello" text="This is description" hasAnimation />
         </Theme>
       </Suspense>
     </BrowserRouter>
