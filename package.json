@@ -2,6 +2,7 @@
   "name": "rhdevs-website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rhdevs.github.io/rhdevs-website",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@testing-library/jest-dom": "^5.16.1",
@@ -14,6 +15,7 @@
     "antd": "^4.18.2",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-security": "^1.4.0",
+    "gh-pages": "^3.2.3",
     "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -33,7 +35,8 @@
     "workbox-range-requests": "^5.1.4",
     "workbox-routing": "^5.1.4",
     "workbox-strategies": "^5.1.4",
-    "workbox-streams": "^5.1.4"
+    "workbox-streams": "^5.1.4",
+    "yarn": "^1.22.17"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,7 +48,9 @@
     "format:fix": "yarn prettier --write .",
     "lint": "eslint --ext .tsx,.ts .",
     "type:check": "tsc",
-    "validate": "yarn lint & yarn type:check & yarn format:check"
+    "validate": "yarn lint & yarn type:check & yarn format:check",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
