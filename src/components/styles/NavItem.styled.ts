@@ -1,12 +1,13 @@
-import styled from 'styled-components'
+import styled, { FontType } from 'styled-components'
+import { fontTypeCss } from '../../styles/index.styled'
 
-export const NavDiv = styled.div<{ isActive?: boolean }>`
+export const NavDiv = styled.div<{ isActive?: boolean; fontType: FontType }>`
   height: 4.6vw;
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2vw;
+  ${fontTypeCss}
   transition: font-size 0.3s;
   text-transform: capitalize;
   ${(props) => {

@@ -28,6 +28,13 @@ const theme: DefaultTheme = {
         weight: '300',
         height: '2',
       },
+      h1: {
+        min: '40px',
+        size: '60px',
+        max: '4rem',
+        weight: '700',
+        height: '3',
+      },
       h2: {
         min: '16px',
         size: '24px',
