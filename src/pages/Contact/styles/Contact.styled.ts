@@ -20,8 +20,6 @@ export const TextSection = styled.div`
 
 export const ContactTitle = styled.div<{ fontType: FontType }>`
   ${fontTypeCss}
-  //font-weight: 300;
-  //font-size: 4vw;
   margin-bottom: 50px;
 `
 
