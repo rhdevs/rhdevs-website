@@ -10,7 +10,12 @@ function NavBar() {
   const pageName = pageFilePath.slice(1)
 
   function renderNavItem(item: string) {
-    if (item === pageName || (item === 'Home' && pageName === '')) {
+    if (
+      item === pageName ||
+      (item === 'Home' && pageName === '') ||
+      (item === 'About Us' && pageName === 'About') ||
+      (item === 'Contact Us' && pageName === 'Contact')
+    ) {
       return (
         <NavItem
           text={item}
