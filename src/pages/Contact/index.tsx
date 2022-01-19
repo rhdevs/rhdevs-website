@@ -1,4 +1,5 @@
 /* eslint-disable security/detect-object-injection */
+import { useTheme } from 'styled-components'
 import {
   MainContainer,
   StaticSection,
@@ -17,11 +18,13 @@ import ClickToCopySection from '../../components/ClickToCopySection/ClickToCopyS
 import logo from '../../assets/noimg.png'
 
 export default function Contact() {
+  const theme = useTheme()
+  const { h1, h3 } = { ...theme.typography.fontSize }
   return (
     <MainContainer>
       <StaticSection>
         <TextSection>
-          <ContactTitle>{navTitles[5]}</ContactTitle>
+          <ContactTitle fontType={h1}>{navTitles[5]}</ContactTitle>
           {contactHeaders.map((header) => {
             if (typeof contactMethods[header] === 'string') {
               return (
@@ -34,7 +37,7 @@ export default function Contact() {
             }
             return (
               <SectionContainer>
-                <SectionTitle>{header}</SectionTitle>
+                <SectionTitle fontType={h3}>{header}</SectionTitle>
                 <SectionContent>
                   {/* @ts-ignore */}
                   {contactMethods[header].map((item) => (

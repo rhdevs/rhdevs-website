@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { FontType } from 'styled-components'
+import { fontTypeCss } from '../../../styles/index.styled'
 
 export const MainContainer = styled.div`
   width: 100%;
@@ -17,9 +18,10 @@ export const TextSection = styled.div`
   margin-right: 50px;
 `
 
-export const ContactTitle = styled.div`
-  font-weight: 300;
-  font-size: 4vw;
+export const ContactTitle = styled.div<{ fontType: FontType }>`
+  ${fontTypeCss}
+  //font-weight: 300;
+  //font-size: 4vw;
   margin-bottom: 50px;
 `
 
@@ -27,12 +29,11 @@ export const SectionContainer = styled.div`
   margin: 30px 0;
 `
 
-export const SectionTitle = styled.p`
+export const SectionTitle = styled.p<{ fontType: FontType }>`
   margin: 0;
+  ${fontTypeCss}
 
   font-style: normal;
-  font-weight: 300;
-  font-size: clamp(15px, 1.25vw, 18px);
   line-height: 3;
 `
 

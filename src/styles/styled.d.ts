@@ -23,6 +23,7 @@ declare module 'styled-components' {
       fontSize: {
         body: FontType
         input: FontType
+        h1: FontType
         h2: FontType
         h3: FontType
       }
