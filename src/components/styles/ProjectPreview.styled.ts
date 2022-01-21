@@ -1,7 +1,7 @@
 import styled, { keyframes, FontType, css } from 'styled-components'
 import { fontTypeCss } from '../../styles/index.styled'
 
-const FadeIn = keyframes`
+const fadeIn = keyframes`
   0% {
     opacity: 0;
   }
@@ -13,11 +13,10 @@ const FadeIn = keyframes`
 export const PreviewText = styled.div<{ hasAnimation?: boolean; fontType: FontType }>`
   ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
-  animation-name: none;
   ${(props) =>
     props.hasAnimation &&
     css`
-      animation-name: ${FadeIn};
+      animation-name: ${fadeIn};
       animation-delay: 1s;
       animation-duration: 1.5s;
       animation-fill-mode: both;

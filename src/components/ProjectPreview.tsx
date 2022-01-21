@@ -11,7 +11,7 @@ type Props = {
 
 const defaultProps = {
   hasAnimation: false,
-  onClick: () => undefined,
+  onClick: undefined,
 }
 
 export default function ProjectPreview(props: Props) {
