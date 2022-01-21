@@ -14,11 +14,10 @@ export const BaseButton = styled.div<{ fontSize?: string; isActive?: boolean }>`
     &:hover {
       cursor: pointer;
       background-position: 50% 1.2em;
-      color: ${(props) => props.theme.palette.primary};
       background-image: linear-gradient(
         to bottom,
-        ${(props) => props.theme.palette.primary},
-        ${(props) => props.theme.palette.primary}
+        ${(props) => props.theme.palette.common.white},
+        ${(props) => props.theme.palette.common.white}
       );
       background-repeat: no-repeat;
       background-size: calc(100% - 18px) 2px;
