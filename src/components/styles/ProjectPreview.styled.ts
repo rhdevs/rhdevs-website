@@ -1,4 +1,4 @@
-import styled, { keyframes, FontType } from 'styled-components'
+import styled, { keyframes, FontType, css } from 'styled-components'
 import { fontTypeCss } from '../../styles/index.styled'
 
 const FadeIn = keyframes`
@@ -10,32 +10,21 @@ const FadeIn = keyframes`
   }
 `
 
-export const PreviewText = styled.div<{ hasAnimation: boolean; fontType: FontType }>`
+export const PreviewText = styled.div<{ hasAnimation?: boolean; fontType: FontType }>`
   ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  animation-name: ${FadeIn};
-  animation-delay: 1s;
-  animation-duration: 1.5s;
-  animation-fill-mode: both;
-  ${(props) => {
-    if (!props.hasAnimation) {
-      return `
-      animation-name: none;
-      `
-    }
-    return `
-    `
-  }}
+  animation-name: none;
+  ${(props) =>
+    props.hasAnimation &&
+    css`
+      animation-name: ${FadeIn};
+      animation-delay: 1s;
+      animation-duration: 1.5s;
+      animation-fill-mode: both;
+    `}
 `
-export const PreviewTitle = styled.div<{ fontSize?: string; fontType: FontType }>`
+
+export const PreviewTitle = styled.div<{ fontType: FontType }>`
   ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
   border: 0;
@@ -52,6 +41,7 @@ export const PreviewTitle = styled.div<{ fontSize?: string; fontType: FontType }
     background-size: calc(100% - 18px) 2px;
   }}
 `
+
 export const PreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
