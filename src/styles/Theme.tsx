@@ -52,14 +52,14 @@ const theme: DefaultTheme = {
       previewtitle: {
         min: '18px',
         size: '26px',
-        max: '2rem',
+        max: '1.2rem',
         weight: '500',
         height: 'auto',
       },
       h4: {
         min: '8px',
         size: '18px',
-        max: '1.2rem',
+        max: '0.8rem',
         weight: '300',
         height: 'auto',
       },
