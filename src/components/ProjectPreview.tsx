@@ -15,10 +15,10 @@ const defaultProps = {
 
 export default function ProjectPreview(props: Props) {
   const theme = useTheme()
-  const { h4, previewtitle } = { ...theme.typography.fontSize }
+  const { h4, previewTitle } = { ...theme.typography.fontSize }
   return (
     <PreviewWrapper onClick={props.onClick}>
-      <PreviewTitle fontType={previewtitle}>{props.title}</PreviewTitle>
+      <PreviewTitle fontType={previewTitle}>{props.title}</PreviewTitle>
       <PreviewText fontType={h4} hasAnimation={props.hasAnimation ?? false}>
         {props.text}
       </PreviewText>

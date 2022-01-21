@@ -49,7 +49,7 @@ const theme: DefaultTheme = {
         weight: '500',
         height: '2.8',
       },
-      previewtitle: {
+      previewTitle: {
         min: '18px',
         size: '26px',
         max: '1.2rem',
