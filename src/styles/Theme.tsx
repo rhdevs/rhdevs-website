@@ -49,6 +49,20 @@ const theme: DefaultTheme = {
         weight: '500',
         height: '2.8',
       },
+      previewTitle: {
+        min: '18px',
+        size: '26px',
+        max: '1.2rem',
+        weight: '500',
+        height: 'auto',
+      },
+      h4: {
+        min: '8px',
+        size: '18px',
+        max: '0.8rem',
+        weight: '300',
+        height: 'auto',
+      },
     },
   },
 }
