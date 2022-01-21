@@ -55,6 +55,7 @@ export const PreviewTitle = styled.div<{ fontSize?: string; fontType: FontType }
 export const PreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 20%;
   text-align: center;
   padding: 0.5rem;
