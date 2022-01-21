@@ -6,8 +6,5 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: black;
-  z-index: -1;
-  position: relative;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding: 200px 0 200px 0;
 `
