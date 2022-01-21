@@ -36,7 +36,6 @@ export const PreviewText = styled.div<{ hasAnimation: boolean; fontType: FontTyp
   }}
 `
 export const PreviewTitle = styled.div<{ fontSize?: string; fontType: FontType }>`
-  align-items: center;
   ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
   border: 0;
@@ -54,7 +53,6 @@ export const PreviewTitle = styled.div<{ fontSize?: string; fontType: FontType }
   }}
 `
 export const PreviewWrapper = styled.div`
-  align-items: center;
   display: flex;
   flex-direction: column;
   width: 20%;
