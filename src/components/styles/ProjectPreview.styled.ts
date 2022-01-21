@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, FontType } from 'styled-components'
+import { fontTypeCss } from '../../styles/index.styled'
 
 const FadeIn = keyframes`
   0% {
@@ -9,8 +10,8 @@ const FadeIn = keyframes`
   }
 `
 
-export const PreviewText = styled.div<{ hasAnimation: boolean }>`
-  font-size: 0.9rem;
+export const PreviewText = styled.div<{ hasAnimation: boolean; fontType: FontType }>`
+  ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
   @keyframes fadeIn {
     0% {
@@ -34,11 +35,10 @@ export const PreviewText = styled.div<{ hasAnimation: boolean }>`
     `
   }}
 `
-export const PreviewTitle = styled.div<{ fontSize?: string }>`
+export const PreviewTitle = styled.div<{ fontSize?: string; fontType: FontType }>`
   align-items: center;
+  ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
-  font-size: ${(props) => props.fontSize};
-  font-weight: 600;
   border: 0;
   background-color: ${(props) => props.theme.palette.common.black};
   transition: background-image 0.4s ease-in-out;
