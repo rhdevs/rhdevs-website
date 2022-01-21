@@ -26,20 +26,20 @@ export const TextContainer = styled.div<{ events?: boolean }>`
 
 export const Title = styled.div<{ events?: boolean }>`
   height: 45%;
-  text-align: ${(props) => (props.events === true ? 'left' : 'center')};
-  color: ${(props) => (props.events === true ? 'white' : props.theme.palette.primary)};
+  text-align: ${(props) => (props.events ? 'left' : 'center')};
+  color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
   font-size: large;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 3%;
-  ${(props) => props.events === true && 'padding-left: 10%'};
+  ${(props) => props.events && 'padding-left: 10%'};
 `
 
 export const Body = styled.div<{ events?: boolean }>`
   height: 55%;
   width: 80%;
-  text-align: ${(props) => (props.events === true ? 'left' : 'center')};
+  text-align: ${(props) => (props.events ? 'left' : 'center')};
   margin-left: 10%;
   color: white;
 `
