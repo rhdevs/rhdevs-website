@@ -42,3 +42,6 @@ export const Body = styled.div`
   margin-left: 10%;
   color: white;
 `
+export const BufferContainer = styled.div`
+  width: 2vw;
+`
