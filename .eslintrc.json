@@ -57,7 +57,6 @@
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "react/destructuring-assignment": "off",
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"],
-    "react/require-default-props": "off"
+    "@typescript-eslint/no-shadow": ["error"]
   }
 }

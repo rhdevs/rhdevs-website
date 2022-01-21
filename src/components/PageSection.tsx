@@ -20,5 +20,8 @@ function PageSectionComponent(props: Props) {
     </MainContainer>
   )
 }
+PageSectionComponent.defaultProps = {
+  events: null,
+}
 
 export default PageSectionComponent
