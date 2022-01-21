@@ -1,12 +1,13 @@
 import { TooltipContainer, LabelContainer, Label, TooltipArrow } from './styles/Tooltip.styled'
 
 type Props = {
+  id: string
   label: string
 }
 
 function Tooltip(props: Props) {
   return (
-    <TooltipContainer>
+    <TooltipContainer id={props.id}>
       <LabelContainer>
         <Label>{props.label}</Label>
       </LabelContainer>
