@@ -20,7 +20,7 @@ export const MainContainer = styled.div`
     from {
       opacity: 0;
       -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
+      transform: translateY(100%);
     }
     to {
       opacity: 1;
@@ -31,8 +31,8 @@ export const MainContainer = styled.div`
   @-webkit-keyframes fadeInUp {
     from {
       opacity: 0;
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
     }
     to {
       opacity: 1;
