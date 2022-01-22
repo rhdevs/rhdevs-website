@@ -22,7 +22,7 @@ export const NavBarStyles = styled.div<{ isVisible: boolean }>`
     width: 80%;
   }
   @media (max-width: 650px) {
-    margin-left: 0%;
+    margin-left: 0;
     width: 100%;
   }
 `
