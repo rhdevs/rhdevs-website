@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled.div`
-  height: calc(100% - 10vh);
+  height: 90vh;
+  overflow: hidden;
 `
