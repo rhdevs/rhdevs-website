@@ -5,6 +5,7 @@ type Props = {
   description: string
   textPosition: 'left' | 'right'
   image?: string
+  events?: boolean
 } & typeof defaultProps
 
 const defaultProps = {
@@ -17,14 +18,17 @@ function PageSectionComponent(props: Props) {
       {props.textPosition === 'left' && <ImageContainer image={props.image} />}
       {props.textPosition === 'left' && <BufferContainer />}
       <TextContainer>
-        <Title>{props.title}</Title>
-        <Body>{props.description}</Body>
+        <Title events={props.events}>{props.title}</Title>
+        <Body events={props.events}>{props.description}</Body>
       </TextContainer>
       {props.textPosition === 'right' && <BufferContainer />}
       {props.textPosition === 'right' && <ImageContainer image={props.image} />}
     </MainContainer>
   )
 }
+PageSectionComponent.defaultProps = {
+  image: '',
+  events: null,
+}
 
-PageSectionComponent.defaultProps = defaultProps
 export default PageSectionComponent

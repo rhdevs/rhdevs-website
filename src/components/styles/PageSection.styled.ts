@@ -17,28 +17,29 @@ export const ImageContainer = styled.div<{ image: string }>`
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 `
 
-export const TextContainer = styled.div`
+export const TextContainer = styled.div<{ events?: boolean }>`
   height: 300px;
-  width: 50%;
+  width: ${(props) => (props.events ? '80%' : '50%')};
   display: flex;
   flex-direction: column;
 `
 
-export const Title = styled.div`
+export const Title = styled.div<{ events?: boolean }>`
   height: 45%;
-  text-align: center;
-  color: #0cbcbc;
+  text-align: ${(props) => (props.events ? 'left' : 'center')};
+  color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
   font-size: large;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 3%;
+  ${(props) => props.events && 'padding-left: 10%'};
 `
 
-export const Body = styled.div`
+export const Body = styled.div<{ events?: boolean }>`
   height: 55%;
   width: 80%;
-  text-align: center;
+  text-align: ${(props) => (props.events ? 'left' : 'center')};
   margin-left: 10%;
   ${(props) => `color: ${props.theme.palette.common.white};`}
 `
