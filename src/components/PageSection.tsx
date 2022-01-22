@@ -3,21 +3,25 @@ import { ImageContainer, MainContainer, TextContainer, Title, Body } from './sty
 type Props = {
   title: string
   description: string
-  position: string
+  position: 'left' | 'right'
   image: string
+  events?: boolean
 }
 
 function PageSectionComponent(props: Props) {
   return (
     <MainContainer>
       {props.position !== 'right' && <ImageContainer image={props.image} />}
-      <TextContainer>
-        <Title>{props.title}</Title>
-        <Body>{props.description}</Body>
+      <TextContainer events={props.events}>
+        <Title events={props.events}>{props.title}</Title>
+        <Body events={props.events}>{props.description}</Body>
       </TextContainer>
       {props.position === 'right' && <ImageContainer image={props.image} />}
     </MainContainer>
   )
+}
+PageSectionComponent.defaultProps = {
+  events: null,
 }
 
 export default PageSectionComponent
