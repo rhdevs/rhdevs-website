@@ -40,7 +40,7 @@ export const Body = styled.div`
   width: 80%;
   text-align: center;
   margin-left: 10%;
-  color: white;
+  ${(props) => `color: ${props.theme.palette.common.white};`}
 `
 export const BufferContainer = styled.div`
   width: 2vw;
