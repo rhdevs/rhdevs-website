@@ -4,7 +4,11 @@ type Props = {
   title: string
   description: string
   textPosition: 'left' | 'right'
-  image: string
+  image?: string
+} & typeof defaultProps
+
+const defaultProps = {
+  image: '',
 }
 
 function PageSectionComponent(props: Props) {
@@ -22,4 +26,5 @@ function PageSectionComponent(props: Props) {
   )
 }
 
+PageSectionComponent.defaultProps = defaultProps
 export default PageSectionComponent
