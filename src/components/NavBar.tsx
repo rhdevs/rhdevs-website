@@ -10,33 +10,16 @@ function NavBar() {
   const pageName = pageFilePath.slice(1)
 
   function renderNavItem(item: string) {
-    if (
-      item === pageName ||
-      (item === 'Home' && pageName === '') ||
-      (item === 'About Us' && pageName === 'About') ||
-      (item === 'Contact Us' && pageName === 'Contact')
-    ) {
-      return (
-        <NavContainer>
-          <NavItem
-            text={item}
-            isActive
-            onClick={() => {
-              if (item === 'Home') {
-                navigate('/')
-              } else {
-                navigate(`/${item.match('^[a-zA-Z-]*')}`)
-              }
-            }}
-          />
-          <BufferContainer />
-        </NavContainer>
-      )
-    }
     return (
       <NavContainer>
         <NavItem
           text={item}
+          isActive={
+            item === pageName ||
+            (item === 'Home' && pageName === '') ||
+            (item === 'About Us' && pageName === 'About') ||
+            (item === 'Contact Us' && pageName === 'Contact')
+          }
           onClick={() => {
             if (item === 'Home') {
               navigate('/')
