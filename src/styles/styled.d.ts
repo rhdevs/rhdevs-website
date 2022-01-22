@@ -17,6 +17,7 @@ declare module 'styled-components' {
       }
       primary: string
       secondary: string
+      danger: string
     }
     typography: {
       main: string

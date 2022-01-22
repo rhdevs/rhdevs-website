@@ -10,6 +10,7 @@ const theme: DefaultTheme = {
     },
     primary: '#10bcbc',
     secondary: '#5e2ba1',
+    danger: '#cc5849',
   },
   typography: {
     main: 'Inter',
