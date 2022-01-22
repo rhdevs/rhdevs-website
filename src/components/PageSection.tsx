@@ -3,21 +3,21 @@ import { ImageContainer, MainContainer, BufferContainer, TextContainer, Title, B
 type Props = {
   title: string
   description: string
-  position: string
+  textPosition: 'left' | 'right'
   image: string
 }
 
 function PageSectionComponent(props: Props) {
   return (
     <MainContainer>
-      {props.position !== 'right' && <ImageContainer image={props.image} />}
-      {props.position !== 'right' && <BufferContainer />}
+      {props.textPosition === 'left' && <ImageContainer image={props.image} />}
+      {props.textPosition === 'left' && <BufferContainer />}
       <TextContainer>
         <Title>{props.title}</Title>
         <Body>{props.description}</Body>
       </TextContainer>
-      {props.position === 'right' && <BufferContainer />}
-      {props.position === 'right' && <ImageContainer image={props.image} />}
+      {props.textPosition === 'right' && <BufferContainer />}
+      {props.textPosition === 'right' && <ImageContainer image={props.image} />}
     </MainContainer>
   )
 }
