@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MainContainer, NavBarStyles, BufferContainer, NavContainer } from './styles/NavBar.styled'
 import { navTitles } from '../texts/common/navTitles'
 import NavItem from './NavItem'
+import { MainContainer, NavBarStyles, BufferContainer, NavContainer } from './styles/NavBar.styled'
 
 function NavBar() {
   const navigate = useNavigate()
