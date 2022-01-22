@@ -5,6 +5,6 @@ export const MainContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: black;
   padding: 200px 0 200px 0;
+  ${(props) => `background-color: ${props.theme.palette.common.black};`}
 `
