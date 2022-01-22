@@ -17,8 +17,8 @@ function NavBar() {
           isActive={
             item === pageName ||
             (item === 'Home' && pageName === '') ||
-            (item === 'About Us' && pageName === 'About') ||
-            (item === 'Contact Us' && pageName === 'Contact')
+            item.split(' ')[0] === pageName ||
+            item.split(' ')[0] === pageName
           }
           onClick={() => {
             if (item === 'Home') {
