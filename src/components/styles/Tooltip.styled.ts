@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const TooltipContainer = styled.div`
+  width: 500px;
   block-size: fit-content;
   display: flex;
   flex-direction: column;

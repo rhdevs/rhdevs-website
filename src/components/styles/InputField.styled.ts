@@ -9,7 +9,7 @@ export const InputFieldContainer = styled.div`
 
 export const TooltipStyled = styled.div`
   position: absolute;
-  left: 20vw;
+  left: 10vw;
   top: 15px;
   transform: scale(0.8);
 `
@@ -33,7 +33,7 @@ export const InputFieldTitle = styled.p<{ fontType: FontType }>`
 
 type Props = {
   fontType: FontType
-  bottomColor?: string
+  bottomColorActive?: string
   bottomColorInactive?: string
   bottomColorInvalid?: string
 }
@@ -56,7 +56,7 @@ export const TextInput = styled.input<Props>`
   transition: border-color 0.2s;
 
   :focus {
-    border-bottom-color: ${(props) => props.bottomColor ?? 'white'};
+    border-bottom-color: ${(props) => props.bottomColorActive ?? 'white'};
   }
   :focus:invalid {
     border-bottom-color: ${(props) => props.bottomColorInvalid ?? 'red'};
