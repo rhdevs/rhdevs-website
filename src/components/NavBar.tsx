@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { MainContainer, NavBarStyles, BufferContainer, NavContainer } from './styles/NavBar.styled'
 import { navTitles } from '../texts/common/navTitles'
 import NavItem from './NavItem'
-import { MainContainer, NavBarStyles, BufferContainer, NavContainer } from './styles/NavBar.styled'
 
 function NavBar() {
   const navigate = useNavigate()
@@ -10,16 +10,33 @@ function NavBar() {
   const pageName = pageFilePath.slice(1)
 
   function renderNavItem(item: string) {
+    if (
+      item === pageName ||
+      (item === 'Home' && pageName === '') ||
+      (item === 'About Us' && pageName === 'About') ||
+      (item === 'Contact Us' && pageName === 'Contact')
+    ) {
+      return (
+        <NavContainer>
+          <NavItem
+            text={item}
+            isActive
+            onClick={() => {
+              if (item === 'Home') {
+                navigate('/')
+              } else {
+                navigate(`/${item.match('^[a-zA-Z-]*')}`)
+              }
+            }}
+          />
+          <BufferContainer />
+        </NavContainer>
+      )
+    }
     return (
       <NavContainer>
         <NavItem
           text={item}
-          isActive={
-            item === pageName ||
-            (item === 'Home' && pageName === '') ||
-            item.split(' ')[0] === pageName ||
-            item.split(' ')[0] === pageName
-          }
           onClick={() => {
             if (item === 'Home') {
               navigate('/')
