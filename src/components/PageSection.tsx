@@ -10,6 +10,7 @@ type Props = {
 
 const defaultProps = {
   image: '',
+  events: false,
 }
 
 function PageSectionComponent(props: Props) {
@@ -26,9 +27,6 @@ function PageSectionComponent(props: Props) {
     </MainContainer>
   )
 }
-PageSectionComponent.defaultProps = {
-  image: '',
-  events: null,
-}
+PageSectionComponent.defaultProps = defaultProps
 
 export default PageSectionComponent
