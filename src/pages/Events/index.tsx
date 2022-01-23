@@ -8,14 +8,14 @@ export default function Events() {
       <PageSectionComponent
         title={interHallHackathon.eventName}
         description={interHallHackathon.eventDescription}
-        position="left"
+        textPosition="left"
         image=""
         events
       />
       <PageSectionComponent
         title={interHallHackathon.eventName}
         description={interHallHackathon.eventDescription}
-        position="right"
+        textPosition="right"
         image=""
         events
       />

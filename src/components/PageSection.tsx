@@ -1,27 +1,32 @@
-import { ImageContainer, MainContainer, TextContainer, Title, Body } from './styles/PageSection.styled'
+import { ImageContainer, MainContainer, BufferContainer, TextContainer, Title, Body } from './styles/PageSection.styled'
 
 type Props = {
   title: string
   description: string
-  position: 'left' | 'right'
-  image: string
+  textPosition: 'left' | 'right'
+  image?: string
   events?: boolean
+} & typeof defaultProps
+
+const defaultProps = {
+  image: '',
+  events: false,
 }
 
 function PageSectionComponent(props: Props) {
   return (
     <MainContainer>
-      {props.position !== 'right' && <ImageContainer image={props.image} />}
-      <TextContainer events={props.events}>
+      {props.textPosition === 'left' && <ImageContainer image={props.image} />}
+      {props.textPosition === 'left' && <BufferContainer />}
+      <TextContainer>
         <Title events={props.events}>{props.title}</Title>
         <Body events={props.events}>{props.description}</Body>
       </TextContainer>
-      {props.position === 'right' && <ImageContainer image={props.image} />}
+      {props.textPosition === 'right' && <BufferContainer />}
+      {props.textPosition === 'right' && <ImageContainer image={props.image} />}
     </MainContainer>
   )
 }
-PageSectionComponent.defaultProps = {
-  events: null,
-}
+PageSectionComponent.defaultProps = defaultProps
 
 export default PageSectionComponent

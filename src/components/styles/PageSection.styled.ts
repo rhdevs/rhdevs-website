@@ -41,5 +41,8 @@ export const Body = styled.div<{ events?: boolean }>`
   width: 80%;
   text-align: ${(props) => (props.events ? 'left' : 'center')};
   margin-left: 10%;
-  color: white;
+  ${(props) => `color: ${props.theme.palette.common.white};`}
+`
+export const BufferContainer = styled.div`
+  width: 2vw;
 `
