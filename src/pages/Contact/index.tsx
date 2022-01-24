@@ -13,7 +13,7 @@ import {
 } from './styles/Contact.styled'
 import { navTitles } from '../../texts/common/navTitles'
 import { contactHeaders, contactMethods, contactLinks } from '../../texts/common/rhdevsInfo'
-import ClickToCopySection from '../../components/ClickToCopySection/ClickToCopySection'
+import ClickToCopySection from '../../components/ClickToCopySection'
 // TODO: Switch image to static logo
 import logo from '../../assets/noimg.png'
 
