@@ -17,6 +17,7 @@ declare module 'styled-components' {
       }
       primary: string
       secondary: string
+      danger: string
     }
     typography: {
       main: string
@@ -26,6 +27,8 @@ declare module 'styled-components' {
         h1: FontType
         h2: FontType
         h3: FontType
+        previewTitle: FontType
+        h4: FontType
       }
     }
   }

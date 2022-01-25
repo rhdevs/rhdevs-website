@@ -6,18 +6,21 @@ export const TooltipContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0; // initially invisible
 `
 
 export const LabelContainer = styled.div`
   inline-size: fit-content;
   padding: 15px;
   border-radius: 5px;
-  ${(props) => `background-color: ${props.theme.palette.primary}`}
+  ${(props) => `background-color: ${props.theme.palette.primary}`};
+  opacity: inherit;
 `
 
 export const Label = styled.div`
   font-size: 20px;
-  ${(props) => `color: ${props.theme.palette.common.white}`}
+  ${(props) => `color: ${props.theme.palette.common.white}`};
+  opacity: inherit;
 `
 
 export const TooltipArrow = styled.div`
@@ -28,5 +31,6 @@ export const TooltipArrow = styled.div`
   ${(props) => `
     border-color: transparent;
     border-top-color: ${props.theme.palette.primary}
-  `}
+  `};
+  opacity: inherit;
 `
