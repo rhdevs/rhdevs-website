@@ -28,10 +28,12 @@ export function ContactForm() {
 
   return (
     <FormContainer>
-      <TextContainer>{contactUs}</TextContainer>
-      <InputField title="Name" value={cName} setValue={setName} type="name" />
-      <InputField title="Email" value={cEmail} setValue={setEmail} type="email" />
-      <InputField title="Message" value={cMessage} setValue={setMessage} type="text" />
+      <form>
+        <TextContainer>{contactUs}</TextContainer>
+        <InputField title="Name" value={cName} setValue={setName} type="name" required />
+        <InputField title="Email" value={cEmail} setValue={setEmail} type="email" required />
+        <InputField title="Message" value={cMessage} setValue={setMessage} type="text" required />
+      </form>
       <Button text="Send" onClick={() => onSubmit()} fontSize="30px" />
     </FormContainer>
   )
