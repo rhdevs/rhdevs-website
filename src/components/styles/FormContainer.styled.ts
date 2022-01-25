@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 
   Button {
-    margin: 40px;
+    margin: 40px 45vh;
   }
 `
 
