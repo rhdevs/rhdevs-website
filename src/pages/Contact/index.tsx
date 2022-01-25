@@ -15,8 +15,7 @@ import {
 import { navTitles } from '../../texts/common/navTitles'
 import { contactHeaders, contactMethods, contactLinks } from '../../texts/common/rhdevsInfo'
 import ClickToCopySection from '../../components/ClickToCopySection'
-// TODO: Switch image to static logo
-import logo from '../../assets/noimg.png'
+import logo from '../../assets/logo.png'
 
 export default function Contact() {
   const theme = useTheme()
