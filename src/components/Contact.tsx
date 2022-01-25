@@ -2,8 +2,8 @@
 // For more help visit https://formspr.ee/react-help
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Button } from 'antd'
 import InputField from './InputField'
+import Button from './Button'
 
 export function ContactForm() {
   const [cName, setName] = useState<string>('')
@@ -31,7 +31,7 @@ export function ContactForm() {
       <InputField title="Name" value={cName} setValue={setName} type="name" />
       <InputField title="Email" value={cEmail} setValue={setEmail} type="email" />
       <InputField title="Message" value={cMessage} setValue={setMessage} type="text" />
-      <Button onClick={() => onSubmit()}>Send</Button>
+      <Button text="Send" onClick={() => onSubmit()} />
     </>
   )
 }
