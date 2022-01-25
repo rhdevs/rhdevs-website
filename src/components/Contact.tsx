@@ -13,7 +13,7 @@ export function ContactForm() {
   const [cMessage, setMessage] = useState<string>('')
   const onSubmit = () => {
     axios({
-      url: 'https://formspree.io/f/mvolznvk',
+      url: 'https://formspree.io/f/mvolznvk', // placeholder, replace with ur id here
       method: 'post',
       headers: {
         Accept: 'application/json',
