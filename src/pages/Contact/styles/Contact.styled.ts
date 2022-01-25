@@ -11,6 +11,7 @@ export const MainContainer = styled.div`
 
 export const StaticSection = styled.div`
   display: flex;
+  justify-content: space-between;
 `
 
 export const TextSection = styled.div`
@@ -20,6 +21,8 @@ export const TextSection = styled.div`
 
 export const ContactTitle = styled.div<{ fontType: FontType }>`
   ${fontTypeCss}
+  line-height: 1.5;
+  font-weight: 300;
   margin-bottom: 50px;
 `
 
@@ -37,8 +40,11 @@ export const SectionTitle = styled.p<{ fontType: FontType }>`
 
 export const SectionContent = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
+  a + a {
+    padding: 0 50px;
+  }
 `
 
 export const ContactLink = styled.a`
@@ -47,14 +53,9 @@ export const ContactLink = styled.a`
   font-size: clamp(1vw, 2vw, 30px);
   color: inherit;
   text-decoration: none;
-
-  &:hover {
-    color: ${(props) => props.theme.palette.primary};
-    text-decoration: underline;
-  }
 `
 
 export const Logo = styled.img`
-  width: 50%;
-  height: auto;
+  width: 382px;
+  height: 486px;
 `
