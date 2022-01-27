@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { NavContainer, BufferContainer, NavBarStyles } from './styles/NavBar.styled'
+import { MainContainer, NavBarStyles, BufferContainer, NavContainer } from './styles/NavBar.styled'
 import { navTitles } from '../texts/common/navTitles'
 import NavItem from './NavItem'
 
@@ -17,9 +17,26 @@ function NavBar() {
       (item === 'Contact Us' && pageName === 'Contact')
     ) {
       return (
+        <NavContainer>
+          <NavItem
+            text={item}
+            isActive
+            onClick={() => {
+              if (item === 'Home') {
+                navigate('/')
+              } else {
+                navigate(`/${item.match('^[a-zA-Z-]*')}`)
+              }
+            }}
+          />
+          <BufferContainer />
+        </NavContainer>
+      )
+    }
+    return (
+      <NavContainer>
         <NavItem
           text={item}
-          isActive
           onClick={() => {
             if (item === 'Home') {
               navigate('/')
@@ -28,19 +45,8 @@ function NavBar() {
             }
           }}
         />
-      )
-    }
-    return (
-      <NavItem
-        text={item}
-        onClick={() => {
-          if (item === 'Home') {
-            navigate('/')
-          } else {
-            navigate(`/${item.match('^[a-zA-Z-]*')}`)
-          }
-        }}
-      />
+        <BufferContainer />
+      </NavContainer>
     )
   }
 
@@ -62,10 +68,9 @@ function NavBar() {
   }, [prevScrollPos, isVisible, handleScroll])
 
   return (
-    <NavContainer>
+    <MainContainer>
       <NavBarStyles isVisible={isVisible}>{renderedNavItems}</NavBarStyles>
-      <BufferContainer />
-    </NavContainer>
+    </MainContainer>
   )
 }
 

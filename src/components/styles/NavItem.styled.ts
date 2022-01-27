@@ -7,9 +7,11 @@ export const NavDiv = styled.div<{ isActive?: boolean; fontType: FontType }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   ${fontTypeCss}
   transition: font-size 0.3s;
   text-transform: capitalize;
+  line-height: 1;
   ${(props) => {
     if (props.isActive) {
       return `
@@ -24,7 +26,6 @@ export const NavDiv = styled.div<{ isActive?: boolean; fontType: FontType }>`
     }
     return `
       color: ${props.theme.palette.common.white};
-      cursor: pointer;
       &:hover {
         font-size: 25px;
       }

@@ -1,5 +1,5 @@
 import styled, { FontType } from 'styled-components'
-import { fontTypeCss } from '../../../styles/index.styled'
+import { fontTypeCss } from '../../styles/index.styled'
 
 export const ClickToCopyTitle = styled.p<{ fontType: FontType }>`
   margin: 0;

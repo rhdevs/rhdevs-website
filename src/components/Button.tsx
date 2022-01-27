@@ -3,7 +3,7 @@ import { BaseButton } from './styles/Button.styled'
 
 type Props = {
   text: string
-  link?: string | undefined
+  link?: string
   fontSize?: string
   isActive?: boolean
 }
