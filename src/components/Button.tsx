@@ -26,7 +26,7 @@ function Button(props: Props) {
   return (
     <BaseButton fontSize={props.fontSize} isActive={props.isActive}>
       {/* eslint-disable-next-line security/detect-non-literal-fs-filename */}
-      <AntdButton type="text" onClick={() => onClick()}>
+      <AntdButton type="text" onClick={() => onClick()} htmlType="submit">
         {props.text}
       </AntdButton>
     </BaseButton>
