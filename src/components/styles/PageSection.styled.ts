@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import Null from '../../assets/noimg.png'
 
-const fadeinuup = keyframes`
+const fadeinUp = keyframes`
     from {
       opacity: 0;
       transform: translateY(100%);
@@ -19,7 +19,7 @@ export const MainContainer = styled.div`
   margin: auto;
   background-color: black;
   animation-duration: 1s;
-  animation-name: ${fadeinuup};
+  animation-name: ${fadeinUp};
 `
 
 export const ImageContainer = styled.div<{ image: string }>`
