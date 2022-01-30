@@ -56,6 +56,6 @@ export const ContactLink = styled.a`
 `
 
 export const Logo = styled.img`
-  width: 382px;
-  height: 486px;
+  width: 30%;
+  object-fit: contain;
 `
