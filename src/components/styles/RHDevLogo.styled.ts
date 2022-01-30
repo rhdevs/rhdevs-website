@@ -42,7 +42,7 @@ export const LeftArrow = styled.div`
 
   @keyframes leftIn {
     from {
-      left: -150%;
+      left: -250%;
     }
     to {
       left: 28%;
@@ -58,7 +58,7 @@ export const RightArrow = styled.div`
   position: absolute;
   transform: rotate(-45deg);
   animation-name: rightIn;
-  animation-delay: 2.5s;
+  animation-delay: 2s;
   animation-duration: 1s;
   animation-fill-mode: both;
 
@@ -75,7 +75,7 @@ export const RightArrow = styled.div`
 
   @keyframes rightIn {
     from {
-      right: -150%;
+      right: -250%;
     }
     to {
       right: 28%;
@@ -92,7 +92,7 @@ export const Line = styled.div`
   transform: rotate(47deg);
   position: absolute;
   animation-fill-mode: both;
-  animation-delay: 4s;
+  animation-delay: 3.5s;
   animation-name: secondFadeIn;
   animation-duration: 1s;
 
