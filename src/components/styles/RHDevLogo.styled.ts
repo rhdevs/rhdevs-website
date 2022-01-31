@@ -7,6 +7,7 @@ export const MainContainer = styled.div`
   overflow: hidden;
   background-color: black;
   height: 100vh;
+  width: 100vw;
 `
 
 export const LogoContainer = styled.div`
