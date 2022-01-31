@@ -43,7 +43,7 @@ export const LeftArrow = styled.div`
 
   @keyframes leftIn {
     from {
-      left: -250%;
+      left: -50vw;
     }
     to {
       left: 28%;
@@ -76,7 +76,7 @@ export const RightArrow = styled.div`
 
   @keyframes rightIn {
     from {
-      right: -250%;
+      right: -50vw;
     }
     to {
       right: 28%;
