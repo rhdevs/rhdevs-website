@@ -26,7 +26,7 @@ export const LeftArrow = styled.div`
   position: absolute;
   transform: rotate(45deg);
   animation-name: leftIn;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
   animation-duration: 1s;
   animation-fill-mode: both;
 
@@ -59,7 +59,7 @@ export const RightArrow = styled.div`
   position: absolute;
   transform: rotate(-45deg);
   animation-name: rightIn;
-  animation-delay: 2s;
+  animation-delay: 1.75s;
   animation-duration: 1s;
   animation-fill-mode: both;
 
@@ -93,7 +93,7 @@ export const Line = styled.div`
   transform: rotate(47deg);
   position: absolute;
   animation-fill-mode: both;
-  animation-delay: 3.5s;
+  animation-delay: 3s;
   animation-name: secondFadeIn;
   animation-duration: 1s;
 
