@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import logoBackground from '../../../assets/logo-background.png'
 
 export const MainContainer = styled.div`
-  height: 100vh;
+  height: 94vh;
   background-color: ${(props) => props.theme.palette.common.black};
   display: flex;
   flex-direction: column;
