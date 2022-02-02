@@ -19,14 +19,14 @@ const defaultProps = {
 function Button(props: Props) {
   const onClick = () => {
     if (props.onClick) {
-      return props.onClick && props.onClick()
+      return props.onClick()
     }
     return window.open(props.link, '_blank')
   }
   return (
     <BaseButton fontSize={props.fontSize} isActive={props.isActive}>
       {/* eslint-disable-next-line security/detect-non-literal-fs-filename */}
-      <AntdButton type="text" onClick={() => onClick()} htmlType="submit">
+      <AntdButton type="text" onClick={onClick} htmlType="submit">
         {props.text}
       </AntdButton>
     </BaseButton>

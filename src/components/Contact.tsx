@@ -32,7 +32,7 @@ export function ContactForm() {
       <InputField title="Name" value={cName} setValue={setName} type="name" required />
       <InputField title="Email" value={cEmail} setValue={setEmail} type="email" required />
       <InputField title="Message" value={cMessage} setValue={setMessage} type="text" required />
-      <Button text="Send" onClick={() => onSubmit()} fontSize="30px" />
+      <Button text="Send" onClick={onSubmit} fontSize="30px" />
     </FormContainer>
   )
 }
