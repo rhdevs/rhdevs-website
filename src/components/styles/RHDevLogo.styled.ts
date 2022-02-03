@@ -7,6 +7,7 @@ export const MainContainer = styled.div`
   overflow: hidden;
   background-color: black;
   height: 100vh;
+  width: 100vw;
 `
 
 export const LogoContainer = styled.div`
@@ -25,7 +26,7 @@ export const LeftArrow = styled.div`
   position: absolute;
   transform: rotate(45deg);
   animation-name: leftIn;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
   animation-duration: 1s;
   animation-fill-mode: both;
 
@@ -42,7 +43,7 @@ export const LeftArrow = styled.div`
 
   @keyframes leftIn {
     from {
-      left: -150%;
+      left: -50vw;
     }
     to {
       left: 28%;
@@ -58,7 +59,7 @@ export const RightArrow = styled.div`
   position: absolute;
   transform: rotate(-45deg);
   animation-name: rightIn;
-  animation-delay: 2.5s;
+  animation-delay: 1.75s;
   animation-duration: 1s;
   animation-fill-mode: both;
 
@@ -75,7 +76,7 @@ export const RightArrow = styled.div`
 
   @keyframes rightIn {
     from {
-      right: -150%;
+      right: -50vw;
     }
     to {
       right: 28%;
@@ -92,7 +93,7 @@ export const Line = styled.div`
   transform: rotate(47deg);
   position: absolute;
   animation-fill-mode: both;
-  animation-delay: 4s;
+  animation-delay: 3s;
   animation-name: secondFadeIn;
   animation-duration: 1s;
 
