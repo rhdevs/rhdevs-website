@@ -1,5 +1,6 @@
 /* eslint-disable security/detect-object-injection */
 import { useTheme } from 'styled-components'
+import { ContactForm } from '../../components/Contact'
 import {
   MainContainer,
   StaticSection,
@@ -50,6 +51,7 @@ export default function Contact() {
         </TextSection>
         <Logo src={logo} alt="logo" />
       </StaticSection>
+      <ContactForm />
     </MainContainer>
   )
 }

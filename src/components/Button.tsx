@@ -6,18 +6,27 @@ type Props = {
   link?: string
   fontSize?: string
   isActive?: boolean
+  onClick?: () => void
 }
 
 const defaultProps = {
   link: '',
   fontSize: '20px',
   isActive: false,
+  onClick: null,
 }
+
 function Button(props: Props) {
+  const onClick = () => {
+    if (props.onClick) {
+      return props.onClick()
+    }
+    return window.open(props.link, '_blank')
+  }
   return (
     <BaseButton fontSize={props.fontSize} isActive={props.isActive}>
       {/* eslint-disable-next-line security/detect-non-literal-fs-filename */}
-      <AntdButton type="text" onClick={() => window.open(props.link, '_blank')}>
+      <AntdButton type="text" onClick={onClick} htmlType="submit">
         {props.text}
       </AntdButton>
     </BaseButton>
