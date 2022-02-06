@@ -7,6 +7,7 @@ type Props = {
   fontSize?: string
   isActive?: boolean
   onClick?: () => void
+  canSubmit?: boolean
 }
 
 const defaultProps = {
@@ -14,6 +15,7 @@ const defaultProps = {
   fontSize: '20px',
   isActive: false,
   onClick: null,
+  canSubmit: false,
 }
 
 function Button(props: Props) {
@@ -26,7 +28,7 @@ function Button(props: Props) {
   return (
     <BaseButton fontSize={props.fontSize} isActive={props.isActive}>
       {/* eslint-disable-next-line security/detect-non-literal-fs-filename */}
-      <AntdButton type="text" onClick={onClick} htmlType="submit">
+      <AntdButton type="text" onClick={onClick} htmlType={props.canSubmit ? 'submit' : 'button'}>
         {props.text}
       </AntdButton>
     </BaseButton>

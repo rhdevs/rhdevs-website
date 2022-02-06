@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
 import uniqueId from 'lodash'
 import Tooltip from './Tooltip'
 import {
-  defaultBrowserMessage,
   defaultRegex,
+  emailRegex,
   invalidEmail,
   invalidName,
   missingField,
-  nameBrowserMessage,
   nameRegex,
 } from '../texts/errors/formErrors'
 
@@ -22,8 +21,10 @@ import {
 
 type Props = {
   title: string
-  value: string
-  setValue: React.Dispatch<React.SetStateAction<string>>
+  name: string
+  values: Record<string, any>
+  // errors: Record<string, any>
+  handleChange: (event: any, type: string, validateOnly?: boolean) => boolean
   type?: 'text' | 'name' | 'email'
   required?: boolean
 }
@@ -35,16 +36,11 @@ const warningLabels: Record<string, string> = {
   email: invalidEmail,
 }
 
-const checkPatterns: Record<string, string> = {
+const checkPatterns: Record<string, RegExp> = {
   // regex used to check validity of custom input types
-  default: defaultRegex,
+  text: defaultRegex,
   name: nameRegex,
-}
-
-const customBrowserMessages: Record<string, string> = {
-  // message shown by browser onInvalid
-  default: defaultBrowserMessage,
-  name: nameBrowserMessage,
+  email: emailRegex,
 }
 
 // tooltip fade-in/display/fade-out times, in seconds
@@ -54,7 +50,15 @@ const FADE_OUT_TIME = 0.7
 
 function InputField(props: Props) {
   const theme = useTheme()
-  const { title, value, setValue, required } = props
+  const {
+    title, // display title
+    name, // identifier key in values hook in useForm
+    values, // for validation type
+    // errors,
+    handleChange,
+    required,
+  } = props
+  const type = props.type ?? 'text'
 
   const { common, danger } = { ...theme.palette }
   const { white, gray } = { ...common }
@@ -63,16 +67,15 @@ function InputField(props: Props) {
   const [labelId, setLabelId] = useState('')
   const [labelElement, setLabelElement] = useState<HTMLElement | null>(null) // html element of tooltip used to make tooltip visible/invisible
 
-  const warningLabel = warningLabels[props.type ?? 'text']
-  const checkPattern = checkPatterns[props.type ?? 'default'] ?? checkPatterns.default
-  const customInvalidMsg = customBrowserMessages[props.type ?? 'default'] ?? customBrowserMessages.default
+  const warningLabel = warningLabels[type]
+  const checkPattern = checkPatterns[type] ?? checkPatterns.default
 
   useEffect(() => {
     setLabelId(uniqueId.uniqueId('input-label-'))
   }, [])
 
   useEffect(() => {
-    setLabelElement(required ? document.getElementById(labelId) : null)
+    if (labelId) setLabelElement(required ? document.getElementById(labelId) : null)
   }, [labelId])
 
   /* eslint-disable no-param-reassign */
@@ -91,20 +94,31 @@ function InputField(props: Props) {
     labelElem.style.transition = `visibility 0s ${FADE_OUT_TIME}s, opacity ${FADE_OUT_TIME}s linear`
   }
 
-  const onInput = (e: any, callback = false) => {
-    // supposed to be (e: React.FormEvent<HTMLInputElement>) but TS will highlight (e.target.setCustomValidity) as invalid, that's why (any)
-    if (required && labelElement) {
-      if (!callback) e.target.setCustomValidity('')
-      fadeOut(labelElement)
+  const onInvalid = async (labelElem: HTMLElement) => {
+    if (required && labelElem) {
+      fadeIn(labelElem)
+      setTimeout(fadeOut, DISPLAY_TIME * 1000, labelElem) // hide tooltip after 3s
     }
   }
 
-  const onInvalid = async (e: any) => {
-    if (required && labelElement) {
-      fadeIn(labelElement)
-      e.target.setCustomValidity(customInvalidMsg) // overrides custom message displayed by browser onInvalid
-      setTimeout(onInput, DISPLAY_TIME * 1000, e, true) // hide tooltip after 3s
+  const toggleTooltip = (labelElem: HTMLElement | null, isValid: boolean) => {
+    if (labelElem) {
+      if (isValid) {
+        fadeOut(labelElem)
+      } else {
+        onInvalid(labelElem)
+      }
     }
+  }
+
+  const onChange = (e: any) => {
+    const isValid = handleChange(e, type)
+    toggleTooltip(labelElement, isValid)
+  }
+
+  const onSelect = (e: any) => {
+    const isValid = handleChange(e, type, true)
+    toggleTooltip(labelElement, isValid)
   }
 
   return (
@@ -116,12 +130,12 @@ function InputField(props: Props) {
           <span style={{ paddingLeft: '0.1rem' }}>:</span> {/* buffer between title and colon */}
         </InputFieldTitle>
         <TextInput
-          type={props.type}
-          value={value}
-          pattern={checkPattern}
-          onChange={(e) => setValue(e.target.value)}
-          onInput={onInput}
-          onInvalid={onInvalid}
+          type={type}
+          name={name}
+          value={values[type]}
+          pattern={checkPattern.source} // for css side rendering
+          onChange={onChange}
+          onSelect={onSelect}
           bottomColorActive={white}
           bottomColorInactive={gray}
           bottomColorInvalid={danger}

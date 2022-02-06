@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
 import axios from 'axios'
 import InputField from './InputField'
 import Button from './Button'
 import { FormContainer, TextContainer } from './styles/FormContainer.styled'
 import { contactUs } from '../texts/descriptions/contactUs'
+import useForm from './useForm'
 
 export function ContactForm() {
-  const [cName, setName] = useState<string>('')
-  const [cEmail, setEmail] = useState<string>('')
-  const [cMessage, setMessage] = useState<string>('')
+  const defaultValues = {
+    name: '',
+    email: '',
+    message: '',
+  }
+
+  // Custom hook call
+  // all values are treated as compulsory/required TODO allow optional
+  const { handleChange, values, handleSubmit, canSubmit } = useForm(defaultValues)
+
   const onSubmit = () => {
     axios({
       url: 'https://formspree.io/f/mvolznvk', // placeholder, replace with ur id here
@@ -17,9 +24,9 @@ export function ContactForm() {
         Accept: 'application/json',
       },
       data: {
-        name: cName,
-        email: cEmail,
-        message: cMessage,
+        name: values.name.trim().replace(/ {2,}/g, ' '), // trim and remove double spaces
+        email: values.email.trim(),
+        message: values.message.trim(),
       },
     }).then((response) => {
       console.log(response)
@@ -27,12 +34,20 @@ export function ContactForm() {
   }
 
   return (
-    <FormContainer>
+    <FormContainer noValidate={false}>
+      {/* disable default browser validation */}
       <TextContainer>{contactUs}</TextContainer>
-      <InputField title="Name" value={cName} setValue={setName} type="name" required />
-      <InputField title="Email" value={cEmail} setValue={setEmail} type="email" required />
-      <InputField title="Message" value={cMessage} setValue={setMessage} type="text" required />
-      <Button text="Send" onClick={onSubmit} fontSize="30px" />
+      <InputField
+        title="Name" // display title
+        name="name" // identifier key in values hook in useForm
+        type="name" // for validation type
+        values={values}
+        handleChange={handleChange}
+        required
+      />
+      <InputField title="Email" name="email" type="email" values={values} handleChange={handleChange} required />
+      <InputField title="Message" name="message" type="text" values={values} handleChange={handleChange} required />
+      <Button text="Send" onClick={() => handleSubmit(onSubmit)} fontSize="30px" canSubmit={canSubmit} />
     </FormContainer>
   )
 }
