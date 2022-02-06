@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import logoBackground from '../../../assets/logo-background.png'
 
 export const MainContainer = styled.div`
-  height: 100vh;
+  height: 100%;
+  overflow: scroll;
   background-color: ${(props) => props.theme.palette.common.black};
   display: flex;
   flex-direction: column;
@@ -13,12 +14,12 @@ export const ImageContainer = styled.div`
   background-image: url(${logoBackground});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50%;
+  height: 50vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
+  margin: 35px 0;
 `
 
 export const ImageMask = styled.div`
