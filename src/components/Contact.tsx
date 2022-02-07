@@ -14,7 +14,7 @@ export function ContactForm() {
 
   // Custom hook call
   // all values are treated as compulsory/required TODO allow optional
-  const { handleChange, values, handleSubmit, canSubmit } = useForm(defaultValues)
+  const { values, handleChange, handleSubmit, canSubmit } = useForm(defaultValues)
 
   const onSubmit = () => {
     axios({
@@ -34,7 +34,7 @@ export function ContactForm() {
   }
 
   return (
-    <FormContainer noValidate={false}>
+    <FormContainer noValidate>
       {/* disable default browser validation */}
       <TextContainer>{contactUs}</TextContainer>
       <InputField

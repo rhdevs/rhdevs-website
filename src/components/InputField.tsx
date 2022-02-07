@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
 import uniqueId from 'lodash'
 import Tooltip from './Tooltip'
@@ -22,11 +22,15 @@ import {
 type Props = {
   title: string
   name: string
-  values: Record<string, any>
-  // errors: Record<string, any>
-  handleChange: (event: any, type: string, validateOnly?: boolean) => boolean
+  values: Record<string, string>
+  handleChange: (event: ChangeEvent<HTMLInputElement>, type: string, validateOnly?: boolean) => boolean
   type?: 'text' | 'name' | 'email'
   required?: boolean
+}
+
+const defaultProps = {
+  required: false,
+  type: 'text',
 }
 
 const warningLabels: Record<string, string> = {
@@ -54,7 +58,6 @@ function InputField(props: Props) {
     title, // display title
     name, // identifier key in values hook in useForm
     values, // for validation type
-    // errors,
     handleChange,
     required,
   } = props
@@ -111,12 +114,12 @@ function InputField(props: Props) {
     }
   }
 
-  const onChange = (e: any) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const isValid = handleChange(e, type)
     toggleTooltip(labelElement, isValid)
   }
 
-  const onSelect = (e: any) => {
+  const onSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const isValid = handleChange(e, type, true)
     toggleTooltip(labelElement, isValid)
   }
@@ -136,7 +139,7 @@ function InputField(props: Props) {
           pattern={checkPattern.source} // for css side rendering
           onChange={onChange}
           onSelect={onSelect}
-          bottomColorActive={white}
+          bottomColorActive={white} // governed by css
           bottomColorInactive={gray}
           bottomColorInvalid={danger}
           fontType={input}
@@ -147,9 +150,6 @@ function InputField(props: Props) {
   )
 }
 
-InputField.defaultProps = {
-  required: false,
-  type: 'text',
-}
+InputField.defaultProps = defaultProps
 
 export default InputField

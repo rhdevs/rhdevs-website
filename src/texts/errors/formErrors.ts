@@ -11,4 +11,4 @@ export const invalidEmail = 'Please enter a valid email address!'
 // custom regex
 export const defaultRegex = /.*/
 export const emailRegex = eMailRegex()
-export const nameRegex = /^[a-z,/' -]+$/i
+export const nameRegex = /^[A-Za-z,/' -]+$/
