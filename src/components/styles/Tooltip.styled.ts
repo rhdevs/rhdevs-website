@@ -14,13 +14,11 @@ export const LabelContainer = styled.div`
   padding: 15px;
   border-radius: 5px;
   ${(props) => `background-color: ${props.theme.palette.primary}`};
-  opacity: inherit;
 `
 
 export const Label = styled.div`
   font-size: 20px;
   ${(props) => `color: ${props.theme.palette.common.white}`};
-  opacity: inherit;
 `
 
 export const TooltipArrow = styled.div`
