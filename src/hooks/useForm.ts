@@ -1,5 +1,8 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import { emailRegex, nameRegex } from '../texts/errors/formErrors'
+import { emailRegex, nameRegex, requiredRegex } from '../texts/errors/formErrors'
+
+// input data types supported
+export type typeTypes = 'text' | 'name' | 'email'
 
 // taken and modified from https://learnetto.com/blog/react-form-validation
 const useForm = (defaultValues: Record<string, string>) => {
@@ -18,7 +21,6 @@ const useForm = (defaultValues: Record<string, string>) => {
 
   useEffect(() => {
     setCanSubmit(checkFormValid())
-    console.log('check valid or not')
   }, [values])
 
   const processError = (name: string, value: string, regex: RegExp) => {
@@ -33,10 +35,10 @@ const useForm = (defaultValues: Record<string, string>) => {
     return isValid
   }
 
-  const validate = (name: string, type: string, value: string) => {
+  const validate = (name: string, type: typeTypes, value: string) => {
     // A function to validate each input values and returns validity
     const typeRegex: Record<string, RegExp> = {
-      text: /.+/,
+      text: requiredRegex,
       name: nameRegex,
       email: emailRegex,
     }
@@ -44,18 +46,17 @@ const useForm = (defaultValues: Record<string, string>) => {
   }
 
   // A method to handle form inputs; returns validity of input
-  const handleChange = (event: ChangeEvent<HTMLInputElement>, type: string, validateOnly?: boolean) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>, type: typeTypes) => {
     const { name, value } = event.target
 
     const isValid = validate(name, type, value)
 
-    if (!validateOnly) {
-      // Let's set these values in state
-      setValues({
-        ...values,
-        [name]: value,
-      })
-    }
+    // Let's set these values in state
+    setValues({
+      ...values,
+      [name]: value,
+    })
+
     return isValid
   }
 
@@ -73,6 +74,7 @@ const useForm = (defaultValues: Record<string, string>) => {
   return {
     values,
     errors,
+    validate,
     handleChange,
     handleSubmit,
     canSubmit,

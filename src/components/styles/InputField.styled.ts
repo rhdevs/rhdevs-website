@@ -58,7 +58,7 @@ export const TextInput = styled.input<Props>`
   :focus {
     border-bottom-color: ${(props) => props.bottomColorActive ?? 'white'};
   }
-  :focus:invalid {
+  :invalid {
     border-bottom-color: ${(props) => props.bottomColorInvalid ?? 'red'};
   }
 `

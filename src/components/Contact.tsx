@@ -3,7 +3,7 @@ import InputField from './InputField'
 import Button from './Button'
 import { FormContainer, TextContainer } from './styles/FormContainer.styled'
 import { contactUs } from '../texts/descriptions/contactUs'
-import useForm from './useForm'
+import useForm from '../hooks/useForm'
 
 export function ContactForm() {
   const defaultValues = {
@@ -14,7 +14,7 @@ export function ContactForm() {
 
   // Custom hook call
   // all values are treated as compulsory/required TODO allow optional
-  const { values, handleChange, handleSubmit, canSubmit } = useForm(defaultValues)
+  const { values, validate, handleChange, handleSubmit, canSubmit } = useForm(defaultValues)
 
   const onSubmit = () => {
     axios({
@@ -42,11 +42,25 @@ export function ContactForm() {
         name="name" // identifier key in values hook in useForm
         type="name" // for validation type
         values={values}
+        validate={validate}
         handleChange={handleChange}
-        required
       />
-      <InputField title="Email" name="email" type="email" values={values} handleChange={handleChange} required />
-      <InputField title="Message" name="message" type="text" values={values} handleChange={handleChange} required />
+      <InputField
+        title="Email"
+        name="email"
+        type="email"
+        values={values}
+        validate={validate}
+        handleChange={handleChange}
+      />
+      <InputField
+        title="Message"
+        name="message"
+        type="text"
+        values={values}
+        validate={validate}
+        handleChange={handleChange}
+      />
       <Button text="Send" onClick={() => handleSubmit(onSubmit)} fontSize="30px" canSubmit={canSubmit} />
     </FormContainer>
   )

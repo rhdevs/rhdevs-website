@@ -1,7 +1,9 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
 import uniqueId from 'lodash'
+
 import Tooltip from './Tooltip'
+import { typeTypes } from '../hooks/useForm'
 import {
   defaultRegex,
   emailRegex,
@@ -23,13 +25,12 @@ type Props = {
   title: string
   name: string
   values: Record<string, string>
-  handleChange: (event: ChangeEvent<HTMLInputElement>, type: string, validateOnly?: boolean) => boolean
-  type?: 'text' | 'name' | 'email'
-  required?: boolean
+  validate: (name: string, type: typeTypes, value: string) => boolean
+  handleChange: (event: ChangeEvent<HTMLInputElement>, type: typeTypes, validateOnly?: boolean) => boolean
+  type?: typeTypes
 }
 
 const defaultProps = {
-  required: false,
   type: 'text',
 }
 
@@ -48,9 +49,8 @@ const checkPatterns: Record<string, RegExp> = {
 }
 
 // tooltip fade-in/display/fade-out times, in seconds
-const FADE_IN_TIME = 0.3
-const DISPLAY_TIME = 4
-const FADE_OUT_TIME = 0.7
+const FADE_IN_TIME = 0.1
+const FADE_OUT_TIME = 0.1
 
 function InputField(props: Props) {
   const theme = useTheme()
@@ -58,8 +58,8 @@ function InputField(props: Props) {
     title, // display title
     name, // identifier key in values hook in useForm
     values, // for validation type
+    validate,
     handleChange,
-    required,
   } = props
   const type = props.type ?? 'text'
 
@@ -69,16 +69,18 @@ function InputField(props: Props) {
 
   const [labelId, setLabelId] = useState('')
   const [labelElement, setLabelElement] = useState<HTMLElement | null>(null) // html element of tooltip used to make tooltip visible/invisible
+  const [valid, setValid] = useState(false)
 
   const warningLabel = warningLabels[type]
   const checkPattern = checkPatterns[type] ?? checkPatterns.default
 
   useEffect(() => {
     setLabelId(uniqueId.uniqueId('input-label-'))
+    setValid(validate(name, type, values[name]))
   }, [])
 
   useEffect(() => {
-    if (labelId) setLabelElement(required ? document.getElementById(labelId) : null)
+    if (labelId) setLabelElement(document.getElementById(labelId))
   }, [labelId])
 
   /* eslint-disable no-param-reassign */
@@ -97,36 +99,33 @@ function InputField(props: Props) {
     labelElem.style.transition = `visibility 0s ${FADE_OUT_TIME}s, opacity ${FADE_OUT_TIME}s linear`
   }
 
-  const onInvalid = async (labelElem: HTMLElement) => {
-    if (required && labelElem) {
+  const onInvalid = (labelElem: HTMLElement) => {
+    if (labelElem) {
       fadeIn(labelElem)
-      setTimeout(fadeOut, DISPLAY_TIME * 1000, labelElem) // hide tooltip after 3s
     }
   }
 
   const toggleTooltip = (labelElem: HTMLElement | null, isValid: boolean) => {
     if (labelElem) {
-      if (isValid) {
-        fadeOut(labelElem)
-      } else {
-        onInvalid(labelElem)
-      }
+      if (isValid) fadeOut(labelElem)
+      else onInvalid(labelElem)
     }
   }
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const isValid = handleChange(e, type)
-    toggleTooltip(labelElement, isValid)
+    setValid(handleChange(e, type))
+    toggleTooltip(labelElement, valid)
   }
 
-  const onSelect = (e: ChangeEvent<HTMLInputElement>) => {
-    const isValid = handleChange(e, type, true)
-    toggleTooltip(labelElement, isValid)
+  const onSelect = () => {
+    toggleTooltip(labelElement, valid)
   }
 
   return (
     <InputFieldContainer>
-      <TooltipStyled>{required && <Tooltip id={labelId} label={warningLabel} />}</TooltipStyled>
+      <TooltipStyled>
+        <Tooltip id={labelId} label={warningLabel} />
+      </TooltipStyled>
       <InputFieldStyled>
         <InputFieldTitle color={white} fontType={h2}>
           {title}
@@ -143,7 +142,6 @@ function InputField(props: Props) {
           bottomColorInactive={gray}
           bottomColorInvalid={danger}
           fontType={input}
-          required={required}
         />
       </InputFieldStyled>
     </InputFieldContainer>
