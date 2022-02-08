@@ -30,5 +30,4 @@ export const TooltipArrow = styled.div`
     border-color: transparent;
     border-top-color: ${props.theme.palette.primary}
   `};
-  opacity: inherit;
 `
