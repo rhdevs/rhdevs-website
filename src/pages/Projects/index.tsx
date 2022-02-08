@@ -3,6 +3,7 @@ import {
   ImageContainer,
   ImageMask,
   Image,
+  DividerContainer,
   Divider,
   ProjectPreviewContainer,
 } from './styles/Projects.styled'
@@ -18,7 +19,9 @@ export default function Projects() {
           <Image src={logo} />
         </ImageMask>
       </ImageContainer>
-      <Divider />
+      <DividerContainer>
+        <Divider />
+      </DividerContainer>
       <ProjectPreviewContainer>
         <ProjectPreview title={rhApp.projectTitle} text={rhApp.projectDescription} hasAnimation />
         <ProjectPreview title={hackathons.projectTitle} text={hackathons.projectDescription} hasAnimation />

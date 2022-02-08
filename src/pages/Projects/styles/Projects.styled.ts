@@ -2,12 +2,9 @@ import styled from 'styled-components'
 import logoBackground from '../../../assets/logo-background.png'
 
 export const MainContainer = styled.div`
-  height: 100%;
-  overflow: scroll;
+  height: calc(100vh - 5.5rem);
   background-color: ${(props) => props.theme.palette.common.black};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  overflow-y: scroll;
 `
 
 export const ImageContainer = styled.div`
@@ -32,8 +29,15 @@ export const Image = styled.img`
   width: 15%;
 `
 
-export const Divider = styled.div`
+export const DividerContainer = styled.div`
   height: 1px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
+
+export const Divider = styled.div`
+  height: 100%;
   width: 50%;
   background-color: ${(props) => props.theme.palette.primary};
 `
