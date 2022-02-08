@@ -23,7 +23,7 @@ export const NavBarStyles = styled.div<{ isVisible: boolean }>`
   }
   @media (max-width: 650px) {
     margin-left: 0;
-    width: 100%;
+    width: 95%;
   }
 `
 export const NavContainer = styled.div`
