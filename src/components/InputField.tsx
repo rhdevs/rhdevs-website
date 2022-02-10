@@ -108,7 +108,6 @@ function InputField(props: Props) {
           <span style={{ paddingLeft: '0.1rem' }}>:</span> {/* buffer between title and colon */}
         </InputFieldTitle>
         <TextInput
-          type={type}
           name={name}
           value={values[type]}
           pattern={checkPattern.source} // for css side rendering
