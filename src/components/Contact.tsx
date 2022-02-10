@@ -1,20 +1,14 @@
 import axios from 'axios'
 import InputField from './InputField'
-import Button from './Button'
+import SubmitButton from './SubmitButton'
 import useForm from '../hooks/useForm'
 import { contactUs } from '../texts/descriptions/contactUs'
 
 import { FormContainer, TextContainer } from './styles/FormContainer.styled'
 
 function ContactForm() {
-  const defaultValues = {
-    name: '',
-    email: '',
-    message: '',
-  }
-
-  // all values are treated as compulsory/required TODO allow optional
-  const { values, validateInput, handleChange, handleSubmit, canSubmit } = useForm(defaultValues)
+  const useFormHooks = useForm()
+  const { values } = useFormHooks
 
   const onSubmit = () => {
     axios({
@@ -24,9 +18,9 @@ function ContactForm() {
         Accept: 'application/json',
       },
       data: {
-        name: values.name.trim().replace(/ {2,}/g, ' '), // trim and remove double spaces
-        email: values.email.trim(),
-        message: values.message.trim(),
+        name: values?.name.trim().replace(/ {2,}/g, ' '), // trim and remove double spaces
+        email: values?.email.trim(),
+        message: values?.message.trim(),
       },
     }).then((response) => {
       console.log(response)
@@ -34,34 +28,12 @@ function ContactForm() {
   }
 
   return (
-    <FormContainer noValidate>
-      {/* disable default browser validation */}
+    <FormContainer>
       <TextContainer>{contactUs}</TextContainer>
-      <InputField
-        title="Name"
-        name="name" // must be unique and match with defaultValue keys
-        type="name"
-        values={values}
-        validateInput={validateInput}
-        handleChange={handleChange}
-      />
-      <InputField
-        title="Email"
-        name="email"
-        type="email"
-        values={values}
-        validateInput={validateInput}
-        handleChange={handleChange}
-      />
-      <InputField
-        title="Message"
-        name="message"
-        type="text"
-        values={values}
-        validateInput={validateInput}
-        handleChange={handleChange}
-      />
-      <Button text="Send" onClick={() => handleSubmit(onSubmit)} fontSize="30px" canSubmit={canSubmit} />
+      <InputField title="Name" name="name" type="name" useFormHooks={useFormHooks} />
+      <InputField title="Email" name="email" type="email" useFormHooks={useFormHooks} />
+      <InputField title="Message" name="message" type="text" useFormHooks={useFormHooks} />
+      <SubmitButton text="Send" fontSize="30px" onSubmit={onSubmit} useFormHooks={useFormHooks} />
     </FormContainer>
   )
 }

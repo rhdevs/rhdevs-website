@@ -1,24 +1,44 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import { emailRegex, nameRegex, requiredRegex } from '../texts/errors/formErrors'
+import { defaultRegex, emailRegex, nameRegex, requiredRegex } from '../texts/errors/formErrors'
 
 // input data types supported
-export type Types = 'text' | 'name' | 'email'
+export type Types = 'default' | 'text' | 'name' | 'email'
+type Values = Record<string, string> | null
+type Errors = Set<string>
+type SetValueNames = (name: string) => void
+type ProcessError = (name: string, value: string, regex: RegExp) => boolean
+type ValidateInput = (name: string, type: Types, value: string) => boolean
+type HandleChange = (event: ChangeEvent<HTMLInputElement>, type: Types) => boolean
+type HandleSubmit = (callback: () => void) => void
+
+export type UseFormHooks = {
+  values: Values
+  errors: Errors
+  setValueNames: SetValueNames
+  validateInput: ValidateInput
+  handleChange: HandleChange
+  handleSubmit: HandleSubmit
+  canSubmit: boolean
+}
+type UseForm = () => UseFormHooks
 
 export const typeRegex: Record<string, RegExp> = {
+  default: defaultRegex,
   text: requiredRegex,
   name: nameRegex,
   email: emailRegex,
 }
 
 // taken and modified from https://learnetto.com/blog/react-form-validation
-const useForm = (defaultValues: Record<string, string>) => {
-  const [values, setValues] = useState<Record<string, string>>(defaultValues)
-  const [errors, setErrors] = useState<Set<string>>(new Set())
+const useForm: UseForm = () => {
+  const [values, setValues] = useState<Values>(null)
+
+  const [errors, setErrors] = useState<Errors>(new Set())
   const [canSubmit, setCanSubmit] = useState(false)
 
   const checkFormValid = () => {
     const noErrors = errors.size === 0
-    const filledUp = Object.values(values).every(Boolean)
+    const filledUp = values ? Object.values(values).every(Boolean) : false
     return noErrors && filledUp
   }
 
@@ -26,7 +46,14 @@ const useForm = (defaultValues: Record<string, string>) => {
     setCanSubmit(checkFormValid())
   }, [values])
 
-  const processError = (name: string, value: string, regex: RegExp) => {
+  const setValueNames: SetValueNames = (name) => {
+    setValues({
+      [name]: '',
+      ...values,
+    })
+  }
+
+  const processError: ProcessError = (name, value, regex) => {
     const isValid = regex.test(value)
     const newErrors = new Set(errors)
     if (isValid) {
@@ -38,10 +65,10 @@ const useForm = (defaultValues: Record<string, string>) => {
     return isValid
   }
 
-  const validateInput = (name: string, type: Types, value: string) =>
+  const validateInput: ValidateInput = (name, type, value) =>
     typeRegex[type] && processError(name, value, typeRegex[type])
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>, type: Types) => {
+  const handleChange: HandleChange = (event, type) => {
     const { name, value } = event.target
     const isValid = validateInput(name, type, value)
     setValues({
@@ -51,7 +78,7 @@ const useForm = (defaultValues: Record<string, string>) => {
     return isValid
   }
 
-  const handleSubmit = (callback: () => void) => {
+  const handleSubmit: HandleSubmit = (callback) => {
     if (canSubmit) {
       callback()
     } else {
@@ -62,6 +89,7 @@ const useForm = (defaultValues: Record<string, string>) => {
   return {
     values,
     errors,
+    setValueNames,
     validateInput,
     handleChange,
     handleSubmit,

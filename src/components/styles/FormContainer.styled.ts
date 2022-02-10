@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-export const FormContainer = styled.form`
+export const FormContainer = styled.form<{ noValidate?: true }>`
+  // default browser validation disabled by default
   display: flex;
   flex-direction: column;
   align-items: center;

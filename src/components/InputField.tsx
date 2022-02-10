@@ -3,7 +3,7 @@ import { useTheme } from 'styled-components'
 import uniqueId from 'lodash'
 
 import Tooltip from './Tooltip'
-import { typeRegex, Types } from '../hooks/useForm'
+import { typeRegex, Types, UseFormHooks } from '../hooks/useForm'
 import { invalidEmail, invalidName, missingField } from '../texts/errors/formErrors'
 
 import {
@@ -17,9 +17,7 @@ import {
 type Props = {
   title: string
   name: string
-  values: Record<string, string>
-  validateInput: (name: string, type: Types, value: string) => boolean
-  handleChange: (event: ChangeEvent<HTMLInputElement>, type: Types, validateOnly?: boolean) => boolean
+  useFormHooks: UseFormHooks
   type?: Types
 }
 
@@ -38,7 +36,8 @@ const TOOLTIP_FADE_OUT_TIME = 0.1
 
 function InputField(props: Props) {
   const theme = useTheme()
-  const { title, name, values, validateInput, handleChange } = props
+  const { title, name, useFormHooks } = props
+  const { values, setValueNames, validateInput, handleChange } = useFormHooks
   const type = props.type ?? 'text'
 
   const { common, danger } = { ...theme.palette }
@@ -54,7 +53,8 @@ function InputField(props: Props) {
 
   useEffect(() => {
     setLabelId(uniqueId.uniqueId('input-label-'))
-    setValid(validateInput(name, type, values[name]))
+    setValid(validateInput(name, type, values ? values[name] : ''))
+    setValueNames(name)
   }, [])
 
   useEffect(() => {
@@ -109,7 +109,7 @@ function InputField(props: Props) {
         </InputFieldTitle>
         <TextInput
           name={name}
-          value={values[type]}
+          value={values ? values[type] : ''}
           pattern={checkPattern.source} // for css side rendering
           onChange={onChange}
           onSelect={onSelect}
