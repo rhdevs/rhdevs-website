@@ -12,7 +12,7 @@ export const ImageContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   height: 50vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,14 +31,13 @@ export const Image = styled.img`
 
 export const DividerContainer = styled.div`
   height: 1px;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
 `
 
 export const Divider = styled.div`
-  height: 100%;
-  width: 50%;
+  width: 50vw;
   background-color: ${(props) => props.theme.palette.primary};
 `
 
