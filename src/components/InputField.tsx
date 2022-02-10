@@ -3,15 +3,8 @@ import { useTheme } from 'styled-components'
 import uniqueId from 'lodash'
 
 import Tooltip from './Tooltip'
-import { typeTypes } from '../hooks/useForm'
-import {
-  defaultRegex,
-  emailRegex,
-  invalidEmail,
-  invalidName,
-  missingField,
-  nameRegex,
-} from '../texts/errors/formErrors'
+import { typeRegex, Types } from '../hooks/useForm'
+import { invalidEmail, invalidName, missingField } from '../texts/errors/formErrors'
 
 import {
   InputFieldContainer,
@@ -25,9 +18,9 @@ type Props = {
   title: string
   name: string
   values: Record<string, string>
-  validate: (name: string, type: typeTypes, value: string) => boolean
-  handleChange: (event: ChangeEvent<HTMLInputElement>, type: typeTypes, validateOnly?: boolean) => boolean
-  type?: typeTypes
+  validateInput: (name: string, type: Types, value: string) => boolean
+  handleChange: (event: ChangeEvent<HTMLInputElement>, type: Types, validateOnly?: boolean) => boolean
+  type?: Types
 }
 
 const defaultProps = {
@@ -35,32 +28,17 @@ const defaultProps = {
 }
 
 const warningLabels: Record<string, string> = {
-  // warning text that appears on tooltip
   text: missingField,
   name: invalidName,
   email: invalidEmail,
 }
 
-const checkPatterns: Record<string, RegExp> = {
-  // regex used to check validity of custom input types
-  text: defaultRegex,
-  name: nameRegex,
-  email: emailRegex,
-}
-
-// tooltip fade-in/display/fade-out times, in seconds
-const FADE_IN_TIME = 0.1
-const FADE_OUT_TIME = 0.1
+const TOOLTIP_FADE_IN_TIME = 0.1
+const TOOLTIP_FADE_OUT_TIME = 0.1
 
 function InputField(props: Props) {
   const theme = useTheme()
-  const {
-    title, // display title
-    name, // identifier key in values hook in useForm
-    values, // for validation type
-    validate,
-    handleChange,
-  } = props
+  const { title, name, values, validateInput, handleChange } = props
   const type = props.type ?? 'text'
 
   const { common, danger } = { ...theme.palette }
@@ -72,11 +50,11 @@ function InputField(props: Props) {
   const [valid, setValid] = useState(false)
 
   const warningLabel = warningLabels[type]
-  const checkPattern = checkPatterns[type] ?? checkPatterns.default
+  const checkPattern = typeRegex[type] ?? typeRegex.default
 
   useEffect(() => {
     setLabelId(uniqueId.uniqueId('input-label-'))
-    setValid(validate(name, type, values[name]))
+    setValid(validateInput(name, type, values[name]))
   }, [])
 
   useEffect(() => {
@@ -84,30 +62,28 @@ function InputField(props: Props) {
   }, [labelId])
 
   /* eslint-disable no-param-reassign */
-  const fadeIn = (labelElem: HTMLElement) => {
-    // tooltip appear animation
+  const tooltipFadeIn = (labelElem: HTMLElement) => {
     labelElem.style.visibility = 'visible'
     labelElem.style.opacity = '1'
-    labelElem.style.transition = `opacity ${FADE_IN_TIME}s linear`
+    labelElem.style.transition = `opacity ${TOOLTIP_FADE_IN_TIME}s linear`
   }
 
   /* eslint-disable no-param-reassign */
-  const fadeOut = (labelElem: HTMLElement) => {
-    // tooltip disappear animation
+  const tooltipFadeOut = (labelElem: HTMLElement) => {
     labelElem.style.visibility = 'hidden'
     labelElem.style.opacity = '0'
-    labelElem.style.transition = `visibility 0s ${FADE_OUT_TIME}s, opacity ${FADE_OUT_TIME}s linear`
+    labelElem.style.transition = `visibility 0s ${TOOLTIP_FADE_OUT_TIME}s, opacity ${TOOLTIP_FADE_OUT_TIME}s linear`
   }
 
   const onInvalid = (labelElem: HTMLElement) => {
     if (labelElem) {
-      fadeIn(labelElem)
+      tooltipFadeIn(labelElem)
     }
   }
 
   const toggleTooltip = (labelElem: HTMLElement | null, isValid: boolean) => {
     if (labelElem) {
-      if (isValid) fadeOut(labelElem)
+      if (isValid) tooltipFadeOut(labelElem)
       else onInvalid(labelElem)
     }
   }
