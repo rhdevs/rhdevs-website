@@ -13,18 +13,17 @@ const fadeInUp = keyframes`
 `
 
 export const MainContainer = styled.div`
-  height: 33%;
-  width: 80%;
+  min-height: 33vh;
+  margin: 5px 0;
   display: flex;
-  margin: auto;
   background-color: black;
-
   animation-duration: 1s;
   animation-name: ${fadeInUp};
 `
 
-export const ImageContainer = styled.div<{ image: string }>`
-  width: 70%;
+export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
+  height: 100%;
+  width: ${(props) => (props.events ? '20%' : '50%')};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -32,17 +31,19 @@ export const ImageContainer = styled.div<{ image: string }>`
 `
 
 export const TextContainer = styled.div<{ events?: boolean }>`
-  height: 300px;
+  height: 100%;
   width: ${(props) => (props.events ? '80%' : '50%')};
+  padding: ${(props) => (props.events ? '10px 15px' : '10px 0')};
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  over-flow: auto;
 `
 
 export const Title = styled.div<{ events?: boolean }>`
-  height: 45%;
   text-align: ${(props) => (props.events ? 'left' : 'center')};
   color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
-  font-size: large;
+  font-size: ${(props) => (props.events ? 'medium' : 'large')};
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -51,7 +52,6 @@ export const Title = styled.div<{ events?: boolean }>`
 `
 
 export const Body = styled.div<{ events?: boolean }>`
-  height: 55%;
   width: 80%;
   text-align: ${(props) => (props.events ? 'left' : 'center')};
   margin-left: 10%;
