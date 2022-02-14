@@ -1,14 +1,18 @@
 import axios from 'axios'
+import { useForm } from 'react-hook-form'
 import InputField from './InputField'
 import SubmitButton from './SubmitButton'
-import useForm from '../hooks/useForm'
-import { contactUs } from '../texts/descriptions/contactUs'
+import { emailRegex, nameRegex } from '../texts/errors/formErrors'
 
-import { FormContainer, TextContainer } from './styles/FormContainer.styled'
+import { FormContainer } from './styles/FormContainer.styled'
 
 function ContactForm() {
-  const useFormHooks = useForm()
-  const { values } = useFormHooks
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm({ mode: 'onChange' })
 
   const onSubmit = () => {
     axios({
@@ -18,9 +22,9 @@ function ContactForm() {
         Accept: 'application/json',
       },
       data: {
-        name: values?.name.trim().replace(/ {2,}/g, ' '), // trim and remove double spaces
-        email: values?.email.trim(),
-        message: values?.message.trim(),
+        name: getValues('Name').trim().replace(/ {2,}/g, ' ') ?? '', // trim and remove double spaces
+        email: getValues('Email').trim(),
+        message: getValues('Message').trim(),
       },
     }).then((response) => {
       console.log(response)
@@ -28,12 +32,12 @@ function ContactForm() {
   }
 
   return (
-    <FormContainer>
-      <TextContainer>{contactUs}</TextContainer>
-      <InputField title="Name" name="name" type="name" useFormHooks={useFormHooks} />
-      <InputField title="Email" name="email" type="email" useFormHooks={useFormHooks} />
-      <InputField title="Message" name="message" type="text" useFormHooks={useFormHooks} />
-      <SubmitButton text="Send" fontSize="30px" onSubmit={onSubmit} useFormHooks={useFormHooks} />
+    <FormContainer onSubmit={handleSubmit(onSubmit)} noValidate>
+      <InputField type="text" title="Name" errors={errors} register={register} pattern={nameRegex} required />
+      <InputField type="email" title="Email" errors={errors} register={register} pattern={emailRegex} required />
+      <InputField type="text" title="Message" errors={errors} register={register} required />
+
+      <SubmitButton text="Submit" fontSize="30px" />
     </FormContainer>
   )
 }

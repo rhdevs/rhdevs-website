@@ -1,10 +1,10 @@
-import { ChangeEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { useTheme } from 'styled-components'
 import uniqueId from 'lodash'
 
 import Tooltip from './Tooltip'
-import { typeRegex, Types, UseFormHooks } from '../hooks/useForm'
-import { invalidEmail, invalidName, missingField } from '../texts/errors/formErrors'
+import { defaultRegex, invalidEmail, invalidName, missingField } from '../texts/errors/formErrors'
 
 import {
   InputFieldContainer,
@@ -14,15 +14,20 @@ import {
   TooltipStyled,
 } from './styles/InputField.styled'
 
+type Types = 'default' | 'text' | 'name' | 'email'
+
 type Props = {
   title: string
-  name: string
-  useFormHooks: UseFormHooks
   type?: Types
+  errors: { [x: string]: any }
+  register: UseFormRegister<FieldValues>
+  required: boolean
+  pattern?: RegExp
 }
 
 const defaultProps = {
-  type: 'text',
+  type: 'default',
+  pattern: defaultRegex,
 }
 
 const warningLabels: Record<string, string> = {
@@ -36,67 +41,62 @@ const TOOLTIP_FADE_OUT_TIME = 0.1
 
 function InputField(props: Props) {
   const theme = useTheme()
-  const { title, name, useFormHooks } = props
-  const { values, setValueNames, validateInput, handleChange } = useFormHooks
+
+  const { title, register, required, errors } = props
   const type = props.type ?? 'text'
+  const pattern = props.pattern ?? defaultRegex
 
   const { common, danger } = { ...theme.palette }
   const { white, gray } = { ...common }
   const { input, h2 } = { ...theme.typography.fontSize }
 
   const [labelId, setLabelId] = useState('')
-  const [labelElement, setLabelElement] = useState<HTMLElement | null>(null) // html element of tooltip used to make tooltip visible/invisible
-  const [valid, setValid] = useState(false)
+  const [labelElement, setLabelElement] = useState<HTMLElement | null>(null)
+
+  const valid = !errors[title]
 
   const warningLabel = warningLabels[type]
-  const checkPattern = typeRegex[type] ?? typeRegex.default
 
   useEffect(() => {
     setLabelId(uniqueId.uniqueId('input-label-'))
-    setValid(validateInput(name, type, values ? values[name] : ''))
-    setValueNames(name)
   }, [])
 
   useEffect(() => {
-    if (labelId) setLabelElement(document.getElementById(labelId))
+    if (labelId) {
+      setLabelElement(document.getElementById(labelId))
+    }
   }, [labelId])
 
   /* eslint-disable no-param-reassign */
-  const tooltipFadeIn = (labelElem: HTMLElement) => {
-    labelElem.style.visibility = 'visible'
-    labelElem.style.opacity = '1'
-    labelElem.style.transition = `opacity ${TOOLTIP_FADE_IN_TIME}s linear`
+  const tooltipFadeIn = () => {
+    if (labelElement) {
+      labelElement.style.visibility = 'visible'
+      labelElement.style.opacity = '1'
+      labelElement.style.transition = `opacity ${TOOLTIP_FADE_IN_TIME}s linear`
+    }
   }
-
   /* eslint-disable no-param-reassign */
-  const tooltipFadeOut = (labelElem: HTMLElement) => {
-    labelElem.style.visibility = 'hidden'
-    labelElem.style.opacity = '0'
-    labelElem.style.transition = `visibility 0s ${TOOLTIP_FADE_OUT_TIME}s, opacity ${TOOLTIP_FADE_OUT_TIME}s linear`
-  }
-
-  const onInvalid = (labelElem: HTMLElement) => {
-    if (labelElem) {
-      tooltipFadeIn(labelElem)
+  const tooltipFadeOut = () => {
+    if (labelElement) {
+      labelElement.style.visibility = 'hidden'
+      labelElement.style.opacity = '0'
+      labelElement.style.transition = `visibility 0s ${TOOLTIP_FADE_OUT_TIME}s, opacity ${TOOLTIP_FADE_OUT_TIME}s linear`
     }
   }
 
-  const toggleTooltip = (labelElem: HTMLElement | null, isValid: boolean) => {
-    if (labelElem) {
-      if (isValid) tooltipFadeOut(labelElem)
-      else onInvalid(labelElem)
+  const verifyField = () => {
+    if (labelElement) {
+      if (valid) tooltipFadeOut()
+      else tooltipFadeIn()
     }
-  }
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValid(handleChange(e, type))
-    toggleTooltip(labelElement, valid)
   }
 
   const onSelect = () => {
-    toggleTooltip(labelElement, valid)
+    verifyField()
   }
 
+  /* eslint-disable react/jsx-props-no-spreading */
+  /* eslint-disable object-shorthand */
   return (
     <InputFieldContainer>
       <TooltipStyled>
@@ -108,15 +108,13 @@ function InputField(props: Props) {
           <span style={{ paddingLeft: '0.1rem' }}>:</span> {/* buffer between title and colon */}
         </InputFieldTitle>
         <TextInput
-          name={name}
-          value={values ? values[type] : ''}
-          pattern={checkPattern.source} // for css side rendering
-          onChange={onChange}
+          pattern={pattern.source} // for css side rendering
           onSelect={onSelect}
           bottomColorActive={white} // governed by css
           bottomColorInactive={gray}
           bottomColorInvalid={danger}
           fontType={input}
+          {...register(title, { required: required, pattern: pattern })}
         />
       </InputFieldStyled>
     </InputFieldContainer>
