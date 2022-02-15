@@ -3,7 +3,6 @@ import logoBackground from '../../../assets/logo-background.png'
 
 export const MainContainer = styled.div`
   height: calc(100vh - 5.5rem);
-  background-color: ${(props) => props.theme.palette.common.black};
   overflow-y: scroll;
 `
 
