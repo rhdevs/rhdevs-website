@@ -2,23 +2,20 @@ import styled from 'styled-components'
 import logoBackground from '../../../assets/logo-background.png'
 
 export const MainContainer = styled.div`
-  height: 100vh;
-  background-color: ${(props) => props.theme.palette.common.black};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: calc(100vh - 5.5rem);
+  overflow-y: scroll;
 `
 
 export const ImageContainer = styled.div`
   background-image: url(${logoBackground});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50%;
-  width: 100%;
+  height: 50vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
+  margin: 35px 0;
 `
 
 export const ImageMask = styled.div`
@@ -31,9 +28,15 @@ export const Image = styled.img`
   width: 15%;
 `
 
-export const Divider = styled.div`
+export const DividerContainer = styled.div`
   height: 1px;
-  width: 50%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+`
+
+export const Divider = styled.div`
+  width: 50vw;
   background-color: ${(props) => props.theme.palette.primary};
 `
 

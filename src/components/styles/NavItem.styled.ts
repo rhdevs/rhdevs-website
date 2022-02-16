@@ -2,7 +2,7 @@ import styled, { FontType } from 'styled-components'
 import { fontTypeCss } from '../../styles/index.styled'
 
 export const NavDiv = styled.div<{ isActive?: boolean; fontType: FontType }>`
-  height: 4.6vw;
+  height: 4.8rem;
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@ export const NavDiv = styled.div<{ isActive?: boolean; fontType: FontType }>`
         //css solution for styled underline
         background-image: linear-gradient(to bottom, ${props.theme.palette.primary}, ${props.theme.palette.primary});
         background-repeat: no-repeat;
-        background-position: 40% 4vw;
+        background-position: 50% calc(50% + 12px);;
         // change this to adjust width and thickness out underline
         background-size: calc(100% - 8px) 2px;
       `
@@ -31,4 +31,7 @@ export const NavDiv = styled.div<{ isActive?: boolean; fontType: FontType }>`
       }
     `
   }}
+  @media (max-width: 650px) {
+    font-size: 12px;
+  }
 `
