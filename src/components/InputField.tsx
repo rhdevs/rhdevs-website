@@ -17,12 +17,12 @@ import {
 type Types = 'default' | 'text' | 'name' | 'email'
 
 type Props = {
-  title: string
   type?: Types
+  title: string
   errors: { [x: string]: any }
   register: UseFormRegister<FieldValues>
-  required: boolean
   pattern?: RegExp
+  required: boolean
 }
 
 const defaultProps = {
@@ -52,10 +52,9 @@ function InputField(props: Props) {
 
   const [labelId, setLabelId] = useState('')
   const [labelElement, setLabelElement] = useState<HTMLElement | null>(null)
+  const warningLabelText = warningLabels[type]
 
-  const valid = !errors[title]
-
-  const warningLabel = warningLabels[type]
+  const inputValid = !errors[title]
 
   useEffect(() => {
     setLabelId(uniqueId.uniqueId('input-label-'))
@@ -86,13 +85,9 @@ function InputField(props: Props) {
 
   const verifyField = () => {
     if (labelElement) {
-      if (valid) tooltipFadeOut()
+      if (inputValid) tooltipFadeOut()
       else tooltipFadeIn()
     }
-  }
-
-  const onSelect = () => {
-    verifyField()
   }
 
   /* eslint-disable react/jsx-props-no-spreading */
@@ -100,7 +95,7 @@ function InputField(props: Props) {
   return (
     <InputFieldContainer>
       <TooltipStyled>
-        <Tooltip id={labelId} label={warningLabel} />
+        <Tooltip id={labelId} label={warningLabelText} />
       </TooltipStyled>
       <InputFieldStyled>
         <InputFieldTitle color={white} fontType={h2}>
@@ -109,7 +104,7 @@ function InputField(props: Props) {
         </InputFieldTitle>
         <TextInput
           pattern={pattern.source} // for css side rendering
-          onSelect={onSelect}
+          onSelect={verifyField} // use onSelect cos onChange response will lag by 1 character
           bottomColorActive={white} // governed by css
           bottomColorInactive={gray}
           bottomColorInvalid={danger}

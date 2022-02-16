@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import InputField from './InputField'
 import SubmitButton from './SubmitButton'
 import { emailRegex, nameRegex } from '../texts/errors/formErrors'
@@ -10,11 +10,10 @@ function ContactForm() {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm({ mode: 'onChange' })
 
-  const onSubmit = () => {
+  const onSubmit = (data: FieldValues) => {
     axios({
       url: 'https://formspree.io/f/mvolznvk', // placeholder, replace with ur id here
       method: 'post',
@@ -22,9 +21,9 @@ function ContactForm() {
         Accept: 'application/json',
       },
       data: {
-        name: getValues('Name').trim().replace(/ {2,}/g, ' ') ?? '', // trim and remove double spaces
-        email: getValues('Email').trim(),
-        message: getValues('Message').trim(),
+        name: data.Name.trim().replace(/ {2,}/g, ' '), // trim and remove double spaces
+        email: data.Email.trim(),
+        message: data.Message.trim(),
       },
     }).then((response) => {
       console.log(response)
@@ -36,7 +35,6 @@ function ContactForm() {
       <InputField type="text" title="Name" errors={errors} register={register} pattern={nameRegex} required />
       <InputField type="email" title="Email" errors={errors} register={register} pattern={emailRegex} required />
       <InputField type="text" title="Message" errors={errors} register={register} required />
-
       <SubmitButton text="Submit" fontSize="30px" />
     </FormContainer>
   )
