@@ -65,12 +65,12 @@ function InputField(props: Props) {
 
   /* eslint-disable no-param-reassign */
   const tooltipFadeIn = () => {
-    if (labelElement) labelElement.style.opacity = '1'
+    if (labelElement) labelElement.style.visibility = 'visible'
     if (titleElement) titleElement.style.color = primary
   }
   /* eslint-disable no-param-reassign */
   const tooltipFadeOut = () => {
-    if (labelElement) labelElement.style.opacity = '0'
+    if (labelElement) labelElement.style.visibility = 'hidden'
     if (titleElement) titleElement.style.color = white
   }
 
