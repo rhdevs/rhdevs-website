@@ -7,28 +7,25 @@ export const InputFieldContainer = styled.div`
   width: 100%;
 `
 
-export const TooltipStyled = styled.div`
-  position: absolute;
-  left: 10vw;
-  top: 15px;
-  transform: scale(0.8);
+export const InputFieldHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 46px;
+  margin: 0;
 `
 
-export const InputFieldStyled = styled.div`
-  position: absolute;
-  bottom: 0;
-  height: 91px;
-  width: 100%;
-`
-
-export const InputFieldTitle = styled.p<{ fontType: FontType }>`
+export const InputFieldTitle = styled.div<{ fontType: FontType }>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   height: 46px;
   margin: 0;
 
   font-style: normal;
   ${fontTypeCss}
 
-  color: ${(props) => props.color ?? 'white'};
+  color: ${(props) => props.theme.palette.common.white};
 `
 
 type Props = {
@@ -45,7 +42,7 @@ export const TextInput = styled.input<Props>`
 
   outline: 0;
   border: 0;
-  border-bottom: 1px solid ${(props) => props.bottomColorInactive ?? 'gray'};
+  border-bottom: 1px solid ${(props) => props.theme.palette.common.gray};
 
   font-style: normal;
   ${fontTypeCss}
@@ -56,9 +53,9 @@ export const TextInput = styled.input<Props>`
   transition: border-color 0.2s;
 
   :focus {
-    border-bottom-color: ${(props) => props.bottomColorActive ?? 'white'};
+    border-bottom-color: ${(props) => props.theme.palette.common.white};
   }
   :invalid {
-    border-bottom-color: ${(props) => props.bottomColorInvalid ?? 'red'};
+    border-bottom-color: ${(props) => props.theme.palette.primary};
   }
 `

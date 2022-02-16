@@ -3,18 +3,12 @@ import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { useTheme } from 'styled-components'
 import uniqueId from 'lodash'
 
-import Tooltip from './Tooltip'
+import WarningLabel from './WarningLabel'
 import { defaultRegex, invalidEmail, invalidName, missingField } from '../texts/errors/formErrors'
 
-import {
-  InputFieldContainer,
-  InputFieldStyled,
-  InputFieldTitle,
-  TextInput,
-  TooltipStyled,
-} from './styles/InputField.styled'
+import { InputFieldContainer, InputFieldHeader, InputFieldTitle, TextInput } from './styles/InputField.styled'
 
-type Types = 'default' | 'text' | 'name' | 'email'
+type Types = 'text' | 'name' | 'email'
 
 type Props = {
   type?: Types
@@ -22,23 +16,20 @@ type Props = {
   errors: { [x: string]: any }
   register: UseFormRegister<FieldValues>
   pattern?: RegExp
-  required: boolean
+  required?: boolean
 }
 
 const defaultProps = {
-  type: 'default',
+  type: 'text',
   pattern: defaultRegex,
+  required: false,
 }
 
-const warningLabels: Record<string, string> = {
+const warningLabels: Record<Types, string> = {
   text: missingField,
   name: invalidName,
   email: invalidEmail,
 }
-
-const TOOLTIP_FADE_IN_TIME = 0.1
-const TOOLTIP_FADE_OUT_TIME = 0.1
-
 function InputField(props: Props) {
   const theme = useTheme()
 
@@ -46,72 +37,65 @@ function InputField(props: Props) {
   const type = props.type ?? 'text'
   const pattern = props.pattern ?? defaultRegex
 
-  const { common, danger } = { ...theme.palette }
-  const { white, gray } = { ...common }
+  const { common, primary } = { ...theme.palette }
+  const { white } = { ...common }
   const { input, h2 } = { ...theme.typography.fontSize }
 
   const [labelId, setLabelId] = useState('')
   const [labelElement, setLabelElement] = useState<HTMLElement | null>(null)
-  const warningLabelText = warningLabels[type]
 
-  const inputValid = !errors[title]
+  const [titleId, setTitleId] = useState('')
+  const [titleElement, setTitleElement] = useState<HTMLElement | null>(null)
+
+  const warningLabelText = warningLabels[`${type}`]
+  const inputIsValid = !(title in errors)
 
   useEffect(() => {
     setLabelId(uniqueId.uniqueId('input-label-'))
+    setTitleId(uniqueId.uniqueId('input-title-'))
   }, [])
 
   useEffect(() => {
-    if (labelId) {
-      setLabelElement(document.getElementById(labelId))
-    }
+    if (labelId) setLabelElement(document.getElementById(labelId))
   }, [labelId])
+
+  useEffect(() => {
+    if (titleId) setTitleElement(document.getElementById(titleId))
+  }, [titleId])
 
   /* eslint-disable no-param-reassign */
   const tooltipFadeIn = () => {
-    if (labelElement) {
-      labelElement.style.visibility = 'visible'
-      labelElement.style.opacity = '1'
-      labelElement.style.transition = `opacity ${TOOLTIP_FADE_IN_TIME}s linear`
-    }
+    if (labelElement) labelElement.style.opacity = '1'
+    if (titleElement) titleElement.style.color = primary
   }
   /* eslint-disable no-param-reassign */
   const tooltipFadeOut = () => {
-    if (labelElement) {
-      labelElement.style.visibility = 'hidden'
-      labelElement.style.opacity = '0'
-      labelElement.style.transition = `visibility 0s ${TOOLTIP_FADE_OUT_TIME}s, opacity ${TOOLTIP_FADE_OUT_TIME}s linear`
-    }
+    if (labelElement) labelElement.style.opacity = '0'
+    if (titleElement) titleElement.style.color = white
   }
 
   const verifyField = () => {
-    if (labelElement) {
-      if (inputValid) tooltipFadeOut()
-      else tooltipFadeIn()
-    }
+    if (inputIsValid) tooltipFadeOut()
+    else tooltipFadeIn()
   }
 
   /* eslint-disable react/jsx-props-no-spreading */
   /* eslint-disable object-shorthand */
   return (
     <InputFieldContainer>
-      <TooltipStyled>
-        <Tooltip id={labelId} label={warningLabelText} />
-      </TooltipStyled>
-      <InputFieldStyled>
-        <InputFieldTitle color={white} fontType={h2}>
+      <InputFieldHeader>
+        <InputFieldTitle id={titleId} fontType={h2}>
           {title}
           <span style={{ paddingLeft: '0.1rem' }}>:</span> {/* buffer between title and colon */}
         </InputFieldTitle>
-        <TextInput
-          pattern={pattern.source} // for css side rendering
-          onSelect={verifyField} // use onSelect cos onChange response will lag by 1 character
-          bottomColorActive={white} // governed by css
-          bottomColorInactive={gray}
-          bottomColorInvalid={danger}
-          fontType={input}
-          {...register(title, { required: required, pattern: pattern })}
-        />
-      </InputFieldStyled>
+        <WarningLabel id={labelId} label={warningLabelText} />
+      </InputFieldHeader>
+      <TextInput
+        pattern={pattern.source} // for css side rendering
+        onSelect={verifyField} // use onSelect cos onChange response will lag by 1 character
+        fontType={input}
+        {...register(title, { required: required, pattern: pattern })}
+      />
     </InputFieldContainer>
   )
 }

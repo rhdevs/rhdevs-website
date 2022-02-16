@@ -8,16 +8,17 @@ declare module 'styled-components' {
     weight: string
     height: string
   }
+  export type ColourCode = `#${string}`
   export interface DefaultTheme {
     palette: {
       common: {
-        black: string
-        white: string
-        gray: string
+        black: ColourCode
+        white: ColourCode
+        gray: ColourCode
       }
-      primary: string
-      secondary: string
-      danger: string
+      primary: ColourCode
+      secondary: ColourCode
+      danger: ColourCode
     }
     typography: {
       main: string
