@@ -28,14 +28,7 @@ export const InputFieldTitle = styled.div<{ fontType: FontType }>`
   color: ${(props) => props.theme.palette.common.white};
 `
 
-type Props = {
-  fontType: FontType
-  bottomColorActive?: string
-  bottomColorInactive?: string
-  bottomColorInvalid?: string
-}
-
-export const TextInput = styled.input<Props>`
+export const TextInput = styled.input<{ fontType: FontType }>`
   width: 100%;
   height: 45px;
   margin: 0;

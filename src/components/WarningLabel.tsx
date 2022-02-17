@@ -4,7 +4,6 @@ import { WarningOutlined } from '@ant-design/icons'
 import { Label } from './styles/WarningLabel.styled'
 
 type Props = {
-  id: string
   label: string
 }
 
@@ -13,7 +12,7 @@ function WarningLabel(props: Props) {
   const { h3 } = { ...theme.typography.fontSize }
 
   return (
-    <Label id={props.id} fontType={h3}>
+    <Label fontType={h3}>
       <WarningOutlined /> {props.label}
     </Label>
   )
