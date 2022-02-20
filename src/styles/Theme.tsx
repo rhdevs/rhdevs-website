@@ -17,7 +17,7 @@ const theme: DefaultTheme = {
     fontSize: {
       body: {
         min: '20px',
-        size: '30px',
+        size: '24px',
         max: '2rem',
         weight: '300',
         height: '',
