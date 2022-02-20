@@ -10,7 +10,7 @@ type Types = 'text' | 'name' | 'email'
 type Props = {
   type?: Types
   title: string
-  errors: { [x: string]: any }
+  error: any
   register: UseFormRegister<FieldValues>
   pattern?: RegExp
   required?: boolean
@@ -30,7 +30,7 @@ const warningLabelTexts: Record<Types, string> = {
 function InputField(props: Props) {
   const theme = useTheme()
 
-  const { title, errors, register, required } = props
+  const { title, error, register, required } = props
   const type = props.type ?? 'text'
   const pattern = props.pattern ?? defaultRegex
 
@@ -41,18 +41,17 @@ function InputField(props: Props) {
   const { input, h2 } = { ...theme.typography.fontSize }
 
   const warningLabelText = warningLabelTexts[`${type}`]
-  const inputInvalid = title in errors
 
   /* eslint-disable react/jsx-props-no-spreading */
   /* eslint-disable object-shorthand */
   return (
     <InputFieldContainer>
       <InputFieldHeader>
-        <InputFieldTitle fontType={h2} style={{ color: inputInvalid ? primary : white }}>
+        <InputFieldTitle fontType={h2} style={{ color: error ? primary : white }}>
           {title}
           <span style={{ paddingLeft: '0.1rem' }}>:</span> {/* fine space between title and colon */}
         </InputFieldTitle>
-        {inputInvalid && <WarningLabel label={warningLabelText} />}
+        {error && <WarningLabel label={warningLabelText} />}
       </InputFieldHeader>
       <TextInput
         pattern={pattern.source} // for css side rendering

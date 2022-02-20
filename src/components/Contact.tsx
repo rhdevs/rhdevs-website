@@ -32,9 +32,9 @@ function ContactForm() {
 
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)} noValidate>
-      <InputField type="text" title="Name" errors={errors} register={register} pattern={nameRegex} required />
-      <InputField type="email" title="Email" errors={errors} register={register} pattern={emailRegex} required />
-      <InputField type="text" title="Message" errors={errors} register={register} required />
+      <InputField type="text" title="Name" error={errors.Name} register={register} pattern={nameRegex} required />
+      <InputField type="email" title="Email" error={errors.Email} register={register} pattern={emailRegex} required />
+      <InputField type="text" title="Message" error={errors.Message} register={register} required />
       <SubmitButton text="Submit" fontSize="30px" />
     </FormContainer>
   )
