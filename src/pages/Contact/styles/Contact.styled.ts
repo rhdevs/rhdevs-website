@@ -51,8 +51,8 @@ export const SectionContent = styled.div`
 export const ContactLink = styled.a`
   font-style: normal;
   font-weight: 300;
-  font-size: clamp(1vw, 2vw, 30px);
-  color: inherit;
+  font-size: clamp(1vw, 2vw, 24px);
+  color: #b3b3b3;
   text-decoration: none;
 `
 
