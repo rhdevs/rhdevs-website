@@ -4,6 +4,7 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 29px;
   Button {
     margin: 40px;
   }

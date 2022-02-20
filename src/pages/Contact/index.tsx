@@ -1,6 +1,6 @@
 /* eslint-disable security/detect-object-injection */
 import { useTheme } from 'styled-components'
-import { ContactForm } from '../../components/Contact'
+import ContactForm from '../../components/Contact'
 import {
   MainContainer,
   StaticSection,

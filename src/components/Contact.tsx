@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
 import axios from 'axios'
+import { FieldValues, useForm } from 'react-hook-form'
 import InputField from './InputField'
-import Button from './Button'
-import { FormContainer, TextContainer } from './styles/FormContainer.styled'
-import { contactUs } from '../texts/descriptions/contactUs'
+import SubmitButton from './SubmitButton'
+import { emailRegex, nameRegex } from '../texts/errors/formErrors'
 
-export function ContactForm() {
-  const [cName, setName] = useState<string>('')
-  const [cEmail, setEmail] = useState<string>('')
-  const [cMessage, setMessage] = useState<string>('')
-  const onSubmit = () => {
+import { FormContainer } from './styles/FormContainer.styled'
+
+function ContactForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: 'onChange' })
+
+  const onSubmit = (data: FieldValues) => {
     axios({
       url: 'https://formspree.io/f/mvolznvk', // placeholder, replace with ur id here
       method: 'post',
@@ -17,9 +21,9 @@ export function ContactForm() {
         Accept: 'application/json',
       },
       data: {
-        name: cName,
-        email: cEmail,
-        message: cMessage,
+        name: data.Name.trim().replace(/ {2,}/g, ' '), // trim and remove double spaces
+        email: data.Email.trim(),
+        message: data.Message.trim(),
       },
     }).then((response) => {
       console.log(response)
@@ -27,12 +31,13 @@ export function ContactForm() {
   }
 
   return (
-    <FormContainer>
-      <TextContainer>{contactUs}</TextContainer>
-      <InputField title="Name" value={cName} setValue={setName} type="name" required />
-      <InputField title="Email" value={cEmail} setValue={setEmail} type="email" required />
-      <InputField title="Message" value={cMessage} setValue={setMessage} type="text" required />
-      <Button text="Send" onClick={onSubmit} fontSize="30px" />
+    <FormContainer onSubmit={handleSubmit(onSubmit)} noValidate>
+      <InputField type="text" title="Name" error={errors.Name} register={register} pattern={nameRegex} required />
+      <InputField type="email" title="Email" error={errors.Email} register={register} pattern={emailRegex} required />
+      <InputField type="text" title="Message" error={errors.Message} register={register} required />
+      <SubmitButton text="Submit" fontSize="30px" />
     </FormContainer>
   )
 }
+
+export default ContactForm

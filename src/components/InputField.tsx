@@ -1,123 +1,67 @@
-import React, { useEffect, useState } from 'react'
+import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { useTheme } from 'styled-components'
-import uniqueId from 'lodash'
-import Tooltip from './Tooltip'
-import {
-  defaultBrowserMessage,
-  defaultRegex,
-  invalidEmail,
-  invalidName,
-  missingField,
-  nameBrowserMessage,
-  nameRegex,
-} from '../texts/errors/formErrors'
+import WarningLabel from './WarningLabel'
+import { defaultRegex, invalidEmail, invalidName, missingField } from '../texts/errors/formErrors'
 
-import {
-  InputFieldContainer,
-  InputFieldStyled,
-  InputFieldTitle,
-  TextInput,
-  TooltipStyled,
-} from './styles/InputField.styled'
+import { InputFieldContainer, InputFieldHeader, InputFieldTitle, TextInput } from './styles/InputField.styled'
 
-const VISIBLE = '1'
-const INVISIBLE = '0'
+type Types = 'text' | 'name' | 'email'
 
 type Props = {
+  type?: Types
   title: string
-  value: string
-  setValue: React.Dispatch<React.SetStateAction<string>>
-  type?: 'text' | 'name' | 'email'
+  error: any
+  register: UseFormRegister<FieldValues>
+  pattern?: RegExp
   required?: boolean
 }
 
-const warningLabels: Record<string, string> = {
-  // warning text that appears on tooltip
+const defaultProps = {
+  type: 'text',
+  pattern: defaultRegex,
+  required: false,
+}
+
+const warningLabelTexts: Record<Types, string> = {
   text: missingField,
   name: invalidName,
   email: invalidEmail,
 }
-
-const checkPatterns: Record<string, string> = {
-  // regex used to check validity of custom input types
-  default: defaultRegex,
-  name: nameRegex,
-}
-
-const customBrowserMessages: Record<string, string> = {
-  // message shown by browser onInvalid
-  default: defaultBrowserMessage,
-  name: nameBrowserMessage,
-}
-
 function InputField(props: Props) {
   const theme = useTheme()
-  const { title, value, setValue, required } = props
 
-  const { common, danger } = { ...theme.palette }
-  const { white, gray } = { ...common }
+  const { title, error, register, required } = props
+  const type = props.type ?? 'text'
+  const pattern = props.pattern ?? defaultRegex
+
+  const {
+    common: { white },
+    primary,
+  } = { ...theme.palette }
   const { input, h2 } = { ...theme.typography.fontSize }
 
-  const [labelId, setLabelId] = useState('')
-  const [labelElement, setLabelElement] = useState<HTMLElement | null>(null) // html element of tooltip used to make tooltip visible/invisible
+  const warningLabelText = warningLabelTexts[`${type}`]
 
-  const warningLabel = warningLabels[props.type ?? 'text']
-  const checkPattern = checkPatterns[props.type ?? 'default'] ?? checkPatterns.default
-  const customInvalidMsg = customBrowserMessages[props.type ?? 'default'] ?? customBrowserMessages.default
-
-  useEffect(() => {
-    setLabelId(uniqueId.uniqueId('input-label-'))
-  }, [])
-
-  useEffect(() => {
-    setLabelElement(required ? document.getElementById(labelId) : null)
-  }, [labelId])
-
-  const onInput = (e: any, callback = false) => {
-    // supposed to be (e: React.FormEvent<HTMLInputElement>) but TS will highlight (e.target.setCustomValidity) as invalid, that's why (any)
-    if (required && labelElement) {
-      if (!callback) e.target.setCustomValidity('')
-      labelElement.style.opacity = INVISIBLE // hide tooltip
-    }
-  }
-
-  const onInvalid = async (e: any) => {
-    if (required && labelElement) {
-      labelElement.style.opacity = VISIBLE // show tooltip
-      e.target.setCustomValidity(customInvalidMsg) // overrides custom message displayed by browser onInvalid
-      setTimeout(onInput, 2000, e, true) // hide tooltip after 2s
-    }
-  }
-
+  /* eslint-disable react/jsx-props-no-spreading */
+  /* eslint-disable object-shorthand */
   return (
     <InputFieldContainer>
-      <TooltipStyled>{required && <Tooltip id={labelId} label={warningLabel} />}</TooltipStyled>
-      <InputFieldStyled>
-        <InputFieldTitle color={white} fontType={h2}>
+      <InputFieldHeader>
+        <InputFieldTitle fontType={h2} style={{ color: error ? primary : white }}>
           {title}
-          <span style={{ paddingLeft: '0.1rem' }}>:</span> {/* buffer between title and colon */}
+          <span style={{ paddingLeft: '0.1rem' }}>:</span> {/* fine space between title and colon */}
         </InputFieldTitle>
-        <TextInput
-          type={props.type}
-          value={value}
-          pattern={checkPattern}
-          onChange={(e) => setValue(e.target.value)}
-          onInput={onInput}
-          onInvalid={onInvalid}
-          bottomColorActive={white}
-          bottomColorInactive={gray}
-          bottomColorInvalid={danger}
-          fontType={input}
-          required={required}
-        />
-      </InputFieldStyled>
+        {error && <WarningLabel label={warningLabelText} />}
+      </InputFieldHeader>
+      <TextInput
+        pattern={pattern.source} // for css side rendering
+        fontType={input}
+        {...register(title, { required: required, pattern: pattern })}
+      />
     </InputFieldContainer>
   )
 }
 
-InputField.defaultProps = {
-  required: false,
-  type: 'text',
-}
+InputField.defaultProps = defaultProps
 
 export default InputField
