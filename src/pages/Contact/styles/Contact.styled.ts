@@ -12,6 +12,7 @@ export const MainContainer = styled.div`
 export const StaticSection = styled.div`
   display: flex;
   justify-content: space-between;
+  padding-bottom: 110px;
 `
 
 export const TextSection = styled.div`
