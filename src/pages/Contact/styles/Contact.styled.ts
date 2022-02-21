@@ -48,12 +48,12 @@ export const SectionContent = styled.div`
   }
 `
 
-export const ContactLink = styled.a`
+export const ContactLink = styled.p<{ fontType: FontType }>`
   font-style: normal;
-  font-weight: 300;
-  font-size: clamp(1vw, 2vw, 24px);
+  ${fontTypeCss}
   color: #b3b3b3;
   text-decoration: none;
+  padding-right: 100px;
 `
 
 export const Logo = styled.img`
