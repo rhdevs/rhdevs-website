@@ -12,6 +12,7 @@ export const MainContainer = styled.div`
 export const StaticSection = styled.div`
   display: flex;
   justify-content: space-between;
+  padding-bottom: 130px;
 `
 
 export const TextSection = styled.div`
@@ -47,12 +48,12 @@ export const SectionContent = styled.div`
   }
 `
 
-export const ContactLink = styled.a`
+export const ContactLink = styled.p<{ fontType: FontType }>`
   font-style: normal;
-  font-weight: 300;
-  font-size: clamp(1vw, 2vw, 30px);
-  color: inherit;
+  ${fontTypeCss}
+  color: #b3b3b3;
   text-decoration: none;
+  padding-right: 100px;
 `
 
 export const Logo = styled.img`

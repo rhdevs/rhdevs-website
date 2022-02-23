@@ -19,7 +19,7 @@ import logo from '../../assets/logo.png'
 
 export default function Contact() {
   const theme = useTheme()
-  const { h1, h3 } = { ...theme.typography.fontSize }
+  const { body, h1, h3 } = { ...theme.typography.fontSize }
   return (
     <MainContainer>
       <StaticSection>
@@ -42,7 +42,9 @@ export default function Contact() {
                   {/* @ts-ignore */}
                   {contactMethods[header].map((item) => (
                     // @ts-ignore
-                    <ContactLink href={contactLinks[item]}>{item}</ContactLink>
+                    <ContactLink fontType={body} href={contactLinks[item]}>
+                      {item}
+                    </ContactLink>
                   ))}
                 </SectionContent>
               </SectionContainer>

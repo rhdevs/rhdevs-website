@@ -17,7 +17,7 @@ const theme: DefaultTheme = {
     fontSize: {
       body: {
         min: '20px',
-        size: '30px',
+        size: '24px',
         max: '2rem',
         weight: '300',
         height: '',
@@ -31,7 +31,7 @@ const theme: DefaultTheme = {
       },
       h1: {
         min: '40px',
-        size: '60px',
+        size: '64px',
         max: '4rem',
         weight: '700',
         height: '3',

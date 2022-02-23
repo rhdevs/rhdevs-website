@@ -11,7 +11,7 @@ export const FormContainer = styled.form`
 `
 
 export const TextContainer = styled.div`
-  font-size: 30px;
+  font-size: 24px;
   margin: 35px 0px;
   align-self: flex-start;
 `
