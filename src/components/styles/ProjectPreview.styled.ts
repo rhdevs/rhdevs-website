@@ -13,7 +13,6 @@ const fadeIn = keyframes`
 export const PreviewText = styled.div<{ hasAnimation?: boolean; fontType: FontType }>`
   ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
-  text-align: left;
   ${(props) =>
     props.hasAnimation &&
     css`
@@ -45,9 +44,8 @@ export const PreviewTitle = styled.div<{ fontType: FontType }>`
 export const PreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   width: 20%;
-  text-align: center;
   padding: 0.5rem;
   background-color: ${(props) => props.theme.palette.common.black};
   cursor: pointer;
