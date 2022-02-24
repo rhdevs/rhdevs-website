@@ -51,7 +51,7 @@ export const SectionContent = styled.div`
 export const ContactLink = styled.p<{ fontType: FontType }>`
   font-style: normal;
   ${fontTypeCss}
-  color: #b3b3b3;
+  color: ${(props) => props.theme.palette.common.gray};
   text-decoration: none;
   padding-right: 100px;
 `
