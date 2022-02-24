@@ -12,7 +12,7 @@ const fadeIn = keyframes`
 
 export const PreviewText = styled.div<{ hasAnimation?: boolean; fontType: FontType }>`
   ${fontTypeCss}
-  color: ${(props) => props.theme.palette.common.white};
+  color: ${(props) => props.theme.palette.common.gray};
   ${(props) =>
     props.hasAnimation &&
     css`
