@@ -16,8 +16,8 @@ const defaultProps = {
 function PageSectionComponent(props: Props) {
   return (
     <MainContainer>
-      {props.textPosition === 'left' && <ImageContainer image={props.image} />}
-      {props.textPosition === 'left' && <BufferContainer />}
+      {props.textPosition === 'right' && <ImageContainer image={props.image} />}
+      {props.textPosition === 'right' && <BufferContainer />}
       <TextContainer>
         <Title events={props.events} textPosition={props.textPosition}>
           {props.title}
@@ -26,8 +26,8 @@ function PageSectionComponent(props: Props) {
           {props.description}
         </Body>
       </TextContainer>
-      {props.textPosition === 'right' && <BufferContainer />}
-      {props.textPosition === 'right' && <ImageContainer image={props.image} />}
+      {props.textPosition === 'left' && <BufferContainer />}
+      {props.textPosition === 'left' && <ImageContainer image={props.image} />}
     </MainContainer>
   )
 }
