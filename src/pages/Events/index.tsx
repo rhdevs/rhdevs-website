@@ -1,6 +1,9 @@
+import RHDevs from '../../assets/RHDevs-Logo-2.png'
+import UPGRHADEimg from '../../assets/UPGRHADE-Logo-EventsPage.png'
+import InterHallimg from '../../assets/InterHall-Logo-EventsPage.png'
 import PageSectionComponent from '../../components/PageSection'
 import { MainContainer } from './styles/EventPage.styled'
-import { interHallHackathon } from '../../texts/descriptions/events'
+import { interHallHackathon, RHAppLaunch, UPGRHADE } from '../../texts/descriptions/events'
 
 export default function Events() {
   return (
@@ -9,14 +12,21 @@ export default function Events() {
         title={interHallHackathon.eventName}
         description={interHallHackathon.eventDescription}
         textPosition="left"
-        image=""
+        image={InterHallimg}
         events
       />
       <PageSectionComponent
-        title={interHallHackathon.eventName}
-        description={interHallHackathon.eventDescription}
+        title={RHAppLaunch.eventName}
+        description={RHAppLaunch.eventDescription}
         textPosition="right"
-        image=""
+        image={RHDevs}
+        events
+      />
+      <PageSectionComponent
+        title={UPGRHADE.eventName}
+        description={UPGRHADE.eventDescription}
+        textPosition="left"
+        image={UPGRHADEimg}
         events
       />
     </MainContainer>
