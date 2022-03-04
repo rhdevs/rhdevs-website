@@ -19,7 +19,7 @@ export const MainContainer = styled.div`
   background-color: black;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
-  margin-bottom: 15vh;
+  margin-bottom: 13vh;
 `
 
 export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
