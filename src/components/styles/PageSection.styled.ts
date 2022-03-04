@@ -56,6 +56,7 @@ export const Body = styled.div<{ events?: boolean }>`
   text-align: ${(props) => (props.events ? 'left' : 'center')};
   margin-left: 10%;
   ${(props) => `color: ${props.theme.palette.common.white};`}
+  white-space: pre-wrap;
 `
 export const BufferContainer = styled.div`
   width: 2vw;
