@@ -41,19 +41,19 @@ export const TextContainer = styled.div<{ events?: boolean }>`
   over-flow: auto;
 `
 
-export const Title = styled.div<{ events?: boolean }>`
+export const Title = styled.div<{ events?: boolean; textPosition: string }>`
   color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
   font-size: ${(props) => (props.events ? 'medium' : 'large')};
+  ${(props) => (props.textPosition === 'right' ? 'padding-left: 10%' : '')};
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 3%;
-  padding-left: 10%;
 `
 
-export const Body = styled.div<{ events?: boolean }>`
-  width: 80%;
-  margin-left: 10%;
+export const Body = styled.div<{ events?: boolean; textPosition: string }>`
+  ${(props) => (props.textPosition === 'right' ? 'width: 100%' : 'width: 90%')};
+  ${(props) => (props.textPosition === 'right' ? 'padding-left: 10%' : '')};
   ${(props) => `color: ${props.theme.palette.common.white};`}
   white-space: pre-wrap;
 `

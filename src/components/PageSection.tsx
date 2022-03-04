@@ -19,8 +19,12 @@ function PageSectionComponent(props: Props) {
       {props.textPosition === 'left' && <ImageContainer image={props.image} />}
       {props.textPosition === 'left' && <BufferContainer />}
       <TextContainer>
-        <Title events={props.events}>{props.title}</Title>
-        <Body events={props.events}>{props.description}</Body>
+        <Title events={props.events} textPosition={props.textPosition}>
+          {props.title}
+        </Title>
+        <Body events={props.events} textPosition={props.textPosition}>
+          {props.description}
+        </Body>
       </TextContainer>
       {props.textPosition === 'right' && <BufferContainer />}
       {props.textPosition === 'right' && <ImageContainer image={props.image} />}
