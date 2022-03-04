@@ -13,12 +13,13 @@ const fadeInUp = keyframes`
 `
 
 export const MainContainer = styled.div`
-  min-height: 33vh;
+  min-height: 37vh;
   margin: 5px 0;
   display: flex;
   background-color: black;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
+  margin-bottom: 15vh;
 `
 
 export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
@@ -48,7 +49,6 @@ export const Title = styled.div<{ events?: boolean }>`
   justify-content: flex-end;
   padding-bottom: 3%;
   padding-left: 10%;
-  border: 1px solid red;
 `
 
 export const Body = styled.div<{ events?: boolean }>`
