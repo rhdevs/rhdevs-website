@@ -54,7 +54,7 @@ export const Title = styled.div<{ events?: boolean; textPosition: string }>`
 export const Body = styled.div<{ events?: boolean; textPosition: string }>`
   ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
   ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 15%')};
-  ${(props) => `color: ${props.theme.palette.common.white};`}
+  ${(props) => `color: ${props.theme.palette.common.gray};`}
   white-space: pre-wrap;
 `
 export const BufferContainer = styled.div`
