@@ -1,4 +1,4 @@
-import RHDevs from '../../assets/RHDevs-Logo-2.png'
+import RHDevs from '../../assets/RHDevs-Logo-EventsPage.png'
 import UPGRHADEimg from '../../assets/UPGRHADE-Logo-EventsPage.png'
 import InterHallimg from '../../assets/InterHall-Logo-EventsPage.png'
 import PageSectionComponent from '../../components/PageSection'

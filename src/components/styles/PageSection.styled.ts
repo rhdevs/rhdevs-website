@@ -15,7 +15,8 @@ const fadeInUp = keyframes`
 export const MainContainer = styled.div`
   min-height: 33vh;
   height: 500px;
-  margin: 100px 0;
+  width: 100%;
+  margin: 200px 0 200px 0;
   display: flex;
   background-color: black;
   animation-duration: 1s;
@@ -24,17 +25,18 @@ export const MainContainer = styled.div`
 
 export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
   height: 500px;
-  width: ${(props) => (props.events ? 'auto' : '50%')};
+  width: ${(props) => (props.events ? '50%' : '50%')};
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 `
 
-export const TextContainer = styled.div<{ events?: boolean }>`
+export const TextContainer = styled.div<{ events?: boolean; pos?: string }>`
   height: fit-content;
   width: ${(props) => (props.events ? '50%' : '50%')};
   padding: ${(props) => (props.events ? '10px 15px' : '10px 0')};
+  margin: ${(props) => (props.pos === 'left' ? '0px 200px 0 -200px' : '0px -150px 0 100px')};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,7 +47,7 @@ export const Title = styled.div<{ events?: boolean }>`
   text-align: ${(props) => (props.events ? 'left' : 'center')};
   color: ${(props) => (props.events ? '#10BCBC' : props.theme.palette.primary)};
   font-size: ${(props) => (props.events ? '32px' : 'large')};
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -56,9 +58,10 @@ export const Title = styled.div<{ events?: boolean }>`
 export const Body = styled.div<{ events?: boolean }>`
   width: fit-content;
   height: fit-content;
-  text-align: ${(props) => (props.events ? 'left' : 'center')};
+  font-size: ${(props) => (props.events ? '26px' : '')};
+  text-align: ${(props) => (props.events ? 'justify' : 'center')};
   margin-left: 10%;
-  ${(props) => `color: ${props.theme.palette.common.white};`}
+  color: ${(props) => (props.events ? '#B3B3B3' : props.theme.palette.common.white)};
 `
 export const BufferContainer = styled.div`
   width: 2vw;

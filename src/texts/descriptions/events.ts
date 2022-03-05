@@ -9,9 +9,8 @@ export const RHAppLaunch: Record<string, string> = {
   eventDescription:
     'The culmination of half a year of hard work, the first large scale software project among NUS halls finally exited Beta and opened up for all residents. This project aims to resolve many common issues faced by our hall residents including booking of facilities, collating of supper orders and more.\n\nApart from the convenience that our flagship application provides, it also serves a beacon of inspiration. This application proves that training developers and designers from scratch, then coordinating development efforts is possible, while gruelling and tedious. To find out more, click on our projects tab!',
 }
-
 export const UPGRHADE: Record<string, string> = {
   eventName: 'upgRHade (4 Sep 2021)',
   eventDescription:
-    'For our pilot project as a CCA, we invited all residents to provide feedback on what digital features they would like to see in our home away from home, with the best 3 entries walking away with $10 Grab vouchers.\nResults can be views at https://www.instagram.com/p/CFrijU4Hw8H/?utm_medium=share_sheet',
+    'For our pilot project as a CCA, we invited all residents to provide feedback on what digital features they would like to see in our home away from home, with the best 3 entries walking away with $10 Grab vouchers.\nResults can be viewed at https://www.instagram.com/p/CFrijU4Hw8H/?utm_medium=share_sheet',
 }
