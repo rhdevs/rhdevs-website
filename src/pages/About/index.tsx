@@ -1,4 +1,11 @@
-import { missionDescription, visionDescription, logoDescription } from '../../texts/descriptions/aboutUs'
+import {
+  missionDescription,
+  visionDescription,
+  frontEndDescription,
+  backEndDescription,
+  designersDescription,
+  uiuxDescription,
+} from '../../texts/descriptions/aboutUs'
 import { MainContainer, MiddleTitle } from './styles/About.styled'
 import PageSectionComponent from '../../components/PageSection'
 
@@ -7,8 +14,11 @@ export default function About() {
     <MainContainer>
       <PageSectionComponent title="Mission" description={missionDescription} textPosition="right" image="" />
       <PageSectionComponent title="Vision" description={visionDescription} textPosition="left" image="" />
-      <PageSectionComponent title="Logo" description={logoDescription} textPosition="right" image="" />
       <MiddleTitle>Team Structure</MiddleTitle>
+      <PageSectionComponent title="Front End" description={frontEndDescription} textPosition="left" image="" />
+      <PageSectionComponent title="Back End" description={backEndDescription} textPosition="right" image="" />
+      <PageSectionComponent title="Designers" description={designersDescription} textPosition="left" image="" />
+      <PageSectionComponent title="UI UX" description={uiuxDescription} textPosition="right" image="" />
     </MainContainer>
   )
 }

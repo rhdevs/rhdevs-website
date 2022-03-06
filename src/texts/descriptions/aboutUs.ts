@@ -10,5 +10,14 @@ export const visionDescription =
   'Whether you’re a Developer or Designer, RHDevs seamlessly works as a unit to explore and build ideas together.' +
   'Seniors will be working hand with hand with junior members to learn from each other, and both offer and receive guidance as they face new and exciting challenges.'
 
-export const logoDescription =
-  '</> symbols are core in the HTML language for webpage, forming the D in DEVS\n\nGradient element: Includes the CCA\'s design aspect and mirrors "futuristic" color trends in apps\' logos'
+export const frontEndDescription =
+  'Brimming with passion, our front-end developers strive to build the best and most helpful web applications and platforms for Raffles Hall residents.'
+
+export const backEndDescription =
+  'Our talented and enthusiastic pool of back-end developers work tirelessly behind the scenes to design and implement scalable servers to serve our residents.'
+
+export const designersDescription =
+  'Creative and full of ideas, our digital designers are in charge of designing collaterals which help to create and explore the very concept of the team behind RHDEVS, and their works.'
+
+export const uiuxDescription =
+  'Our UI/UX designers are the experts in product prototyping and actively conducting user research. They seamlessly work with front-end developers to create a modern, sleek, and user-centric prototypes.'
