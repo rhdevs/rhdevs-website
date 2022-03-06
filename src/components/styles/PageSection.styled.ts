@@ -36,7 +36,6 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
   width: ${(props) => (props.hasImage ? '50%' : '83%')};
   margin-left: 8%;
   display: flex;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   over-flow: auto;
@@ -44,7 +43,6 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
 
 export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
   color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
-  ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 0%')};
   ${fontTypeCss}
   display: flex;
   flex-direction: column;
@@ -54,7 +52,6 @@ export const Title = styled.div<{ events?: boolean; textPosition: string; fontTy
 
 export const Body = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
   ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
-  ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 0%')};
   ${(props) => `color: ${props.theme.palette.common.gray};`}
   ${fontTypeCss}
   white-space: pre-wrap;
