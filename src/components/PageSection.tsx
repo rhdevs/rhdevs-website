@@ -17,10 +17,10 @@ const defaultProps = {
 
 function PageSectionComponent(props: Props) {
   return (
-    <MainContainer>
+    <MainContainer hasImage={props.hasImage}>
       {props.hasImage && props.textPosition === 'right' && <ImageContainer image={props.image} />}
       {props.hasImage && props.textPosition === 'right' && <BufferContainer />}
-      <TextContainer>
+      <TextContainer hasImage={props.hasImage}>
         <Title events={props.events} textPosition={props.textPosition}>
           {props.title}
         </Title>

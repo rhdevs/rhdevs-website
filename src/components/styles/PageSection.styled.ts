@@ -12,14 +12,13 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div`
-  min-height: 37vh;
+export const MainContainer = styled.div<{ hasImage: boolean }>`
+  min-height: ${(props) => (props.hasImage ? '35vh' : '28vh')};
   margin: 5px 0;
   display: flex;
   background-color: black;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
-  margin-bottom: 13vh;
 `
 
 export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
@@ -31,10 +30,11 @@ export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 `
 
-export const TextContainer = styled.div<{ events?: boolean }>`
+export const TextContainer = styled.div<{ hasImage: boolean }>`
   height: 100%;
-  width: ${(props) => (props.events ? '80%' : '50%')};
-  padding: ${(props) => (props.events ? '10px 15px' : '10px 0')};
+  width: ${(props) => (props.hasImage ? '50%' : '90%')};
+  margin-left: 8%;
+  display: flex;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,7 +44,7 @@ export const TextContainer = styled.div<{ events?: boolean }>`
 export const Title = styled.div<{ events?: boolean; textPosition: string }>`
   color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
   font-size: ${(props) => (props.events ? 'medium' : 'large')};
-  ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 15%')};
+  ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 0%')};
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -53,7 +53,7 @@ export const Title = styled.div<{ events?: boolean; textPosition: string }>`
 
 export const Body = styled.div<{ events?: boolean; textPosition: string }>`
   ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
-  ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 15%')};
+  ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 0%')};
   ${(props) => `color: ${props.theme.palette.common.gray};`}
   white-space: pre-wrap;
 `
