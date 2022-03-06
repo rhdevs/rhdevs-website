@@ -6,7 +6,7 @@ import {
   designersDescription,
   uiuxDescription,
 } from '../../texts/descriptions/aboutUs'
-import { MainContainer, MiddleTitle } from './styles/About.styled'
+import { MainContainer } from './styles/About.styled'
 import PageSectionComponent from '../../components/PageSection'
 
 export default function About() {
@@ -14,7 +14,6 @@ export default function About() {
     <MainContainer>
       <PageSectionComponent title="Mission" description={missionDescription} textPosition="right" image="" />
       <PageSectionComponent title="Vision" description={visionDescription} textPosition="left" image="" />
-      <MiddleTitle>Team Structure</MiddleTitle>
       <PageSectionComponent title="Front End" description={frontEndDescription} textPosition="left" image="" />
       <PageSectionComponent title="Back End" description={backEndDescription} textPosition="right" image="" />
       <PageSectionComponent title="Designers" description={designersDescription} textPosition="left" image="" />
