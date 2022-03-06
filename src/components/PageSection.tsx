@@ -3,12 +3,14 @@ import { ImageContainer, MainContainer, BufferContainer, TextContainer, Title, B
 type Props = {
   title: string
   description: string
-  textPosition: 'left' | 'right'
+  hasImage: boolean
+  textPosition?: 'left' | 'right'
   image?: string
   events?: boolean
 } & typeof defaultProps
 
 const defaultProps = {
+  textPosition: 'left',
   image: '',
   events: false,
 }
@@ -16,8 +18,8 @@ const defaultProps = {
 function PageSectionComponent(props: Props) {
   return (
     <MainContainer>
-      {props.textPosition === 'right' && <ImageContainer image={props.image} />}
-      {props.textPosition === 'right' && <BufferContainer />}
+      {props.hasImage && props.textPosition === 'right' && <ImageContainer image={props.image} />}
+      {props.hasImage && props.textPosition === 'right' && <BufferContainer />}
       <TextContainer>
         <Title events={props.events} textPosition={props.textPosition}>
           {props.title}
@@ -26,8 +28,8 @@ function PageSectionComponent(props: Props) {
           {props.description}
         </Body>
       </TextContainer>
-      {props.textPosition === 'left' && <BufferContainer />}
-      {props.textPosition === 'left' && <ImageContainer image={props.image} />}
+      {props.hasImage && props.textPosition === 'left' && <BufferContainer />}
+      {props.hasImage && props.textPosition === 'left' && <ImageContainer image={props.image} />}
     </MainContainer>
   )
 }
