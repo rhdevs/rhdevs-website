@@ -1,5 +1,6 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, FontType } from 'styled-components'
 import Null from '../../assets/noimg.png'
+import { fontTypeCss } from '../../styles/index.styled'
 
 const fadeInUp = keyframes`
     from {
@@ -13,7 +14,7 @@ const fadeInUp = keyframes`
 `
 
 export const MainContainer = styled.div<{ hasImage: boolean }>`
-  min-height: ${(props) => (props.hasImage ? '35vh' : '28vh')};
+  min-height: 50vh;
   margin: 5px 0;
   display: flex;
   background-color: black;
@@ -41,20 +42,21 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
   over-flow: auto;
 `
 
-export const Title = styled.div<{ events?: boolean; textPosition: string }>`
+export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
   color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
-  font-size: ${(props) => (props.events ? 'medium' : 'large')};
   ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 0%')};
+  ${fontTypeCss}
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 3%;
 `
 
-export const Body = styled.div<{ events?: boolean; textPosition: string }>`
+export const Body = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
   ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
   ${(props) => (props.textPosition === 'right' ? '' : 'padding-left: 0%')};
   ${(props) => `color: ${props.theme.palette.common.gray};`}
+  ${fontTypeCss}
   white-space: pre-wrap;
 `
 export const BufferContainer = styled.div`

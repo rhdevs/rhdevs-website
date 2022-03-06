@@ -1,3 +1,4 @@
+import { useTheme } from 'styled-components'
 import { ImageContainer, MainContainer, BufferContainer, TextContainer, Title, Body } from './styles/PageSection.styled'
 
 type Props = {
@@ -16,15 +17,18 @@ const defaultProps = {
 }
 
 function PageSectionComponent(props: Props) {
+  const theme = useTheme()
+  const { sectionTitle, body } = { ...theme.typography.fontSize }
+
   return (
     <MainContainer hasImage={props.hasImage}>
       {props.hasImage && props.textPosition === 'right' && <ImageContainer image={props.image} />}
       {props.hasImage && props.textPosition === 'right' && <BufferContainer />}
       <TextContainer hasImage={props.hasImage}>
-        <Title events={props.events} textPosition={props.textPosition}>
+        <Title fontType={sectionTitle} events={props.events} textPosition={props.textPosition}>
           {props.title}
         </Title>
-        <Body events={props.events} textPosition={props.textPosition}>
+        <Body fontType={body} events={props.events} textPosition={props.textPosition}>
           {props.description}
         </Body>
       </TextContainer>
