@@ -1,9 +1,10 @@
 import { useTheme } from 'styled-components'
+import React from 'react'
 import { ImageContainer, MainContainer, BufferContainer, TextContainer, Title, Body } from './styles/PageSection.styled'
 
 type Props = {
   title: string
-  description: string
+  description: string | React.ReactNode
   hasImage: boolean
   textPosition?: 'left' | 'right'
   image?: string
