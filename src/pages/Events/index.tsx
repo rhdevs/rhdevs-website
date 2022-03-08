@@ -3,31 +3,24 @@ import UPGRHADEimg from '../../assets/UPGRHADE-Logo-EventsPage.png'
 import InterHallimg from '../../assets/InterHall-Logo-EventsPage.png'
 import PageSectionComponent from '../../components/PageSection'
 import { MainContainer } from './styles/EventPage.styled'
-import { interHallHackathon, RHAppLaunch, UPGRHADE } from '../../texts/descriptions/events'
+import { Adesc, Atitle, Bdesc, Btitle, Cdesc, Ctitle } from '../../texts/descriptions/events'
 
 export default function Events() {
   return (
     <MainContainer>
       <PageSectionComponent
-        title={interHallHackathon.eventName}
-        description={interHallHackathon.eventDescription}
+        title={Atitle}
+        description={Adesc}
         hasImage
         textPosition="right"
         image={InterHallimg}
         events
       />
+      <PageSectionComponent title={Btitle} hasImage description={Bdesc} textPosition="left" image={RHDevs} events />
       <PageSectionComponent
-        title={RHAppLaunch.eventName}
+        title={Ctitle}
         hasImage
-        description={RHAppLaunch.eventDescription}
-        textPosition="left"
-        image={RHDevs}
-        events
-      />
-      <PageSectionComponent
-        title={UPGRHADE.eventName}
-        hasImage
-        description={UPGRHADE.eventDescription}
+        description={Cdesc}
         textPosition="right"
         image={UPGRHADEimg}
         events

@@ -15,7 +15,7 @@ const fadeInUp = keyframes`
 
 export const MainContainer = styled.div<{ hasImage: boolean; events?: boolean }>`
   min-height: 50vh;
-  margin: ${(props) => (props.events ? '100px 0' : '5px 0')};
+  margin: ${(props) => (props.events ? '50px 0 50px' : '5px 0')};
   display: flex;
   background-color: black;
   animation-duration: 1s;
