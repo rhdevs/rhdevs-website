@@ -1,7 +1,7 @@
 export const facilityBooking: Record<string, string> = {
   projectTitle: 'Facility Booking',
   projectDescription:
-    'Facility management software to deconflict usage of various venues and facilities across Raffles hall',
+    'Facility management software to deconflict usage of various venues and facilities across Raffles hall.',
 }
 
 export const supperCollation: Record<string, string> = {
