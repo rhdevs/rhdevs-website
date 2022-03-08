@@ -38,7 +38,7 @@ export const PreviewTitle = styled.div<{ fontType: FontType }>`
     );
     background-repeat: no-repeat;
     background-size: calc(100% - 18px) 2px;
-  }}
+  }
 `
 
 export const PreviewWrapper = styled.div`
