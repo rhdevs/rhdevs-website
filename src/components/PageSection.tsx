@@ -22,7 +22,7 @@ function PageSectionComponent(props: Props) {
   const { sectionTitle, body } = { ...theme.typography.fontSize }
 
   return (
-    <MainContainer hasImage={props.hasImage}>
+    <MainContainer hasImage={props.hasImage} events={props.events}>
       {props.hasImage && props.textPosition === 'right' && <ImageContainer image={props.image} />}
       {props.hasImage && props.textPosition === 'right' && <BufferContainer />}
       <TextContainer hasImage={props.hasImage}>

@@ -12,21 +12,23 @@ export default function Events() {
         title={interHallHackathon.eventName}
         description={interHallHackathon.eventDescription}
         hasImage
-        textPosition="left"
+        textPosition="right"
         image={InterHallimg}
         events
       />
       <PageSectionComponent
         title={RHAppLaunch.eventName}
+        hasImage
         description={RHAppLaunch.eventDescription}
-        textPosition="right"
+        textPosition="left"
         image={RHDevs}
         events
       />
       <PageSectionComponent
         title={UPGRHADE.eventName}
+        hasImage
         description={UPGRHADE.eventDescription}
-        textPosition="left"
+        textPosition="right"
         image={UPGRHADEimg}
         events
       />

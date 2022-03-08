@@ -13,9 +13,9 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div<{ hasImage: boolean }>`
+export const MainContainer = styled.div<{ hasImage: boolean; events?: boolean }>`
   min-height: 50vh;
-  margin: 5px 0;
+  margin: ${(props) => (props.events ? '100px 0' : '5px 0')};
   display: flex;
   background-color: black;
   animation-duration: 1s;
@@ -38,11 +38,12 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: justify;
   over-flow: auto;
 `
 
 export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
-  color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
+  color: ${(props) => props.theme.palette.primary};
   ${fontTypeCss}
   display: flex;
   flex-direction: column;
