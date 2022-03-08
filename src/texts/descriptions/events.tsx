@@ -13,7 +13,10 @@ export const Adesc = (
     of the Hackathon.
     <br />
     <br />
-    Projects can be viewed at <a href="url">https://nus-inter-hall-hack.devpost.com/project-gallery</a>
+    Projects can be viewed at{' '}
+    <a style={{ color: '#10BCBC' }} href="https://nus-inter-hall-hack.devpost.com/project-gallery">
+      https://nus-inter-hall-hack.devpost.com/project-gallery
+    </a>
   </>
 )
 
@@ -37,7 +40,7 @@ export const Cdesc = (
     <br />
     <br />
     Results can be views at{' '}
-    <a style={{ color: '#f44336' }} href="url">
+    <a style={{ color: '#10BCBC' }} href="https://www.instagram.com/p/CFrijU4Hw8H/?utm_medium=share_sheet">
       https://www.instagram.com/p/CFrijU4Hw8H/?utm_medium=share_sheet
     </a>
   </>
