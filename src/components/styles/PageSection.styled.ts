@@ -1,5 +1,6 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, FontType } from 'styled-components'
 import Null from '../../assets/noimg.png'
+import { fontTypeCss } from '../../styles/index.styled'
 
 const fadeInUp = keyframes`
     from {
@@ -12,8 +13,8 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div`
-  min-height: 33vh;
+export const MainContainer = styled.div<{ hasImage: boolean }>`
+  min-height: 50vh;
   margin: 5px 0;
   display: flex;
   background-color: black;
@@ -30,32 +31,30 @@ export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 `
 
-export const TextContainer = styled.div<{ events?: boolean }>`
+export const TextContainer = styled.div<{ hasImage: boolean }>`
   height: 100%;
-  width: ${(props) => (props.events ? '80%' : '50%')};
-  padding: ${(props) => (props.events ? '10px 15px' : '10px 0')};
+  width: ${(props) => (props.hasImage ? '50%' : '83%')};
+  margin-left: 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   over-flow: auto;
 `
 
-export const Title = styled.div<{ events?: boolean }>`
-  text-align: ${(props) => (props.events ? 'left' : 'center')};
+export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
   color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
-  font-size: ${(props) => (props.events ? 'medium' : 'large')};
+  ${fontTypeCss}
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 3%;
-  ${(props) => props.events && 'padding-left: 10%'};
 `
 
-export const Body = styled.div<{ events?: boolean }>`
-  width: 80%;
-  text-align: ${(props) => (props.events ? 'left' : 'center')};
-  margin-left: 10%;
-  ${(props) => `color: ${props.theme.palette.common.white};`}
+export const Body = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
+  ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
+  ${(props) => `color: ${props.theme.palette.common.gray};`}
+  ${fontTypeCss}
+  white-space: pre-wrap;
 `
 export const BufferContainer = styled.div`
   width: 2vw;
