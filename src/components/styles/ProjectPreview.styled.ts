@@ -30,7 +30,7 @@ export const PreviewTitle = styled.div<{ fontType: FontType }>`
   background-color: ${(props) => props.theme.palette.common.black};
   transition: background-image 0.4s ease-in-out;
   &:hover {
-    background-position: 50% 1.15em;
+    background-position: 0 1.15em;
     background-image: linear-gradient(
       to bottom,
       ${(props) => props.theme.palette.common.white},
@@ -38,15 +38,18 @@ export const PreviewTitle = styled.div<{ fontType: FontType }>`
     );
     background-repeat: no-repeat;
     background-size: calc(100% - 18px) 2px;
-  }}
+  }
 `
 
 export const PreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  width: 20%;
+  width: 25%;
   padding: 0.5rem;
   background-color: ${(props) => props.theme.palette.common.black};
   cursor: pointer;
+  ${PreviewText} {
+    margin-top: 20px;
+  }
 `
