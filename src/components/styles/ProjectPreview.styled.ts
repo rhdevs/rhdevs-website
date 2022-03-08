@@ -45,8 +45,11 @@ export const PreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  width: 20%;
+  width: 25%;
   padding: 0.5rem;
   background-color: ${(props) => props.theme.palette.common.black};
   cursor: pointer;
+  ${PreviewText} {
+    margin-top: 20px;
+  }
 `
