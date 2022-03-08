@@ -14,6 +14,7 @@ export default function Events() {
         hasImage
         textPosition="right"
         image={InterHallimg}
+        imageurl="facebook.com"
         events
       />
       <PageSectionComponent title={Btitle} hasImage description={Bdesc} textPosition="left" image={RHDevs} events />
