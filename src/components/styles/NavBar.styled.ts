@@ -6,26 +6,23 @@ export const MainContainer = styled.div`
   display: flex;
 `
 export const BufferContainer = styled.div`
-  width: 2vw;
+  width: 3vw;
 `
 export const NavBarStyles = styled.div<{ isVisible: boolean }>`
-  width: 60%;
   display: flex;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: flex-start;
   margin-left: 8%;
   padding-top: 0.5%;
   position: fixed;
   transform: ${(props) => (props.isVisible ? 'translateY(0)' : 'translateY(-100%)')};
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   ${(props) => `background-color: ${props.theme.palette.common.black};`}
   @media (max-width: 900px) {
     margin-left: 4%;
-    padding-top: 3%;
-    width: 80%;
   }
   @media (max-width: 650px) {
-    margin-left: 0;
-    width: 95%;
+    margin-left: 4%;
   }
 `
 export const NavContainer = styled.div`
