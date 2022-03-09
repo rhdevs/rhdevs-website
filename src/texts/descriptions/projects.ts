@@ -1,17 +1,17 @@
-export const rhApp: Record<string, string> = {
-  projectTitle: 'RH app',
+export const facilityBooking: Record<string, string> = {
+  projectTitle: 'Facility Booking',
   projectDescription:
-    'An application aimed at bettering the lives of Raffles Hall Residents. Currently working on the design of the interface of the application.',
+    'Facility management software to deconflict usage of various venues and facilities across Raffles hall.',
 }
 
-export const hackathons: Record<string, string> = {
-  projectTitle: 'Hackathons',
+export const supperCollation: Record<string, string> = {
+  projectTitle: 'Supper Collation',
   projectDescription:
-    'Annual Inter-Hall Hackathons are held to foster healthy competitions and relationships amongst developers of different halls.',
+    'Hungry for supper and want to stretch your dollar? Find friends and save on delivery costs with our supper collation feature, that helps you order supper together with other residents.',
 }
 
-export const rhAnnouncementBot: Record<string, string> = {
-  projectTitle: 'RH Announcement Bot',
+export const announcementBot: Record<string, string> = {
+  projectTitle: 'Announcement Bot',
   projectDescription:
-    'We created a telegram bot to assist Raffles Hall CCA leaders with sending out hall wide announcements.',
+    'Blasting messages across multiple group chats has never been easier. This telegram bot allows authorised users to send messages to all block chats.',
 }

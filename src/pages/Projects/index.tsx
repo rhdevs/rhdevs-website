@@ -1,15 +1,7 @@
-import {
-  MainContainer,
-  ImageContainer,
-  ImageMask,
-  Image,
-  DividerContainer,
-  Divider,
-  ProjectPreviewContainer,
-} from './styles/Projects.styled'
+import { MainContainer, ImageContainer, ImageMask, Image, ProjectPreviewContainer } from './styles/Projects.styled'
 import logo from '../../assets/RHDevs-Logo-2.png'
 import ProjectPreview from '../../components/ProjectPreview'
-import { rhApp, hackathons, rhAnnouncementBot } from '../../texts/descriptions/projects'
+import { facilityBooking, supperCollation, announcementBot } from '../../texts/descriptions/projects'
 
 export default function Projects() {
   return (
@@ -19,17 +11,11 @@ export default function Projects() {
           <Image src={logo} />
         </ImageMask>
       </ImageContainer>
-      <DividerContainer>
-        <Divider />
-      </DividerContainer>
+
       <ProjectPreviewContainer>
-        <ProjectPreview title={rhApp.projectTitle} text={rhApp.projectDescription} hasAnimation />
-        <ProjectPreview title={hackathons.projectTitle} text={hackathons.projectDescription} hasAnimation />
-        <ProjectPreview
-          title={rhAnnouncementBot.projectTitle}
-          text={rhAnnouncementBot.projectDescription}
-          hasAnimation
-        />
+        <ProjectPreview title={facilityBooking.projectTitle} text={facilityBooking.projectDescription} hasAnimation />
+        <ProjectPreview title={supperCollation.projectTitle} text={supperCollation.projectDescription} hasAnimation />
+        <ProjectPreview title={announcementBot.projectTitle} text={announcementBot.projectDescription} hasAnimation />
       </ProjectPreviewContainer>
     </MainContainer>
   )
