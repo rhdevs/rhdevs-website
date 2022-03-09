@@ -1,6 +1,6 @@
 export const Adesc = (
   <>
-    Raffles Hall held the very first Inter-Hall Hackathon, in collaboration with King-Edward IIV hall, Eusoff hall and
+    Raffles Hall held the very first Inter-Hall Hackathon, in collaboration with King-Edward VII hall, Eusoff hall and
     Kent Ridge Hall.
     <br />
     <br />
@@ -13,9 +13,9 @@ export const Adesc = (
     of the Hackathon.
     <br />
     <br />
-    Projects can be viewed at{' '}
+    Projects can be viewed{' '}
     <a style={{ color: '#10BCBC' }} href="https://nus-inter-hall-hack.devpost.com/project-gallery">
-      https://nus-inter-hall-hack.devpost.com/project-gallery
+      here
     </a>
   </>
 )
@@ -39,9 +39,9 @@ export const Cdesc = (
     like to see in our home away from home, with the best 3 entries walking away with $10 Grab vouchers.
     <br />
     <br />
-    Results can be views at{' '}
+    Results can be viewed{' '}
     <a style={{ color: '#10BCBC' }} href="https://www.instagram.com/p/CFrijU4Hw8H/?utm_medium=share_sheet">
-      https://www.instagram.com/p/CFrijU4Hw8H/?utm_medium=share_sheet
+      here
     </a>
   </>
 )

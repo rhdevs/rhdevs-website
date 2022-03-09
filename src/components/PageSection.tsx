@@ -8,14 +8,12 @@ type Props = {
   hasImage: boolean
   textPosition?: 'left' | 'right'
   image?: string
-  imageurl?: string
   events?: boolean
 } & typeof defaultProps
 
 const defaultProps = {
   textPosition: 'left',
   image: '',
-  imageurl: '',
   events: false,
 }
 
@@ -25,14 +23,7 @@ function PageSectionComponent(props: Props) {
 
   return (
     <MainContainer hasImage={props.hasImage} events={props.events}>
-      {props.imageurl === '' && props.hasImage && props.textPosition === 'right' && (
-        <ImageContainer image={props.image} />
-      )}
-      {props.imageurl !== '' && props.hasImage && props.textPosition === 'right' && (
-        <a href={props.imageurl}>
-          <ImageContainer image={props.image} />
-        </a>
-      )}
+      {props.hasImage && props.textPosition === 'right' && <ImageContainer image={props.image} />}
       {props.hasImage && props.textPosition === 'right' && <BufferContainer />}
       <TextContainer hasImage={props.hasImage}>
         <Title fontType={sectionTitle} events={props.events} textPosition={props.textPosition}>
@@ -43,16 +34,7 @@ function PageSectionComponent(props: Props) {
         </Body>
       </TextContainer>
       {props.hasImage && props.textPosition === 'left' && <BufferContainer />}
-      {props.imageurl === '' && props.hasImage && props.textPosition === 'left' && (
-        <ImageContainer image={props.image} />
-      )}
-      {props.imageurl !== '' && props.hasImage && props.textPosition === 'left' && (
-        <li>
-          <a href={props.imageurl}>
-            <ImageContainer image={props.image} />
-          </a>
-        </li>
-      )}
+      {props.hasImage && props.textPosition === 'left' && <ImageContainer image={props.image} />}
     </MainContainer>
   )
 }
