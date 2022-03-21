@@ -5,9 +5,7 @@ export const MainContainer = styled.div`
   height: 5.5rem;
   display: flex;
 `
-export const BufferContainer = styled.div`
-  width: 3vw;
-`
+
 export const NavBarStyles = styled.div<{ isVisible: boolean }>`
   display: flex;
   width: 100%;
@@ -18,6 +16,11 @@ export const NavBarStyles = styled.div<{ isVisible: boolean }>`
   transform: ${(props) => (props.isVisible ? 'translateY(0)' : 'translateY(-100%)')};
   transition: transform 0.3s ease-in-out;
   ${(props) => `background-color: ${props.theme.palette.common.black};`}
+
+  div + div {
+    margin-left: 3vw;
+  }
+
   @media (max-width: 900px) {
     margin-left: 4%;
   }
@@ -25,6 +28,7 @@ export const NavBarStyles = styled.div<{ isVisible: boolean }>`
     margin-left: 4%;
   }
 `
+
 export const NavContainer = styled.div`
   display: flex;
 `

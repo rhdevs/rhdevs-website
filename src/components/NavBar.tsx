@@ -1,63 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MainContainer, NavBarStyles, BufferContainer, NavContainer } from './styles/NavBar.styled'
+
+import { PATHS } from 'src/routes/PATHS'
 import { navTitles } from '../texts/common/navTitles'
+import { MainContainer, NavBarStyles } from './styles/NavBar.styled'
 import NavItem from './NavItem'
 
 function NavBar() {
   const navigate = useNavigate()
   const pageFilePath = window.location.pathname
   const pageName = pageFilePath.slice(1)
-
-  function renderNavItem(item: string) {
-    if (
-      item === pageName ||
-      (item === 'Home' && pageName === '') ||
-      (item === 'About Us' && pageName === 'About') ||
-      (item === 'Contact Us' && pageName === 'Contact')
-    ) {
-      return (
-        <NavContainer>
-          <NavItem
-            text={item}
-            isActive
-            onClick={() => {
-              if (item === 'Home') {
-                navigate('/')
-              } else {
-                navigate(`/${item.match('^[a-zA-Z-]*')}`)
-              }
-            }}
-          />
-          <BufferContainer />
-        </NavContainer>
-      )
-    }
-    return (
-      <NavContainer>
-        <NavItem
-          text={item}
-          onClick={() => {
-            if (item === 'Home') {
-              navigate('/')
-            } else {
-              navigate(`/${item.match('^[a-zA-Z-]*')}`)
-            }
-          }}
-        />
-        <BufferContainer />
-      </NavContainer>
-    )
-  }
-
-  const renderedNavItems = navTitles.map((item) => renderNavItem(item))
-
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [isVisible, setVisible] = useState(true)
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY
-
     setVisible(prevScrollPos > currentScrollPos)
     setPrevScrollPos(currentScrollPos)
   }
@@ -69,7 +26,26 @@ function NavBar() {
 
   return (
     <MainContainer>
-      <NavBarStyles isVisible={isVisible}>{renderedNavItems}</NavBarStyles>
+      <NavBarStyles isVisible={isVisible}>
+        {navTitles.map((item) => (
+          <NavItem
+            text={item}
+            isActive={
+              item === pageName ||
+              (item === 'Home' && pageName === '') ||
+              (item === 'About Us' && pageName === PATHS.ABOUT) ||
+              (item === 'Contact Us' && pageName === PATHS.CONTACT)
+            }
+            onClick={() => {
+              if (item === 'Home') {
+                navigate('/')
+              } else {
+                navigate(`/${item.toLowerCase().match('^[a-zA-Z-]*')}`)
+              }
+            }}
+          />
+        ))}
+      </NavBarStyles>
     </MainContainer>
   )
 }
