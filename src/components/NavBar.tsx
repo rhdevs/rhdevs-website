@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { PATHS } from 'src/routes/PATHS'
 import { navTitles } from '../texts/common/navTitles'
-import { MainContainer, NavBarStyles } from './styles/NavBar.styled'
+import { MainContainer, NavItemContainer } from './styles/NavBar.styled'
 import NavItem from './NavItem'
 
 function NavBar() {
@@ -26,15 +26,15 @@ function NavBar() {
 
   return (
     <MainContainer>
-      <NavBarStyles isVisible={isVisible}>
+      <NavItemContainer isVisible={isVisible}>
         {navTitles.map((item) => (
           <NavItem
             text={item}
             isActive={
-              item === pageName ||
+              item.toLowerCase() === pageName ||
               (item === 'Home' && pageName === '') ||
-              (item === 'About Us' && pageName === PATHS.ABOUT) ||
-              (item === 'Contact Us' && pageName === PATHS.CONTACT)
+              (item === 'About Us' && `/${pageName}` === PATHS.ABOUT) ||
+              (item === 'Contact Us' && `/${pageName}` === PATHS.CONTACT)
             }
             onClick={() => {
               if (item === 'Home') {
@@ -45,7 +45,7 @@ function NavBar() {
             }}
           />
         ))}
-      </NavBarStyles>
+      </NavItemContainer>
     </MainContainer>
   )
 }
