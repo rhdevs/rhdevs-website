@@ -3,19 +3,18 @@ import logoBackground from '../../../assets/logo-background.png'
 
 export const MainContainer = styled.div`
   height: calc(100vh - 5.5rem);
-  overflow-y: scroll;
+  display: grid;
+  grid-template-rows: 1fr max-content;
+  grid-template-columns: 1fr;
 `
 
 export const ImageContainer = styled.div`
   background-image: url(${logoBackground});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 35px 0;
 `
 
 export const ImageMask = styled.div`
@@ -28,22 +27,10 @@ export const Image = styled.img`
   width: 15%;
 `
 
-export const DividerContainer = styled.div`
-  height: 1px;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-`
-
-export const Divider = styled.div`
-  width: 50vw;
-  background-color: ${(props) => props.theme.palette.primary};
-`
-
 export const ProjectPreviewContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 50px 40px;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin: 0 1rem 3rem;
 `
