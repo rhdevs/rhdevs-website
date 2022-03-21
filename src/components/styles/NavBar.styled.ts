@@ -6,6 +6,7 @@ export const MainContainer = styled.div`
 `
 
 export const NavItemContainer = styled.div<{ isVisible: boolean }>`
+  height: 5rem;
   display: flex;
   position: fixed;
   margin-left: 3rem;

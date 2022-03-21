@@ -1,6 +1,6 @@
 export enum PATHS {
   ABOUT = '/about',
-  ARTICLES = '/articles',
+  // ARTICLES = '/articles',
   CONTACT = '/contact',
   EVENTS = '/events',
   PROJECTS = '/projects',

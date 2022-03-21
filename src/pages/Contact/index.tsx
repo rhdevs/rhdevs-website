@@ -12,7 +12,6 @@ import {
   ContactLink,
   Logo,
 } from './styles/Contact.styled'
-import { navTitles } from '../../texts/common/navTitles'
 import { contactHeaders, contactMethods, contactLinks } from '../../texts/common/rhdevsInfo'
 import ClickToCopySection from '../../components/ClickToCopySection'
 import logo from '../../assets/logo.png'
@@ -24,7 +23,7 @@ export default function Contact() {
     <MainContainer>
       <StaticSection>
         <TextSection>
-          <ContactTitle fontType={h1}>{navTitles[5]}</ContactTitle>
+          <ContactTitle fontType={h1}>Contact Us</ContactTitle>
           {contactHeaders.map((header) => {
             if (typeof contactMethods[header] === 'string') {
               return (

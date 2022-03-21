@@ -1,24 +1,25 @@
+import { MouseEventHandler } from 'react'
 import { useTheme } from 'styled-components'
-import { NavDiv } from './styles/NavItem.styled'
+import { StyledNavItem } from './styles/NavItem.styled'
 
 type NavItemProps = {
   text: string
   isActive?: boolean
-  onClick?: () => void
+  onClick?: MouseEventHandler<HTMLDivElement>
 }
 
 const defaultProps = {
   isActive: false,
-  onClick: () => undefined,
+  onClick: undefined,
 }
 
 export default function NavItem({ text, isActive, onClick }: NavItemProps) {
   const theme = useTheme()
   const { h3 } = { ...theme.typography.fontSize }
   return (
-    <NavDiv isActive={isActive} onClick={onClick} fontType={h3}>
+    <StyledNavItem isActive={isActive} onClick={onClick} fontType={h3}>
       {text}
-    </NavDiv>
+    </StyledNavItem>
   )
 }
 
