@@ -14,7 +14,6 @@ const fadeInUp = keyframes`
 `
 
 export const MainContainer = styled.div<{ hasImage: boolean }>`
-  min-height: 50vh;
   margin: 5px 0;
   display: flex;
   background-color: black;
