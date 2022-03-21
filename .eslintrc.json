@@ -58,6 +58,7 @@
     "react/destructuring-assignment": "off",
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "security/detect-object-injection": "off"
   }
 }

@@ -40,8 +40,8 @@ const theme: DefaultTheme = {
         min: '40px',
         size: '64px',
         max: '4rem',
-        weight: '700',
-        height: '3',
+        weight: '300',
+        height: '1',
       },
       h2: {
         min: '16px',
@@ -55,7 +55,7 @@ const theme: DefaultTheme = {
         size: '18px',
         max: '1.2rem',
         weight: '500',
-        height: '2.8',
+        height: '1',
       },
       previewTitle: {
         min: '18px',
