@@ -1,8 +1,8 @@
 import styled, { FontType } from 'styled-components'
 import { fontTypeCss } from '../../styles/index.styled'
 
-export const NavDiv = styled.div<{ isActive?: boolean; fontType: FontType }>`
-  height: 4.8rem;
+export const StyledNavItem = styled.div<{ isActive?: boolean; fontType: FontType }>`
+  height: 100%;
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@ export const NavDiv = styled.div<{ isActive?: boolean; fontType: FontType }>`
     return `
       color: ${props.theme.palette.common.white};
       &:hover {
-        font-size: 25px;
+        font-size: 130%;
       }
     `
   }}

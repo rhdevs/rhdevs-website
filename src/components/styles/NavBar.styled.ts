@@ -1,30 +1,20 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled.div`
-  width: 100vw;
-  height: 5.5rem;
-  display: flex;
-`
-export const BufferContainer = styled.div`
-  width: 3vw;
-`
-export const NavBarStyles = styled.div<{ isVisible: boolean }>`
-  display: flex;
   width: 100%;
-  justify-content: flex-start;
-  margin-left: 8%;
-  padding-top: 0.5%;
+  height: 5rem;
+`
+
+export const NavItemContainer = styled.div<{ isVisible: boolean }>`
+  height: 5rem;
+  display: flex;
   position: fixed;
+  margin-left: 3rem;
   transform: ${(props) => (props.isVisible ? 'translateY(0)' : 'translateY(-100%)')};
   transition: transform 0.3s ease-in-out;
-  ${(props) => `background-color: ${props.theme.palette.common.black};`}
-  @media (max-width: 900px) {
-    margin-left: 4%;
+  background-color: ${(props) => `${props.theme.palette.common.black}`};
+
+  div + div {
+    margin-left: 2rem;
   }
-  @media (max-width: 650px) {
-    margin-left: 4%;
-  }
-`
-export const NavContainer = styled.div`
-  display: flex;
 `

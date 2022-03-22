@@ -1,10 +1,9 @@
-/* eslint-disable security/detect-object-injection */
 import { useTheme } from 'styled-components'
 import ContactForm from '../../components/Contact'
 import {
   MainContainer,
   StaticSection,
-  TextSection,
+  InformationSection,
   ContactTitle,
   SectionContainer,
   SectionTitle,
@@ -12,8 +11,7 @@ import {
   ContactLink,
   Logo,
 } from './styles/Contact.styled'
-import { navTitles } from '../../texts/common/navTitles'
-import { contactHeaders, contactMethods, contactLinks } from '../../texts/common/rhdevsInfo'
+import { contactHeaders, contactMethods, socialMedia } from '../../texts/common/rhdevsInfo'
 import ClickToCopySection from '../../components/ClickToCopySection'
 import logo from '../../assets/logo.png'
 
@@ -22,35 +20,25 @@ export default function Contact() {
   const { body, h1, h3 } = { ...theme.typography.fontSize }
   return (
     <MainContainer>
+      <ContactTitle fontType={h1}>Contact Us</ContactTitle>
       <StaticSection>
-        <TextSection>
-          <ContactTitle fontType={h1}>{navTitles[5]}</ContactTitle>
-          {contactHeaders.map((header) => {
-            if (typeof contactMethods[header] === 'string') {
-              return (
-                <SectionContainer>
-                  {/* hacky solution to avoid type error due to string[] */}
-                  {/* @ts-ignore */}
-                  <ClickToCopySection text={contactMethods[header]} title={header} />
-                </SectionContainer>
-              )
-            }
-            return (
-              <SectionContainer>
-                <SectionTitle fontType={h3}>{header}</SectionTitle>
-                <SectionContent>
-                  {/* @ts-ignore */}
-                  {contactMethods[header].map((item) => (
-                    // @ts-ignore
-                    <ContactLink fontType={body} href={contactLinks[item]}>
-                      {item}
-                    </ContactLink>
-                  ))}
-                </SectionContent>
-              </SectionContainer>
-            )
-          })}
-        </TextSection>
+        <InformationSection>
+          {contactHeaders.map((header) => (
+            <SectionContainer>
+              <ClickToCopySection text={contactMethods[header]} title={header} />
+            </SectionContainer>
+          ))}
+          <SectionContainer>
+            <SectionTitle fontType={h3}>{socialMedia.title}</SectionTitle>
+            <SectionContent>
+              {socialMedia.items.map((item) => (
+                <ContactLink fontType={body} href={socialMedia.links[item]} target="_blank">
+                  {item}
+                </ContactLink>
+              ))}
+            </SectionContent>
+          </SectionContainer>
+        </InformationSection>
         <Logo src={logo} alt="logo" />
       </StaticSection>
       <ContactForm />
