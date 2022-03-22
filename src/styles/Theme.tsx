@@ -16,7 +16,7 @@ const theme: DefaultTheme = {
     main: 'Inter',
     fontSize: {
       body: {
-        min: '10px',
+        min: '0.5rem',
         size: '1.25vw', // about 24px at 1920 width
         max: '24px', // 24px
         weight: '300',
@@ -59,15 +59,15 @@ const theme: DefaultTheme = {
       },
       previewTitle: {
         min: '18px',
-        size: '26px',
-        max: '1.2rem',
+        size: '1.4vw', // about 27px at 1920 width
+        max: '26px',
         weight: '500',
         height: 'auto',
       },
       h4: {
-        min: '8px',
-        size: '18px',
-        max: '0.8rem',
+        min: '10px',
+        size: '1vw',
+        max: '18px',
         weight: '300',
         height: 'auto',
       },
