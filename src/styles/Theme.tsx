@@ -16,16 +16,16 @@ const theme: DefaultTheme = {
     main: 'Inter',
     fontSize: {
       body: {
-        min: '0.5rem',
+        min: '14px',
         size: '1.25vw', // about 24px at 1920 width
         max: '24px', // 24px
         weight: '300',
         height: '',
       },
       input: {
-        min: '24px',
-        size: '36px',
-        max: '2.4rem',
+        min: '16px',
+        size: '1.25vw',
+        max: '24px',
         weight: '300',
         height: '2',
       },
@@ -37,23 +37,23 @@ const theme: DefaultTheme = {
         height: '',
       },
       h1: {
-        min: '40px',
-        size: '64px',
-        max: '4rem',
+        min: '28px',
+        size: '2.5vw',
+        max: '48px',
         weight: '300',
         height: '1',
       },
       h2: {
         min: '16px',
-        size: '24px',
-        max: '1.6rem',
+        size: '1.4vw',
+        max: '24px',
         weight: '600',
         height: '2',
       },
       h3: {
-        min: '12px',
-        size: '18px',
-        max: '1.2rem',
+        min: '14px',
+        size: '1vw',
+        max: '18px',
         weight: '500',
         height: '1',
       },
