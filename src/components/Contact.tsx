@@ -15,7 +15,7 @@ function ContactForm() {
 
   const onSubmit = (data: FieldValues) => {
     axios({
-      url: 'https://formspree.io/f/mvolznvk', // placeholder, replace with ur id here
+      url: 'https://formspree.io/f/myyopaal', // added raffles hall gmail raffleshalldevs@gmail.com
       method: 'post',
       headers: {
         Accept: 'application/json',
