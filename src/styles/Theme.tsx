@@ -38,7 +38,7 @@ const theme: DefaultTheme = {
       },
       sectionText: {
         min: '12px',
-        size: '16px',
+        size: '18px',
         max: '1.6rem',
         weight: '300',
         height: '',
