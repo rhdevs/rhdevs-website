@@ -32,7 +32,7 @@ export const ImageContainer = styled.div<{ image: string; textPosition: string }
 `
 
 export const TextContainer = styled.div<{ hasImage: boolean }>`
-  height: 100%;
+  height: width: ${(props) => (props.hasImage ? '50%' : '100%')};
   width: ${(props) => (props.hasImage ? '50%' : '83%')};
   margin-left: 8%;
   display: flex;
