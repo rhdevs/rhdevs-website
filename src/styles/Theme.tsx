@@ -31,7 +31,7 @@ const theme: DefaultTheme = {
       },
       sectionTitle: {
         min: '16px',
-        size: '2vw',
+        size: '1.8vw',
         max: '28px',
         weight: '600',
         height: '',
