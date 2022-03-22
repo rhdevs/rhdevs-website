@@ -12,6 +12,7 @@ const fadeIn = keyframes`
 
 export const PreviewText = styled.div<{ hasAnimation?: boolean; fontType: FontType }>`
   ${fontTypeCss}
+  margin-top: 20px;
   color: ${(props) => props.theme.palette.common.gray};
   ${(props) =>
     props.hasAnimation &&
@@ -23,14 +24,15 @@ export const PreviewText = styled.div<{ hasAnimation?: boolean; fontType: FontTy
     `}
 `
 
-export const PreviewTitle = styled.div<{ fontType: FontType }>`
+export const PreviewTitle = styled.label<{ fontType: FontType }>`
   ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
   border: 0;
   background-color: ${(props) => props.theme.palette.common.black};
   transition: background-image 0.4s ease-in-out;
+  width: fit-content;
   &:hover {
-    background-position: 0 1.15em;
+    background-position: 9px 1.15em;
     background-image: linear-gradient(
       to bottom,
       ${(props) => props.theme.palette.common.white},
@@ -44,12 +46,7 @@ export const PreviewTitle = styled.div<{ fontType: FontType }>`
 export const PreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: left;
-  width: 25%;
-  padding: 0.5rem;
   background-color: ${(props) => props.theme.palette.common.black};
   cursor: pointer;
-  ${PreviewText} {
-    margin-top: 20px;
-  }
+  flex: 1 1 100%;
 `
