@@ -19,7 +19,7 @@ const defaultProps = {
 
 function PageSectionComponent(props: Props) {
   const theme = useTheme()
-  const { sectionTitle, body } = { ...theme.typography.fontSize }
+  const { sectionTitle, sectionText } = { ...theme.typography.fontSize }
 
   return (
     <MainContainer hasImage={props.hasImage}>
@@ -29,7 +29,7 @@ function PageSectionComponent(props: Props) {
         <Title fontType={sectionTitle} events={props.events} textPosition={props.textPosition}>
           {props.title}
         </Title>
-        <Body fontType={body} events={props.events} textPosition={props.textPosition}>
+        <Body fontType={sectionText} events={props.events} textPosition={props.textPosition}>
           {props.description}
         </Body>
       </TextContainer>
