@@ -1,4 +1,8 @@
-export const Adesc = (
+import RHDevs from '../../assets/RHDevs-Logo-EventsPage.svg'
+import UPGRHADEimg from '../../assets/UPGRHADE-Logo-EventsPage.svg'
+import InterHallimg from '../../assets/InterHall-Logo-EventsPage.svg'
+
+const InterHackathonDesc = (
   <>
     Raffles Hall held the very first Inter-Hall Hackathon, in collaboration with King-Edward VII hall, Eusoff hall and
     Kent Ridge Hall.
@@ -20,7 +24,7 @@ export const Adesc = (
   </>
 )
 
-export const Bdesc = (
+const RHAppLaunchDesc = (
   <>
     The culmination of half a year of hard work, the first large scale software project among NUS halls finally exited
     Beta and opened up for all residents. This project aims to resolve many common issues faced by our hall residents
@@ -33,7 +37,7 @@ export const Bdesc = (
   </>
 )
 
-export const Cdesc = (
+const upgRHadeDesc = (
   <>
     For our pilot project as a CCA, we invited all residents to provide feedback on what digital features they would
     like to see in our home away from home, with the best 3 entries walking away with $10 Grab vouchers.
@@ -46,8 +50,21 @@ export const Cdesc = (
   </>
 )
 
-export const Atitle = 'Inter-Hall Hackathon (16 Dec 2021)'
+export const events = [
+  {
+    title: 'Inter-Hall Hackathon (16 Dec 2021)',
+    description: InterHackathonDesc,
+    image: InterHallimg,
+  },
 
-export const Btitle = 'RHapp Launch (1 Aug 2021)'
-
-export const Ctitle = 'upgRHade (4 Sep 2021)'
+  {
+    title: 'RHapp Launch (1 Aug 2021)',
+    description: RHAppLaunchDesc,
+    image: RHDevs,
+  },
+  {
+    title: 'upgRHade (4 Sep 2021)',
+    description: upgRHadeDesc,
+    image: UPGRHADEimg,
+  },
+]
