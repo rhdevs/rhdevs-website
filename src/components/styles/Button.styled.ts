@@ -6,7 +6,7 @@ export const BaseButton = styled.div<{ fontSize?: string; isActive?: boolean }>`
   align-items: center;
   .ant-btn-text {
     color: ${(props) => props.theme.palette.common.white};
-    font-size: ${(props) => `clamp(16px, 2vw, ${props.fontSize})`};
+    font-size: ${(props) => `clamp(14px, 2vw, ${props.fontSize})`};
     border: 0;
     border-bottom: transparent 2px solid;
     background-color: ${(props) => props.theme.palette.common.black};

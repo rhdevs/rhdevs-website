@@ -16,37 +16,37 @@ const theme: DefaultTheme = {
     main: 'Inter',
     fontSize: {
       body: {
-        min: '14px',
-        size: '1.25vw', // about 24px at 1920 width
-        max: '24px', // 24px
+        min: '12px',
+        size: '1.25vw',
+        max: '18px',
         weight: '300',
         height: '',
       },
       input: {
         min: '16px',
         size: '1.25vw',
-        max: '24px',
+        max: '20px',
         weight: '300',
         height: '2',
       },
       sectionTitle: {
-        min: '1rem', // 16px
-        size: '1.9vw', // about 36px at 1920 width
-        max: '36px', // 36px
+        min: '16px',
+        size: '2vw',
+        max: '28px',
         weight: '600',
         height: '',
       },
       h1: {
-        min: '28px',
-        size: '2.5vw',
-        max: '48px',
+        min: '20px',
+        size: '2vw',
+        max: '38px',
         weight: '300',
         height: '1',
       },
       h2: {
-        min: '16px',
+        min: '14px',
         size: '1.4vw',
-        max: '24px',
+        max: '18px',
         weight: '600',
         height: '2',
       },
@@ -58,9 +58,9 @@ const theme: DefaultTheme = {
         height: '1',
       },
       previewTitle: {
-        min: '18px',
-        size: '1.4vw', // about 27px at 1920 width
-        max: '26px',
+        min: '16px',
+        size: '1.5vw',
+        max: '24px',
         weight: '500',
         height: 'auto',
       },
