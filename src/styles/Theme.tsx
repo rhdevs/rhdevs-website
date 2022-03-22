@@ -30,9 +30,9 @@ const theme: DefaultTheme = {
         height: '2',
       },
       sectionTitle: {
-        min: '24px',
-        size: '36px',
-        max: '2.4rem',
+        min: '20px',
+        size: '24px',
+        max: '2rem',
         weight: '600',
         height: '',
       },
