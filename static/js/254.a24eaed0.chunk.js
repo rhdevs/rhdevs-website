@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrhdevs_website=self.webpackChunkrhdevs_website||[]).push([[254],{254:function(e,n,t){t.r(n),t.d(n,{default:function(){return s}});var r=t(184);function s(){return(0,r.jsx)(r.Fragment,{children:"Events Page"})}}}]);
-//# sourceMappingURL=254.a24eaed0.chunk.js.map

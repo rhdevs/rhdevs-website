@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrhdevs_website=self.webpackChunkrhdevs_website||[]).push([[856],{856:function(e,n,t){t.r(n),t.d(n,{default:function(){return s}});var r=t(184);function s(){return(0,r.jsx)(r.Fragment,{children:"Contact Page"})}}}]);
-//# sourceMappingURL=856.d0dd774c.chunk.js.map
