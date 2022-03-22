@@ -16,9 +16,9 @@ const theme: DefaultTheme = {
     main: 'Inter',
     fontSize: {
       body: {
-        min: '20px',
-        size: '24px',
-        max: '2rem',
+        min: '10px',
+        size: '1.25vw', // about 24px at 1920 width
+        max: '24px', // 24px
         weight: '300',
         height: '',
       },
@@ -30,9 +30,9 @@ const theme: DefaultTheme = {
         height: '2',
       },
       sectionTitle: {
-        min: '24px',
-        size: '36px',
-        max: '2.4rem',
+        min: '1rem', // 16px
+        size: '1.9vw', // about 36px at 1920 width
+        max: '36px', // 36px
         weight: '600',
         height: '',
       },
