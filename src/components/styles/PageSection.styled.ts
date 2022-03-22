@@ -21,12 +21,13 @@ export const MainContainer = styled.div<{ hasImage: boolean }>`
   animation-name: ${fadeInUp};
 `
 
-export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
-  height: 100%;
-  width: ${(props) => (props.events ? '20%' : '50%')};
+export const ImageContainer = styled.div<{ image: string; textPosition: string }>`
+  height: 450px;
+  width: 450px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  ${(props) => (props.textPosition === 'right' ? 'margin-left: 100px' : 'margin-right: 20px')};
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 `
 

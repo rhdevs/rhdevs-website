@@ -23,7 +23,9 @@ function PageSectionComponent(props: Props) {
 
   return (
     <MainContainer hasImage={props.hasImage}>
-      {props.hasImage && props.textPosition === 'right' && <ImageContainer image={props.image} />}
+      {props.hasImage && props.textPosition === 'right' && (
+        <ImageContainer image={props.image} textPosition={props.textPosition} />
+      )}
       {props.hasImage && props.textPosition === 'right' && <BufferContainer />}
       <TextContainer hasImage={props.hasImage}>
         <Title fontType={sectionTitle} events={props.events} textPosition={props.textPosition}>
@@ -34,7 +36,9 @@ function PageSectionComponent(props: Props) {
         </Body>
       </TextContainer>
       {props.hasImage && props.textPosition === 'left' && <BufferContainer />}
-      {props.hasImage && props.textPosition === 'left' && <ImageContainer image={props.image} />}
+      {props.hasImage && props.textPosition === 'left' && (
+        <ImageContainer image={props.image} textPosition={props.textPosition} />
+      )}
     </MainContainer>
   )
 }
