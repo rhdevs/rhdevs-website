@@ -30,10 +30,17 @@ const theme: DefaultTheme = {
         height: '2',
       },
       sectionTitle: {
-        min: '24px',
-        size: '36px',
-        max: '2.4rem',
+        min: '20px',
+        size: '24px',
+        max: '2rem',
         weight: '600',
+        height: '',
+      },
+      sectionText: {
+        min: '12px',
+        size: '18px',
+        max: '1.6rem',
+        weight: '300',
         height: '',
       },
       h1: {
