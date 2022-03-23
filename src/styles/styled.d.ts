@@ -26,6 +26,7 @@ declare module 'styled-components' {
         body: FontType
         input: FontType
         sectionTitle: FontType
+        sectionText: FontType
         h1: FontType
         h2: FontType
         h3: FontType
