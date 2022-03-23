@@ -26,6 +26,16 @@ export const Image = styled.img`
   height: 20%;
   width: 15%;
 `
+export const DividerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+`
+
+export const Divider = styled.div`
+  width: 60%;
+  border: 1.4px solid #10bcbc;
+`
 
 export const ProjectPreviewContainer = styled.div`
   display: flex;
