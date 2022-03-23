@@ -34,7 +34,7 @@ export const DividerContainer = styled.div`
 
 export const Divider = styled.div`
   width: 60%;
-  border: 1.4px solid #10bcbc;
+  border: 1.4px solid ${(props) => props.theme.palette.primary};
 `
 
 export const ProjectPreviewContainer = styled.div`
