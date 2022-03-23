@@ -33,6 +33,7 @@ export default function About() {
         hasImage
         textPosition="left"
         image={visionLogo}
+        mayNeedReverse
       />
       <PageSectionComponent
         title="Front End"
@@ -47,6 +48,7 @@ export default function About() {
         hasImage
         textPosition="left"
         image={backendLogo}
+        mayNeedReverse
       />
       <PageSectionComponent
         title="Designers"
@@ -55,7 +57,14 @@ export default function About() {
         textPosition="right"
         image={designersLogo}
       />
-      <PageSectionComponent title="UI UX" description={uiuxDescription} hasImage textPosition="left" image={UIUXLogo} />
+      <PageSectionComponent
+        title="UI UX"
+        description={uiuxDescription}
+        hasImage
+        textPosition="left"
+        image={UIUXLogo}
+        mayNeedReverse
+      />
     </MainContainer>
   )
 }

@@ -13,7 +13,7 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div<{ hasImage: boolean }>`
+export const MainContainer = styled.div<{ hasImage: boolean; mayNeedReverse?: boolean }>`
   margin-top: 20px;
   margin-bottom: 75px;
   display: flex;
@@ -22,26 +22,42 @@ export const MainContainer = styled.div<{ hasImage: boolean }>`
   background-color: black;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
+
+  @media screen and (max-width: 800px) {
+    flex-direction: ${(props) => (props.mayNeedReverse ? 'column-reverse' : 'column')};
+    align-items: center;
+  }
 `
 
 export const ImageContainer = styled.div<{ image: string; textPosition?: 'left' | 'right'; events?: boolean }>`
+  max-width: 350px;
   min-height: 300px;
   width: ${(props) => (props.events ? '20%' : '50%')};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  ${(props) => (props.textPosition === 'right' ? 'margin-left: 100px' : 'margin-right: 20px')};
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
+
+  @media screen and (min-width: 800px) {
+    ${(props) => (props.textPosition === 'right' ? 'margin-left: 100px' : 'margin-right: 20px')};
+  }
+
+  @media screen and (max-width: 800px) {
+    margin: 50px 0;
+  }
 `
 
 export const TextContainer = styled.div<{ hasImage: boolean }>`
-  height: width: ${(props) => (props.hasImage ? '50%' : '100%')};
-  width: ${(props) => (props.hasImage ? '50%' : '83%')};
   margin-left: 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   over-flow: auto;
+
+  @media screen and (min-width: 800px) {
+    height: width: ${(props) => (props.hasImage ? '50%' : '100%')};
+    width: ${(props) => (props.hasImage ? '50%' : '83%')};
+  }
 `
 
 export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
