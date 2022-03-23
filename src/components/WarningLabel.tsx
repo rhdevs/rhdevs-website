@@ -9,10 +9,10 @@ type Props = {
 
 function WarningLabel(props: Props) {
   const theme = useTheme()
-  const { h3 } = { ...theme.typography.fontSize }
+  const { h2 } = { ...theme.typography.fontSize }
 
   return (
-    <Label fontType={h3}>
+    <Label fontType={h2}>
       <WarningOutlined /> {props.label}
     </Label>
   )
