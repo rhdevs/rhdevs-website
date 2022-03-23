@@ -1,4 +1,5 @@
 import { useTheme } from 'styled-components'
+import { NavBarSpace } from 'src/components/styles/NavBar.styled'
 import ContactForm from '../../components/Contact'
 import {
   MainContainer,
@@ -20,6 +21,7 @@ export default function Contact() {
   const { body, h1, h2 } = { ...theme.typography.fontSize }
   return (
     <MainContainer>
+      <NavBarSpace />
       <ContactTitle fontType={h1}>Contact Us</ContactTitle>
       <StaticSection>
         <InformationSection>

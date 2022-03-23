@@ -19,22 +19,26 @@ const defaultProps = {
 
 function PageSectionComponent(props: Props) {
   const theme = useTheme()
-  const { sectionTitle, body } = { ...theme.typography.fontSize }
+  const { sectionTitle, sectionText } = { ...theme.typography.fontSize }
 
   return (
     <MainContainer hasImage={props.hasImage}>
-      {props.hasImage && props.textPosition === 'right' && <ImageContainer image={props.image} />}
+      {props.hasImage && props.textPosition === 'right' && (
+        <ImageContainer image={props.image} textPosition={props.textPosition} />
+      )}
       {props.hasImage && props.textPosition === 'right' && <BufferContainer />}
       <TextContainer hasImage={props.hasImage}>
         <Title fontType={sectionTitle} events={props.events} textPosition={props.textPosition}>
           {props.title}
         </Title>
-        <Body fontType={body} events={props.events} textPosition={props.textPosition}>
+        <Body fontType={sectionText} events={props.events} textPosition={props.textPosition}>
           {props.description}
         </Body>
       </TextContainer>
       {props.hasImage && props.textPosition === 'left' && <BufferContainer />}
-      {props.hasImage && props.textPosition === 'left' && <ImageContainer image={props.image} />}
+      {props.hasImage && props.textPosition === 'left' && (
+        <ImageContainer image={props.image} textPosition={props.textPosition} />
+      )}
     </MainContainer>
   )
 }

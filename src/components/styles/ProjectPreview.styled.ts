@@ -32,14 +32,7 @@ export const PreviewTitle = styled.label<{ fontType: FontType }>`
   transition: background-image 0.4s ease-in-out;
   width: fit-content;
   &:hover {
-    background-position: 9px 1.15em;
-    background-image: linear-gradient(
-      to bottom,
-      ${(props) => props.theme.palette.common.white},
-      ${(props) => props.theme.palette.common.white}
-    );
-    background-repeat: no-repeat;
-    background-size: calc(100% - 18px) 2px;
+    text-decoration: underline;
   }
 `
 

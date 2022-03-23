@@ -36,6 +36,13 @@ const theme: DefaultTheme = {
         weight: '600',
         height: '',
       },
+      sectionText: {
+        min: '12px',
+        size: '1.25vw',
+        max: '18px',
+        weight: '300',
+        height: '',
+      },
       h1: {
         min: '20px',
         size: '2vw',
