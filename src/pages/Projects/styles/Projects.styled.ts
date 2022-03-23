@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import logoBackground from '../../../assets/logo-background.png'
+import logoBackground from '../../../assets/logo_background.png'
 
 export const MainContainer = styled.div`
   height: 100vh;

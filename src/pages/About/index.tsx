@@ -9,45 +9,53 @@ import {
 } from '../../texts/descriptions/aboutUs'
 import { MainContainer } from './styles/About.styled'
 import PageSectionComponent from '../../components/PageSection'
-import frontendLogo from '../../assets/Frontend-logo.png'
-import backendLogo from '../../assets/Backend-logo.png'
-import designersLogo from '../../assets/Designers-logo.png'
-import UIUXLogo from '../../assets/UIUX-logo.png'
+import RHBackground from '../../assets/raffleshall_image.png'
+import visionLogo from '../../assets/vision_logo.png'
+import frontendLogo from '../../assets/frontend_logo.png'
+import backendLogo from '../../assets/backend_logo.png'
+import designersLogo from '../../assets/designers_logo.png'
+import UIUXLogo from '../../assets/uiux_logo.png'
 
 export default function About() {
   return (
     <MainContainer>
       <NavBarSpace />
-      <PageSectionComponent title="Mission" description={missionDescription} hasImage={false} />
-      <PageSectionComponent title="Vision" description={visionDescription} hasImage={false} />
+      <PageSectionComponent
+        title="Mission"
+        description={missionDescription}
+        hasImage
+        textPosition="right"
+        image={RHBackground}
+      />
+      <PageSectionComponent
+        title="Vision"
+        description={visionDescription}
+        hasImage
+        textPosition="left"
+        image={visionLogo}
+      />
       <PageSectionComponent
         title="Front End"
         description={frontEndDescription}
         hasImage
-        textPosition="left"
+        textPosition="right"
         image={frontendLogo}
       />
       <PageSectionComponent
         title="Back End"
         description={backEndDescription}
         hasImage
-        textPosition="right"
+        textPosition="left"
         image={backendLogo}
       />
       <PageSectionComponent
         title="Designers"
         description={designersDescription}
         hasImage
-        textPosition="left"
+        textPosition="right"
         image={designersLogo}
       />
-      <PageSectionComponent
-        title="UI UX"
-        description={uiuxDescription}
-        hasImage
-        textPosition="right"
-        image={UIUXLogo}
-      />
+      <PageSectionComponent title="UI UX" description={uiuxDescription} hasImage textPosition="left" image={UIUXLogo} />
     </MainContainer>
   )
 }

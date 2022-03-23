@@ -27,6 +27,13 @@ export const visionDescription = (
   </>
 )
 
+export const logoDescription = (
+  <>
+    {'</>'} symbols are core in html languagge for webpage, forming the D in DEVS. The gradient element includes the
+    design aspect of the CCA and mirrors “futuristic” color trends in Apps logos
+  </>
+)
+
 export const frontEndDescription =
   'Brimming with passion, our front-end developers strive to build the best and most helpful web applications and platforms for Raffles Hall residents.'
 
