@@ -23,7 +23,7 @@ export const MainContainer = styled.div<{ hasImage: boolean }>`
 `
 
 export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
-  min-height: 350px;
+  min-height: 300px;
   width: ${(props) => (props.events ? '20%' : '50%')};
   background-size: contain;
   background-repeat: no-repeat;
