@@ -16,8 +16,8 @@ const theme: DefaultTheme = {
     main: 'Inter',
     fontSize: {
       body: {
-        min: '20px',
-        size: '24px',
+        min: '18px',
+        size: '18px',
         max: '2rem',
         weight: '300',
         height: '',
