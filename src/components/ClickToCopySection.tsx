@@ -4,11 +4,11 @@ import { ClickToCopyLink, ClickToCopyTitle } from './styles/ClickToCopySection.s
 
 function ClickToCopySection({ text, value, title }: { text: string; value?: string; title?: string }) {
   const theme = useTheme()
-  const { body, h3 } = { ...theme.typography.fontSize }
+  const { body, h2 } = { ...theme.typography.fontSize }
 
   return (
     <>
-      <ClickToCopyTitle color={theme.palette.common.white} fontType={h3}>
+      <ClickToCopyTitle color={theme.palette.common.white} fontType={h2}>
         {title}
       </ClickToCopyTitle>
       <ClickToCopyLink

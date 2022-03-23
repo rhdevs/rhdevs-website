@@ -45,7 +45,7 @@ const theme: DefaultTheme = {
       },
       h2: {
         min: '14px',
-        size: '1.4vw',
+        size: '1.2vw',
         max: '18px',
         weight: '600',
         height: '2',

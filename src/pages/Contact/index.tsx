@@ -17,7 +17,7 @@ import logo from '../../assets/logo.png'
 
 export default function Contact() {
   const theme = useTheme()
-  const { body, h1, h3 } = { ...theme.typography.fontSize }
+  const { body, h1, h2 } = { ...theme.typography.fontSize }
   return (
     <MainContainer>
       <ContactTitle fontType={h1}>Contact Us</ContactTitle>
@@ -29,7 +29,7 @@ export default function Contact() {
             </SectionContainer>
           ))}
           <SectionContainer>
-            <SectionTitle fontType={h3}>{socialMedia.title}</SectionTitle>
+            <SectionTitle fontType={h2}>{socialMedia.title}</SectionTitle>
             <SectionContent>
               {socialMedia.items.map((item) => (
                 <ContactLink fontType={body} href={socialMedia.links[item]} target="_blank">
