@@ -35,7 +35,7 @@ function ContactForm() {
       <InputField type="text" title="Name" error={errors.Name} register={register} pattern={nameRegex} required />
       <InputField type="email" title="Email" error={errors.Email} register={register} pattern={emailRegex} required />
       <InputField type="text" title="Message" error={errors.Message} register={register} required />
-      <SubmitButton text="Submit" fontSize="20px" />
+      <SubmitButton text="Submit" />
     </FormContainer>
   )
 }

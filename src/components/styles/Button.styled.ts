@@ -1,12 +1,13 @@
-import styled from 'styled-components'
+import styled, { FontType } from 'styled-components'
+import { fontTypeCss } from '../../styles/index.styled'
 
-export const BaseButton = styled.div<{ fontSize?: string; isActive?: boolean }>`
+export const BaseButton = styled.div<{ fontType: FontType; isActive?: boolean }>`
   width: fit-content;
   justify-content: center;
   align-items: center;
   .ant-btn-text {
     color: ${(props) => props.theme.palette.common.white};
-    font-size: ${(props) => `clamp(14px, 2vw, ${props.fontSize})`};
+    ${fontTypeCss}
     border: 0;
     border-bottom: transparent 2px solid;
     background-color: ${(props) => props.theme.palette.common.black};

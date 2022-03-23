@@ -24,7 +24,7 @@ const theme: DefaultTheme = {
       },
       input: {
         min: '16px',
-        size: '1.25vw',
+        size: '1.3vw',
         max: '20px',
         weight: '300',
         height: '2',
@@ -48,11 +48,11 @@ const theme: DefaultTheme = {
         size: '1.2vw',
         max: '18px',
         weight: '600',
-        height: '2',
+        height: '1.5',
       },
       h3: {
         min: '14px',
-        size: '1vw',
+        size: '1.2vw',
         max: '18px',
         weight: '500',
         height: '1',
