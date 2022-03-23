@@ -18,15 +18,14 @@ export const MainContainer = styled.div<{ hasImage: boolean }>`
   display: flex;
   padding: 0 50px 0 0;
   justify-content: space-between;
-  align-items: center;
   background-color: black;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
 `
 
 export const ImageContainer = styled.div<{ image: string; textPosition: string }>`
-  height: 450px;
-  width: 450px;
+  height: 400px;
+  width: 400px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
