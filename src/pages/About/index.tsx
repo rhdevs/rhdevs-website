@@ -14,7 +14,7 @@ import visionLogo from '../../assets/vision_logo.png'
 import frontendLogo from '../../assets/frontend_logo.png'
 import backendLogo from '../../assets/backend_logo.png'
 import designersLogo from '../../assets/designers_logo.png'
-import UIUXLogo from '../../assets/UIUX_logo.png'
+import UIUXLogo from '../../assets/uiux_logo.png'
 
 export default function About() {
   return (
