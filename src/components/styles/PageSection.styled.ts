@@ -14,8 +14,11 @@ const fadeInUp = keyframes`
 `
 
 export const MainContainer = styled.div<{ hasImage: boolean }>`
-  margin: 150px 0;
+  margin: 75px 0;
   display: flex;
+  padding: 0 50px 0 0;
+  justify-content: space-between;
+  align-items: center;
   background-color: black;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
