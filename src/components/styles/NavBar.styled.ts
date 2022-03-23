@@ -1,20 +1,24 @@
 import styled from 'styled-components'
 
-export const MainContainer = styled.div`
-  width: 100%;
+export const MainContainer = styled.div<{ isVisible: boolean }>`
+  width: 100vw;
   height: 5rem;
-`
-
-export const NavItemContainer = styled.div<{ isVisible: boolean }>`
-  height: 5rem;
-  display: flex;
   position: fixed;
-  margin-left: 3rem;
-  transform: ${(props) => (props.isVisible ? 'translateY(0)' : 'translateY(-100%)')};
+  transform: ${(props) => (props.isVisible ? 'translateY(0%)' : 'translateY(-150%)')};
   transition: transform 0.3s ease-in-out;
   background-color: ${(props) => `${props.theme.palette.common.black}`};
+`
+
+export const NavItemContainer = styled.div`
+  height: 5rem;
+  display: flex;
+  margin-left: 3rem;
 
   div + div {
     margin-left: 2rem;
   }
+`
+
+export const NavBarSpace = styled.div`
+  margin-top: 5.5rem;
 `
