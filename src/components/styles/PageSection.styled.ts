@@ -15,6 +15,7 @@ const fadeInUp = keyframes`
 
 export const MainContainer = styled.div<{ hasImage: boolean }>`
   margin: 5px 0;
+  margin-bottom: 80px;
   display: flex;
   background-color: black;
   animation-duration: 1s;
@@ -22,7 +23,6 @@ export const MainContainer = styled.div<{ hasImage: boolean }>`
 `
 
 export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
-  height: 100%;
   width: ${(props) => (props.events ? '20%' : '50%')};
   background-size: contain;
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@ export const Title = styled.div<{ events?: boolean; textPosition: string; fontTy
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: 3%;
+  padding-bottom: 15px;
 `
 
 export const Body = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
