@@ -14,7 +14,7 @@ export default function Events() {
         textPosition="left"
         image=""
         events
-        mayNeedReverse
+        responsiveReverse
       />
       <PageSectionComponent
         title={interHallHackathon.eventName}

@@ -13,7 +13,7 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div<{ hasImage: boolean; mayNeedReverse?: boolean }>`
+export const MainContainer = styled.div<{ hasImage: boolean; responsiveReverse?: boolean }>`
   margin-top: 20px;
   margin-bottom: 75px;
   display: flex;
@@ -24,7 +24,7 @@ export const MainContainer = styled.div<{ hasImage: boolean; mayNeedReverse?: bo
   animation-name: ${fadeInUp};
 
   @media screen and (max-width: 800px) {
-    flex-direction: ${(props) => (props.mayNeedReverse ? 'column-reverse' : 'column')};
+    flex-direction: ${(props) => (props.responsiveReverse ? 'column-reverse' : 'column')};
     align-items: center;
   }
 `

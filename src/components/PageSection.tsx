@@ -9,14 +9,14 @@ type Props = {
   textPosition?: 'left' | 'right'
   image?: string
   events?: boolean
-  mayNeedReverse?: boolean
+  responsiveReverse?: boolean
 } & typeof defaultProps
 
 const defaultProps = {
   textPosition: 'left',
   image: '',
   events: false,
-  mayNeedReverse: false,
+  responsiveReverse: false,
 }
 
 function PageSectionComponent(props: Props) {
@@ -24,7 +24,7 @@ function PageSectionComponent(props: Props) {
   const { sectionTitle, sectionText } = { ...theme.typography.fontSize }
 
   return (
-    <MainContainer hasImage={props.hasImage} mayNeedReverse={props.mayNeedReverse}>
+    <MainContainer hasImage={props.hasImage} responsiveReverse={props.responsiveReverse}>
       {props.hasImage && props.textPosition === 'right' && (
         <ImageContainer image={props.image} textPosition={props.textPosition} />
       )}
