@@ -13,26 +13,28 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div<{ hasImage: boolean; events?: boolean }>`
-  min-height: 50vh;
-  margin: ${(props) => (props.events ? '100px 0 100px' : '5px 0')};
+export const MainContainer = styled.div<{ hasImage: boolean }>`
+  margin: 75px 0;
   display: flex;
+  padding: 0 25px 25px 0;
+  justify-content: space-between;
   background-color: black;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
 `
 
-export const ImageContainer = styled.div<{ image: string; events?: boolean }>`
-  height: 500px;
-  width: ${(props) => (props.events ? '50%' : '50%')};
-  background-size: auto;
+export const ImageContainer = styled.div<{ image: string; textPosition: string }>`
+  height: 400px;
+  width: 400px;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  ${(props) => (props.textPosition === 'right' ? 'margin-left: 100px' : 'margin-right: 20px')};
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 `
 
 export const TextContainer = styled.div<{ hasImage: boolean }>`
-  height: 100%;
+  height: width: ${(props) => (props.hasImage ? '50%' : '100%')};
   width: ${(props) => (props.hasImage ? '50%' : '83%')};
   margin-left: 8%;
   display: flex;

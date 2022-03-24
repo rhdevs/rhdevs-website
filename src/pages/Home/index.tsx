@@ -1,9 +1,10 @@
 import RHDevLogo from '../../components/RHDevLogo'
-import { MainContainer } from './styles/HomePage.styled'
+import { MainContainer, Space } from './styles/HomePage.styled'
 
 export default function Home() {
   return (
     <MainContainer>
+      <Space />
       <RHDevLogo />
     </MainContainer>
   )

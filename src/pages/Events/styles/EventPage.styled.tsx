@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled.div`
-  margin: 30px 0;
-  height: calc(100vh - 5.5rem);
+  margin-bottom: 30px;
+  padding-bottom: 50px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: space-between;

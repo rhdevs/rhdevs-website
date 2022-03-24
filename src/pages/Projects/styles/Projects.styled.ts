@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import logoBackground from '../../../assets/logo-background.png'
 
 export const MainContainer = styled.div`
-  height: calc(100vh - 5.5rem);
+  height: 100vh;
   display: grid;
   grid-template-rows: 1fr max-content;
   grid-template-columns: 1fr;
