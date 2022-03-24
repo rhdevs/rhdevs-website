@@ -1,3 +1,4 @@
+import { NavBarSpace } from 'src/components/styles/NavBar.styled'
 import {
   missionDescription,
   visionDescription,
@@ -16,6 +17,7 @@ import UIUXLogo from '../../assets/UIUX-logo.png'
 export default function About() {
   return (
     <MainContainer>
+      <NavBarSpace />
       <PageSectionComponent title="Mission" description={missionDescription} hasImage={false} />
       <PageSectionComponent title="Vision" description={visionDescription} hasImage={false} />
       <PageSectionComponent

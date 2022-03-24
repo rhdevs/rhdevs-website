@@ -25,8 +25,8 @@ function NavBar() {
   }, [prevScrollPos, isVisible, handleScroll])
 
   return (
-    <MainContainer>
-      <NavItemContainer isVisible={isVisible}>
+    <MainContainer isVisible={isVisible}>
+      <NavItemContainer>
         {navTitles.map((item) => (
           <NavItem
             text={item}
