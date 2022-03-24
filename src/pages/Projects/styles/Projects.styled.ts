@@ -32,7 +32,7 @@ export const DividerContainer = styled.div`
   margin-bottom: 80px;
 `
 
-export const Divider = styled.div`
+export const Divider = styled.hr`
   width: 60%;
   border: 1.4px solid ${(props) => props.theme.palette.primary};
 `
