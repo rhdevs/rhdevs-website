@@ -54,7 +54,6 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  over-flow: auto;
 
   @media screen and (min-width: 800px) {
     margin-left: 8%;
