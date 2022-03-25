@@ -1,5 +1,4 @@
 import styled, { keyframes, FontType } from 'styled-components'
-import Null from '../../assets/noimg.png'
 import { fontTypeCss } from '../../styles/index.styled'
 
 const fadeInUp = keyframes`
@@ -13,51 +12,42 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div<{ hasImage: boolean }>`
-  margin: 75px 0;
-  display: flex;
-  padding: 0 50px 0 0;
+export const MainContainer = styled.div<{ imgPosition?: 'left' | 'right' }>`
+  display: grid;
   justify-content: space-between;
-  background-color: black;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: ${(props) => props.imgPosition && 'auto'} auto;
+  grid-template-areas: '${(props) => props.imgPosition === 'left' && 'image'} text ${(props) =>
+    props.imgPosition === 'right' && 'image'}';
+  gap: 5rem;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
 `
 
-export const ImageContainer = styled.div<{ image: string; textPosition: string }>`
-  height: 400px;
-  width: 400px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  ${(props) => (props.textPosition === 'right' ? 'margin-left: 100px' : 'margin-right: 20px')};
-  ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
+export const ImageContainer = styled.img`
+  grid-area: image;
+  object-fit: contain;
+  max-height: 350px;
+  max-width: 350px;
 `
 
-export const TextContainer = styled.div<{ hasImage: boolean }>`
-  height: width: ${(props) => (props.hasImage ? '50%' : '100%')};
-  width: ${(props) => (props.hasImage ? '50%' : '83%')};
-  margin-left: 8%;
+export const TextContainer = styled.div`
+  grid-area: text;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  over-flow: auto;
+  gap: 1rem;
 `
 
-export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
+export const Title = styled.h2<{ events?: boolean; fontType: FontType }>`
   color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
   ${fontTypeCss}
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 3%;
+  margin-block: 0;
 `
 
-export const Body = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
-  ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
+export const Body = styled.p<{ events?: boolean; fontType: FontType }>`
   ${(props) => `color: ${props.theme.palette.common.gray};`}
   ${fontTypeCss}
   white-space: pre-wrap;
-`
-export const BufferContainer = styled.div`
-  width: 2vw;
+  margin: 0;
 `

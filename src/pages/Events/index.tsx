@@ -1,28 +1,22 @@
-import { NavBarSpace } from 'src/components/styles/NavBar.styled'
 import PageSectionComponent from '../../components/PageSection'
-import { MainContainer } from './styles/EventPage.styled'
 import { interHallHackathon } from '../../texts/descriptions/events'
+import { InformationMainContainer } from '../styles/InformationMain'
 
 export default function Events() {
   return (
-    <MainContainer>
-      <NavBarSpace />
+    <InformationMainContainer>
       <PageSectionComponent
         title={interHallHackathon.eventName}
         description={interHallHackathon.eventDescription}
-        hasImage
-        textPosition="left"
-        image=""
+        imgPosition="right"
         events
       />
       <PageSectionComponent
         title={interHallHackathon.eventName}
         description={interHallHackathon.eventDescription}
-        hasImage
-        textPosition="right"
-        image=""
+        imgPosition="left"
         events
       />
-    </MainContainer>
+    </InformationMainContainer>
   )
 }

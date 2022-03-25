@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import logoBackground from '../../../assets/logo-background.png'
+import { MainContainer as StyledMainContainer } from '../../styles/MainContainer'
 
-export const MainContainer = styled.div`
-  height: 100vh;
+export const MainContainer = styled(StyledMainContainer)`
   display: grid;
   grid-template-rows: 1fr max-content;
   grid-template-columns: 1fr;
