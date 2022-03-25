@@ -25,7 +25,7 @@ export const PreviewText = styled.div<{ hasAnimation?: boolean; fontType: FontTy
 `
 
 export const PreviewTitle = styled.label<{ fontType: FontType }>`
-  ${fontTypeCss}
+  font-size: ${(props) => props.fontType.size};
   color: ${(props) => props.theme.palette.common.white};
   border: 0;
   background-color: ${(props) => props.theme.palette.common.black};
