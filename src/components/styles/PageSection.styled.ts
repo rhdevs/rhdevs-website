@@ -24,7 +24,7 @@ export const MainContainer = styled.div<{ hasImage: boolean; responsiveReverse?:
   animation-duration: 1s;
   animation-name: ${fadeInUp};
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1140px) {
     flex-direction: ${(props) => (props.responsiveReverse ? 'column-reverse' : 'column')};
     align-items: flex-start;
     padding: 0px;
@@ -40,12 +40,12 @@ export const ImageContainer = styled.div<{ image: string; textPosition?: 'left' 
   background-repeat: no-repeat;
   ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1140px) {
     ${(props) => (props.textPosition === 'right' ? 'margin-left: 100px' : 'margin-right: 20px')};
     background-position: center;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1140px) {
     margin: 50px 15%;
   }
 `
@@ -55,7 +55,7 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
   flex-direction: column;
   justify-content: center;
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1140px) {
     margin-left: 8%;
     height: ${(props) => (props.hasImage ? '50%' : '100%')};
     width: ${(props) => (props.hasImage ? '50%' : '83%')};
@@ -65,12 +65,13 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
 export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
   color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
   ${fontTypeCss}
+  font-size: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 20px;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1140px) {
     margin: 0 15%;
   }
 `
@@ -79,9 +80,10 @@ export const Body = styled.div<{ events?: boolean; textPosition: string; fontTyp
   ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
   ${(props) => `color: ${props.theme.palette.common.gray};`}
   ${fontTypeCss}
+  font-size: 1.2rem;
   white-space: pre-wrap;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1140px) {
     width: 70%;
     margin: 0 auto;
   }
