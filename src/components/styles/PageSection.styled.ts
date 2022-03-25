@@ -17,7 +17,7 @@ export const MainContainer = styled.div<{ hasImage: boolean; responsiveReverse?:
   margin-top: 20px;
   margin-bottom: 75px;
   display: flex;
-  padding: 0 50px 0 0;
+  padding: 0 25px 25px 0;
   justify-content: space-between;
   align-items: center;
   background-color: black;
@@ -54,6 +54,7 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: justify;
 
   @media screen and (min-width: 1140px) {
     margin-left: 8%;
@@ -63,7 +64,7 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
 `
 
 export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
-  color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
+  color: ${(props) => props.theme.palette.primary};
   ${fontTypeCss}
   font-size: 2rem;
   display: flex;
