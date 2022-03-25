@@ -50,4 +50,5 @@ export const Body = styled.p<{ events?: boolean; fontType: FontType }>`
   ${fontTypeCss}
   white-space: pre-wrap;
   margin: 0;
+  text-align: justify;
 `

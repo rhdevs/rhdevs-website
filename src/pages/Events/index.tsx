@@ -1,22 +1,19 @@
 import PageSectionComponent from '../../components/PageSection'
-import { interHallHackathon } from '../../texts/descriptions/events'
 import { InformationMainContainer } from '../styles/InformationMain'
+import { events } from '../../texts/descriptions/events'
 
 export default function Events() {
   return (
     <InformationMainContainer>
-      <PageSectionComponent
-        title={interHallHackathon.eventName}
-        description={interHallHackathon.eventDescription}
-        imgPosition="right"
-        events
-      />
-      <PageSectionComponent
-        title={interHallHackathon.eventName}
-        description={interHallHackathon.eventDescription}
-        imgPosition="left"
-        events
-      />
+      {events.map((event, index) => (
+        <PageSectionComponent
+          title={event.title}
+          description={event.description}
+          imgPosition={index % 2 === 0 ? 'left' : 'right'}
+          imageSrc={event.image}
+          events
+        />
+      ))}
     </InformationMainContainer>
   )
 }
