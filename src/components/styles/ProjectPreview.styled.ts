@@ -40,6 +40,6 @@ export const PreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.theme.palette.common.black};
-  cursor: pointer;
+  cursor: default;
   flex: 1 1 100%;
 `
