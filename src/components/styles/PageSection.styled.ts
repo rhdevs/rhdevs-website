@@ -1,5 +1,4 @@
 import styled, { keyframes, FontType } from 'styled-components'
-import Null from '../../assets/noimg.png'
 import { fontTypeCss } from '../../styles/index.styled'
 
 const fadeInUp = keyframes`
@@ -13,14 +12,14 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div<{ hasImage: boolean; responsiveReverse?: boolean }>`
-  margin-top: 20px;
-  margin-bottom: 30px;
-  display: flex;
-  padding: 0 25px 25px 0;
+export const MainContainer = styled.div<{ imgPosition?: 'left' | 'right'; responsiveReverse?: boolean }>`
+  display: grid;
   justify-content: space-between;
-  align-items: center;
-  background-color: black;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: ${(props) => props.imgPosition && 'auto'} auto;
+  grid-template-areas: '${(props) => props.imgPosition === 'left' && 'image'} text ${(props) =>
+    props.imgPosition === 'right' && 'image'}';
+  gap: 5rem;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
 
@@ -32,64 +31,32 @@ export const MainContainer = styled.div<{ hasImage: boolean; responsiveReverse?:
   }
 `
 
-export const ImageContainer = styled.div<{ image: string; textPosition?: 'left' | 'right'; events?: boolean }>`
+export const ImageContainer = styled.img`
+  grid-area: image;
+  object-fit: contain;
+  max-height: 350px;
   max-width: 350px;
-  min-height: 300px;
-  width: ${(props) => (props.events ? '20%' : '50%')};
-  background-size: contain;
-  background-repeat: no-repeat;
-  ${(props) => (props.image === '' ? `background-image: url(${Null});` : `background-image: url(${props.image});`)}
-
-  @media screen and (min-width: 1140px) {
-    ${(props) => (props.textPosition === 'right' ? 'margin-left: 100px' : 'margin-right: 20px')};
-    background-position: center;
-  }
-
-  @media screen and (max-width: 1140px) {
-    margin: 5% 15%;
-  }
 `
 
-export const TextContainer = styled.div<{ hasImage: boolean }>`
+export const TextContainer = styled.div`
+  grid-area: text;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: justify;
-
-  @media screen and (min-width: 1140px) {
-    margin-left: 8%;
-    height: ${(props) => (props.hasImage ? '50%' : '100%')};
-    width: ${(props) => (props.hasImage ? '50%' : '83%')};
-  }
+  gap: 1rem;
 `
 
-export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
-  color: ${(props) => props.theme.palette.primary};
+export const Title = styled.h2<{ events?: boolean; fontType: FontType }>`
+  color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
   ${fontTypeCss}
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 20px;
-
-  @media screen and (max-width: 1140px) {
-    margin: 0 15%;
-  }
+  margin-block: 0;
 `
 
-export const Body = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
-  ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
+export const Body = styled.p<{ events?: boolean; fontType: FontType }>`
   ${(props) => `color: ${props.theme.palette.common.gray};`}
   ${fontTypeCss}
   font-size: 1.1rem;
   white-space: pre-wrap;
-
-  @media screen and (max-width: 1140px) {
-    width: 70%;
-    margin: 0 auto;
-  }
-`
-
-export const BufferContainer = styled.div`
-  width: 2vw;
+  margin: 0;
+  text-align: justify;
 `

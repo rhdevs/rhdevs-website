@@ -1,16 +1,19 @@
 import styled from 'styled-components'
 
+export const NAV_BAR_HEIGHT = '4rem'
+
 export const MainContainer = styled.div<{ isVisible: boolean }>`
   width: 100vw;
-  height: 5rem;
-  position: fixed;
-  transform: ${(props) => (props.isVisible ? 'translateY(0%)' : 'translateY(-150%)')};
-  transition: transform 0.3s ease-in-out;
+  height: ${NAV_BAR_HEIGHT};
+  margin: 0;
+  ${(props) => props.isVisible && 'position: fixed;'}
+  top: ${(props) => (props.isVisible ? 0 : `-${NAV_BAR_HEIGHT}`)};
+  transition: top 0.3s;
   background-color: ${(props) => `${props.theme.palette.common.black}`};
 `
 
 export const NavItemContainer = styled.div`
-  height: 5rem;
+  height: ${NAV_BAR_HEIGHT};
   display: flex;
   margin-left: 3rem;
 
@@ -19,6 +22,6 @@ export const NavItemContainer = styled.div`
   }
 `
 
-export const NavBarSpace = styled.div`
-  margin-top: 5.5rem;
+export const NavBarSpace = styled.div<{ isVisible: boolean }>`
+  height: ${(props) => (props.isVisible ? NAV_BAR_HEIGHT : '0')};
 `

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { PATHS } from 'src/routes/PATHS'
 import { navTitles } from '../texts/common/navTitles'
-import { MainContainer, NavItemContainer } from './styles/NavBar.styled'
+import { MainContainer, NavBarSpace, NavItemContainer } from './styles/NavBar.styled'
 import NavItem from './NavItem'
 
 function NavBar() {
@@ -25,28 +25,31 @@ function NavBar() {
   }, [prevScrollPos, isVisible, handleScroll])
 
   return (
-    <MainContainer isVisible={isVisible}>
-      <NavItemContainer>
-        {navTitles.map((item) => (
-          <NavItem
-            text={item}
-            isActive={
-              item.toLowerCase() === pageName ||
-              (item === 'Home' && pageName === '') ||
-              (item === 'About Us' && `/${pageName}` === PATHS.ABOUT) ||
-              (item === 'Contact Us' && `/${pageName}` === PATHS.CONTACT)
-            }
-            onClick={() => {
-              if (item === 'Home') {
-                navigate('/')
-              } else {
-                navigate(`/${item.toLowerCase().match('^[a-zA-Z-]*')}`)
+    <>
+      <MainContainer isVisible={isVisible}>
+        <NavItemContainer>
+          {navTitles.map((item) => (
+            <NavItem
+              text={item}
+              isActive={
+                item.toLowerCase() === pageName ||
+                (item === 'Home' && pageName === '') ||
+                (item === 'About Us' && `/${pageName}` === PATHS.ABOUT) ||
+                (item === 'Contact Us' && `/${pageName}` === PATHS.CONTACT)
               }
-            }}
-          />
-        ))}
-      </NavItemContainer>
-    </MainContainer>
+              onClick={() => {
+                if (item === 'Home') {
+                  navigate('/')
+                } else {
+                  navigate(`/${item.toLowerCase().match('^[a-zA-Z-]*')}`)
+                }
+              }}
+            />
+          ))}
+        </NavItemContainer>
+      </MainContainer>
+      <NavBarSpace isVisible={isVisible} />
+    </>
   )
 }
 
