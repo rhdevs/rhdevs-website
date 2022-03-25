@@ -9,8 +9,6 @@ import {
 } from '../../texts/descriptions/aboutUs'
 import { MainContainer } from './styles/About.styled'
 import PageSectionComponent from '../../components/PageSection'
-import RHBackground from '../../assets/raffleshall_image.png'
-import visionLogo from '../../assets/vision_logo.png'
 import frontendLogo from '../../assets/frontend_logo.png'
 import backendLogo from '../../assets/backend_logo.png'
 import designersLogo from '../../assets/designers_logo.png'
@@ -20,21 +18,8 @@ export default function About() {
   return (
     <MainContainer>
       <NavBarSpace />
-      <PageSectionComponent
-        title="Mission"
-        description={missionDescription}
-        hasImage
-        textPosition="right"
-        image={RHBackground}
-      />
-      <PageSectionComponent
-        title="Vision"
-        description={visionDescription}
-        hasImage
-        textPosition="left"
-        image={visionLogo}
-        responsiveReverse
-      />
+      <PageSectionComponent title="Mission" description={missionDescription} hasImage={false} />
+      <PageSectionComponent title="Vision" description={visionDescription} hasImage={false} />
       <PageSectionComponent
         title="Front End"
         description={frontEndDescription}
