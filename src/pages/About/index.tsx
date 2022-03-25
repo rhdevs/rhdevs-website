@@ -24,31 +24,31 @@ export default function About() {
         title="Front End"
         description={frontEndDescription}
         hasImage
-        textPosition="right"
+        textPosition="left"
         image={frontendLogo}
+        responsiveReverse
       />
       <PageSectionComponent
         title="Back End"
         description={backEndDescription}
         hasImage
-        textPosition="left"
+        textPosition="right"
         image={backendLogo}
-        responsiveReverse
       />
       <PageSectionComponent
         title="Designers"
         description={designersDescription}
         hasImage
-        textPosition="right"
+        textPosition="left"
         image={designersLogo}
+        responsiveReverse
       />
       <PageSectionComponent
         title="UI UX"
         description={uiuxDescription}
         hasImage
-        textPosition="left"
+        textPosition="right"
         image={UIUXLogo}
-        responsiveReverse
       />
     </MainContainer>
   )

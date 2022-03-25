@@ -28,7 +28,7 @@ export const MainContainer = styled.div<{ hasImage: boolean; responsiveReverse?:
     flex-direction: ${(props) => (props.responsiveReverse ? 'column-reverse' : 'column')};
     align-items: flex-start;
     padding: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 `
 
@@ -46,7 +46,7 @@ export const ImageContainer = styled.div<{ image: string; textPosition?: 'left' 
   }
 
   @media screen and (max-width: 1140px) {
-    margin: 50px 15%;
+    margin: 5% 15%;
   }
 `
 
