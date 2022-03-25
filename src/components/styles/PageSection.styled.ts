@@ -15,7 +15,7 @@ const fadeInUp = keyframes`
 
 export const MainContainer = styled.div<{ hasImage: boolean; responsiveReverse?: boolean }>`
   margin-top: 20px;
-  margin-bottom: 75px;
+  margin-bottom: 30px;
   display: flex;
   padding: 0 25px 25px 0;
   justify-content: space-between;
@@ -28,7 +28,7 @@ export const MainContainer = styled.div<{ hasImage: boolean; responsiveReverse?:
     flex-direction: ${(props) => (props.responsiveReverse ? 'column-reverse' : 'column')};
     align-items: flex-start;
     padding: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 `
 
@@ -81,7 +81,7 @@ export const Body = styled.div<{ events?: boolean; textPosition: string; fontTyp
   ${(props) => (props.textPosition === 'right' ? 'width: 90%' : 'width: 100%')};
   ${(props) => `color: ${props.theme.palette.common.gray};`}
   ${fontTypeCss}
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   white-space: pre-wrap;
 
   @media screen and (max-width: 1140px) {
