@@ -16,7 +16,7 @@ const fadeInUp = keyframes`
 export const MainContainer = styled.div<{ hasImage: boolean }>`
   margin: 75px 0;
   display: flex;
-  padding: 0 50px 0 0;
+  padding: 0 25px 25px 0;
   justify-content: space-between;
   background-color: black;
   animation-duration: 1s;
@@ -40,11 +40,12 @@ export const TextContainer = styled.div<{ hasImage: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: justify;
   over-flow: auto;
 `
 
 export const Title = styled.div<{ events?: boolean; textPosition: string; fontType: FontType }>`
-  color: ${(props) => (props.events ? 'white' : props.theme.palette.primary)};
+  color: ${(props) => props.theme.palette.primary};
   ${fontTypeCss}
   display: flex;
   flex-direction: column;
