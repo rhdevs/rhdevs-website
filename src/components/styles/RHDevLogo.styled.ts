@@ -6,14 +6,14 @@ export const MainContainer = styled.div`
   align-items: center;
   overflow: hidden;
   background-color: black;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 `
 
 export const LogoContainer = styled.div`
+  margin-top: 2rem;
   width: 400px;
   height: 400px;
-  min-width: 400px;
   position: relative;
 `
 

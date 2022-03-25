@@ -1,20 +1,19 @@
 import PageSectionComponent from '../../components/PageSection'
-import { MainContainer } from './styles/EventPage.styled'
+import { InformationMainContainer } from '../styles/InformationMain'
 import { events } from '../../texts/descriptions/events'
 
 export default function Events() {
   return (
-    <MainContainer>
+    <InformationMainContainer>
       {events.map((event, index) => (
         <PageSectionComponent
           title={event.title}
           description={event.description}
-          hasImage
-          textPosition={index % 2 === 0 ? 'right' : 'left'}
-          image={event.image}
+          imgPosition={index % 2 === 0 ? 'left' : 'right'}
+          imageSrc={event.image}
           events
         />
       ))}
-    </MainContainer>
+    </InformationMainContainer>
   )
 }

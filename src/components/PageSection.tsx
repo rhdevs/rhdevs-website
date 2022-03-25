@@ -1,19 +1,23 @@
 import { useTheme } from 'styled-components'
 import React from 'react'
-import { ImageContainer, MainContainer, BufferContainer, TextContainer, Title, Body } from './styles/PageSection.styled'
+import { ImageContainer, MainContainer, TextContainer, Title, Body } from './styles/PageSection.styled'
+import imgPlaceholder from '../assets/noimg.png'
 
 type Props = {
   title: string
   description: string | React.ReactNode
-  hasImage: boolean
-  textPosition?: 'left' | 'right'
-  image?: string
+  imgPosition?: 'left' | 'right' | undefined
+  imageSrc?: string
   events?: boolean
 } & typeof defaultProps
 
-const defaultProps = {
-  textPosition: 'left',
-  image: '',
+const defaultProps: {
+  imgPosition?: 'left' | 'right' | undefined
+  imageSrc?: string
+  events?: boolean
+} = {
+  imgPosition: undefined,
+  imageSrc: imgPlaceholder,
   events: false,
 }
 
@@ -22,26 +26,20 @@ function PageSectionComponent(props: Props) {
   const { sectionTitle, sectionText } = { ...theme.typography.fontSize }
 
   return (
-    <MainContainer hasImage={props.hasImage}>
-      {props.hasImage && props.textPosition === 'right' && (
-        <ImageContainer image={props.image} textPosition={props.textPosition} />
-      )}
-      {props.hasImage && props.textPosition === 'right' && <BufferContainer />}
-      <TextContainer hasImage={props.hasImage}>
-        <Title fontType={sectionTitle} events={props.events} textPosition={props.textPosition}>
+    <MainContainer imgPosition={props.imgPosition}>
+      {props.imgPosition && <ImageContainer src={props.imageSrc} alt={props.title} />}
+      <TextContainer>
+        <Title fontType={sectionTitle} events={props.events}>
           {props.title}
         </Title>
-        <Body fontType={sectionText} events={props.events} textPosition={props.textPosition}>
+        <Body fontType={sectionText} events={props.events}>
           {props.description}
         </Body>
       </TextContainer>
-      {props.hasImage && props.textPosition === 'left' && <BufferContainer />}
-      {props.hasImage && props.textPosition === 'left' && (
-        <ImageContainer image={props.image} textPosition={props.textPosition} />
-      )}
     </MainContainer>
   )
 }
+
 PageSectionComponent.defaultProps = defaultProps
 
 export default PageSectionComponent
