@@ -16,9 +16,9 @@ const theme: DefaultTheme = {
     main: 'Inter',
     fontSize: {
       body: {
-        min: '12px',
-        size: '1.25vw',
-        max: '18px',
+        min: '16px',
+        size: '1.35vw',
+        max: '20px',
         weight: '300',
         height: '',
       },
@@ -39,7 +39,7 @@ const theme: DefaultTheme = {
       sectionText: {
         min: '12px',
         size: '1.25vw',
-        max: '18px',
+        max: '20px',
         weight: '300',
         height: '',
       },
@@ -51,16 +51,16 @@ const theme: DefaultTheme = {
         height: '1',
       },
       h2: {
-        min: '14px',
+        min: '18px',
         size: '1.2vw',
-        max: '18px',
+        max: '22px',
         weight: '600',
         height: '1.5',
       },
       h3: {
-        min: '14px',
+        min: '16px',
         size: '1.2vw',
-        max: '18px',
+        max: '20px',
         weight: '500',
         height: '1',
       },
