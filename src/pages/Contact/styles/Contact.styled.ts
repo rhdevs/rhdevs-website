@@ -1,12 +1,10 @@
 import styled, { FontType } from 'styled-components'
+import { InformationMainContainer } from 'src/pages/styles/InformationMain'
 import { fontTypeCss } from '../../../styles/index.styled'
 
-export const MainContainer = styled.div`
+export const MainContainer = styled(InformationMainContainer)`
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 5% 10%;
   background: ${(props) => props.theme.palette.common.black};
   color: ${(props) => props.theme.palette.common.white};
   gap: 50px;

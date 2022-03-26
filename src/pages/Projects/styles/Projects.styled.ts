@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import logoBackground from '../../../assets/logo-background.png'
+import logoBackground from '../../../assets/logo_background.png'
+import { MainContainer as StyledMainContainer } from '../../styles/MainContainer'
 
-export const MainContainer = styled.div`
-  height: 100vh;
+export const MainContainer = styled(StyledMainContainer)`
   display: grid;
   grid-template-rows: 1fr max-content;
   grid-template-columns: 1fr;
@@ -25,6 +25,16 @@ export const ImageMask = styled.div`
 export const Image = styled.img`
   height: 20%;
   width: 15%;
+`
+export const DividerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+`
+
+export const Divider = styled.hr`
+  width: 60%;
+  border: 1.4px solid ${(props) => props.theme.palette.primary};
 `
 
 export const ProjectPreviewContainer = styled.div`
