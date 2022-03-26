@@ -27,7 +27,6 @@ export const PreviewText = styled.div<{ hasAnimation?: boolean; fontType: FontTy
 export const PreviewTitle = styled.label<{ fontType: FontType }>`
   ${fontTypeCss}
   color: ${(props) => props.theme.palette.common.white};
-  border: 0;
   background-color: ${(props) => props.theme.palette.common.black};
   transition: background-image 0.4s ease-in-out;
   width: fit-content;
@@ -40,5 +39,7 @@ export const PreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.theme.palette.common.black};
+  cursor: default;
   flex: 1 1 100%;
+  margin: 0 0 3% 0;
 `

@@ -41,6 +41,6 @@ export const ProjectPreviewContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  gap: 1rem;
-  margin: 0 1rem 3rem;
+  gap: 50px;
+  margin: 0 100px 40px 100px;
 `
