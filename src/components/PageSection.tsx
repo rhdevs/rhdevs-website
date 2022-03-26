@@ -9,7 +9,6 @@ type Props = {
   imgPosition?: 'left' | 'right' | undefined
   imageSrc?: string
   events?: boolean
-  // responsiveReverse?: boolean
 } & typeof defaultProps
 
 const defaultProps: {
@@ -20,7 +19,6 @@ const defaultProps: {
   imgPosition: undefined,
   imageSrc: imgPlaceholder,
   events: false,
-  // responsiveReverse: false,
 }
 
 function PageSectionComponent(props: Props) {

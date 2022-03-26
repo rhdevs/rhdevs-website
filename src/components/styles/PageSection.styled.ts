@@ -13,24 +13,25 @@ const fadeInUp = keyframes`
 `
 
 export const MainContainer = styled.div<{ imgPosition?: 'left' | 'right'; responsiveReverse?: boolean }>`
-  display: flex;
   justify-content: space-between;
   animation-duration: 1s;
   animation-name: ${fadeInUp};
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: ${(props) => props.imgPosition && 'auto'} auto;
+  grid-template-areas: '${(props) => props.imgPosition === 'left' && 'image'} text ${(props) =>
+    props.imgPosition === 'right' && 'image'}';
 
   @media screen and (min-width: 700px) {
-    display: grid;
-    grid-template-rows: minmax(0, 1fr);
-    grid-template-columns: ${(props) => props.imgPosition && 'auto'} auto;
-    grid-template-areas: '${(props) => props.imgPosition === 'left' && 'image'} text ${(props) =>
-      props.imgPosition === 'right' && 'image'}';
     gap: 5rem;
   }
 
   @media screen and (max-width: 700px) {
+    display: flex;
     flex-direction: ${(props) => (props.responsiveReverse ? 'column-reverse' : 'column')};
     align-items: flex-start;
-    padding: 0px;
+    padding: 0;
+    gap: 1rem;
     margin-bottom: 50px;
   }
 `
@@ -39,10 +40,7 @@ export const ImageContainer = styled.img`
   object-fit: contain;
   max-height: 350px;
   max-width: 350px;
-
-  @media screen and (min-width: 700px) {
-    grid-area: image;
-  }
+  grid-area: image;
 
   @media screen and (max-width: 700px) {
     margin: 0 0 40px 0;
