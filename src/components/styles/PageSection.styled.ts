@@ -12,23 +12,40 @@ const fadeInUp = keyframes`
     }
 `
 
-export const MainContainer = styled.div<{ imgPosition?: 'left' | 'right' }>`
-  display: grid;
+export const MainContainer = styled.div<{ imgPosition?: 'left' | 'right'; responsiveReverse?: boolean }>`
   justify-content: space-between;
+  animation-duration: 1s;
+  animation-name: ${fadeInUp};
+  display: grid;
   grid-template-rows: minmax(0, 1fr);
   grid-template-columns: ${(props) => props.imgPosition && 'auto'} auto;
   grid-template-areas: '${(props) => props.imgPosition === 'left' && 'image'} text ${(props) =>
     props.imgPosition === 'right' && 'image'}';
-  gap: 5rem;
-  animation-duration: 1s;
-  animation-name: ${fadeInUp};
+
+  @media screen and (min-width: 700px) {
+    gap: 5rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: ${(props) => (props.responsiveReverse ? 'column-reverse' : 'column')};
+    align-items: flex-start;
+    padding: 0;
+    gap: 1rem;
+    margin-bottom: 50px;
+  }
 `
 
 export const ImageContainer = styled.img`
-  grid-area: image;
   object-fit: contain;
   max-height: 350px;
   max-width: 350px;
+  grid-area: image;
+
+  @media screen and (max-width: 700px) {
+    margin: 0 0 40px 0;
+    width: 80%;
+  }
 `
 
 export const TextContainer = styled.div`
@@ -48,6 +65,7 @@ export const Title = styled.h2<{ events?: boolean; fontType: FontType }>`
 export const Body = styled.p<{ events?: boolean; fontType: FontType }>`
   ${(props) => `color: ${props.theme.palette.common.gray};`}
   ${fontTypeCss}
+  font-size: 1.1rem;
   white-space: pre-wrap;
   margin: 0;
   text-align: justify;

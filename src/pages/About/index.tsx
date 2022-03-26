@@ -7,10 +7,10 @@ import {
   uiuxDescription,
 } from '../../texts/descriptions/aboutUs'
 import PageSectionComponent from '../../components/PageSection'
-import frontendLogo from '../../assets/Frontend-logo.png'
-import backendLogo from '../../assets/Backend-logo.png'
-import designersLogo from '../../assets/Designers-logo.png'
-import UIUXLogo from '../../assets/UIUX-logo.png'
+import frontendLogo from '../../assets/frontend_logo.png'
+import backendLogo from '../../assets/backend_logo.png'
+import designersLogo from '../../assets/designers_logo.png'
+import UIUXLogo from '../../assets/uiux_logo.png'
 import { InformationMainContainer } from '../styles/InformationMain'
 
 export default function About() {
