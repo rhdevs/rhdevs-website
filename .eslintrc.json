@@ -59,6 +59,8 @@
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "import/no-unresolved": "off",
-    "security/detect-object-injection": "off"
+    "security/detect-object-injection": "off",
+    "react/no-array-index-key": "off",
+    "no-alert": "off"
   }
 }
