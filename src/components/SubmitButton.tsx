@@ -1,22 +1,22 @@
 import { Button as AntdButton } from 'antd'
+import { useTheme } from 'styled-components'
 import { BaseButton } from './styles/Button.styled'
 
 type Props = {
   text: string
-  fontSize?: string
   isActive?: boolean
 }
 
 const defaultProps = {
-  fontSize: '20px',
   isActive: false,
 }
 
 function SubmitButton(props: Props) {
-  const { text, fontSize, isActive } = props
-
+  const { text, isActive } = props
+  const theme = useTheme()
+  const { h2 } = { ...theme.typography.fontSize }
   return (
-    <BaseButton fontSize={fontSize} isActive={isActive}>
+    <BaseButton isActive={isActive} fontType={h2}>
       <AntdButton type="text" htmlType="submit">
         {text}
       </AntdButton>
