@@ -11,11 +11,11 @@ function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onChange' })
+  } = useForm()
 
-  const onSubmit = (data: FieldValues) => {
+  const onSubmit = async (data: FieldValues) => {
     axios({
-      url: 'https://formspree.io/f/myyopaal', // added raffles hall gmail raffleshalldevs@gmail.com
+      url: '', // 'https://formspree.io/f/myyopaal', // added raffles hall gmail raffleshalldevs@gmail.com
       method: 'post',
       headers: {
         Accept: 'application/json',
@@ -25,8 +25,8 @@ function ContactForm() {
         email: data.Email.trim(),
         message: data.Message.trim(),
       },
-    }).then((response) => {
-      console.log(response)
+    }).then(() => {
+      alert('Thank you! We will get back to you as soon as possible.')
     })
   }
 

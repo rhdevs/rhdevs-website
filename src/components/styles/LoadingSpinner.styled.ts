@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { PRIMARY_COLOUR } from '../../styles/Theme'
 
 export const Spinner = styled.div`
   text-align: center;
@@ -13,7 +14,7 @@ export const Spinner = styled.div`
   min-height: 100vh;
   width: 100vw;
   .ant-spin {
-    color: #097ac0 !important;
+    color: ${PRIMARY_COLOUR} !important;
   }
 `
 

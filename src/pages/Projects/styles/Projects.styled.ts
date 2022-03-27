@@ -29,18 +29,24 @@ export const Image = styled.img`
 export const DividerContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
 `
 
 export const Divider = styled.hr`
   width: 60%;
   border: 1.4px solid ${(props) => props.theme.palette.primary};
+  background-color: ${(props) => props.theme.palette.primary};
 `
 
 export const ProjectPreviewContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  gap: 50px;
-  margin: 0 100px 40px 100px;
+  gap: 40px;
+  max-width: 70rem;
+  padding: 0 30px;
+  margin: 40px auto;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 `

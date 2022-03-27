@@ -1,6 +1,8 @@
 import React from 'react'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
 
+export const PRIMARY_COLOUR = '#10BCBC'
+
 const theme: DefaultTheme = {
   palette: {
     common: {
@@ -8,54 +10,24 @@ const theme: DefaultTheme = {
       white: '#fff',
       gray: '#b3b3b3',
     },
-    primary: '#10bcbc',
-    secondary: '#5e2ba1',
-    danger: '#cc5849',
+    primary: PRIMARY_COLOUR,
   },
   typography: {
     main: 'Inter',
     fontSize: {
-      body: {
-        min: '16px',
-        size: '1.35vw',
-        max: '20px',
-        weight: '300',
-        height: '',
-      },
-      input: {
-        min: '16px',
-        size: '1.3vw',
-        max: '20px',
-        weight: '300',
-        height: '2',
-      },
-      sectionTitle: {
-        min: '16px',
-        size: '1.8vw',
-        max: '28px',
-        weight: '600',
-        height: '',
-      },
-      sectionText: {
-        min: '12px',
-        size: '1.25vw',
-        max: '20px',
-        weight: '300',
-        height: '',
-      },
       h1: {
-        min: '20px',
+        min: '38px',
         size: '2vw',
-        max: '38px',
+        max: '42px',
         weight: '300',
         height: '1',
       },
       h2: {
-        min: '18px',
-        size: '1.2vw',
-        max: '22px',
+        min: '21px',
+        size: '1.8vw',
+        max: '28px',
         weight: '600',
-        height: '1.5',
+        height: '1.3',
       },
       h3: {
         min: '16px',
@@ -64,19 +36,12 @@ const theme: DefaultTheme = {
         weight: '500',
         height: '1',
       },
-      previewTitle: {
-        min: '16px',
-        size: '1.5vw',
-        max: '24px',
-        weight: '500',
-        height: 'auto',
-      },
-      h4: {
-        min: '10px',
-        size: '1vw',
-        max: '18px',
+      body: {
+        min: '18px',
+        size: '1.25vw',
+        max: '25px',
         weight: '300',
-        height: 'auto',
+        height: '1.3',
       },
     },
   },

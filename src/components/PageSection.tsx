@@ -23,16 +23,16 @@ const defaultProps: {
 
 function PageSectionComponent(props: Props) {
   const theme = useTheme()
-  const { sectionTitle, sectionText } = { ...theme.typography.fontSize }
+  const { h2, body } = { ...theme.typography.fontSize }
 
   return (
     <MainContainer imgPosition={props.imgPosition}>
       {props.imgPosition && <ImageContainer src={props.imageSrc} alt={props.title} />}
       <TextContainer>
-        <Title fontType={sectionTitle} events={props.events}>
+        <Title fontType={h2} events={props.events}>
           {props.title}
         </Title>
-        <Body fontType={sectionText} events={props.events}>
+        <Body fontType={body} events={props.events}>
           {props.description}
         </Body>
       </TextContainer>

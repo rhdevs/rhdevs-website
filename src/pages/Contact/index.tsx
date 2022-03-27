@@ -17,22 +17,22 @@ import logo from '../../assets/logo.png'
 
 export default function Contact() {
   const theme = useTheme()
-  const { body, h1, h2 } = { ...theme.typography.fontSize }
+  const { h1, h2, body } = { ...theme.typography.fontSize }
   return (
     <MainContainer>
       <ContactTitle fontType={h1}>Contact Us</ContactTitle>
       <StaticSection>
         <InformationSection>
-          {contactHeaders.map((header) => (
-            <SectionContainer>
+          {contactHeaders.map((header, index) => (
+            <SectionContainer key={index}>
               <ClickToCopySection text={contactMethods[header]} title={header} />
             </SectionContainer>
           ))}
           <SectionContainer>
             <SectionTitle fontType={h2}>{socialMedia.title}</SectionTitle>
             <SectionContent>
-              {socialMedia.items.map((item) => (
-                <ContactLink fontType={body} href={socialMedia.links[item]} target="_blank">
+              {socialMedia.items.map((item, index) => (
+                <ContactLink key={index} fontType={body} href={socialMedia.links[item]} target="_blank">
                   {item}
                 </ContactLink>
               ))}

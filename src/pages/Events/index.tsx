@@ -7,6 +7,7 @@ export default function Events() {
     <InformationMainContainer>
       {events.map((event, index) => (
         <PageSectionComponent
+          key={index}
           title={event.title}
           description={event.description}
           imgPosition={index % 2 === 0 ? 'left' : 'right'}

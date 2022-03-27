@@ -28,8 +28,9 @@ function NavBar() {
     <>
       <MainContainer isVisible={isVisible}>
         <NavItemContainer>
-          {navTitles.map((item) => (
+          {navTitles.map((item, index) => (
             <NavItem
+              key={index}
               text={item}
               isActive={
                 item.toLowerCase() === pageName ||

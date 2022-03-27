@@ -41,5 +41,4 @@ export const PreviewWrapper = styled.div`
   background-color: ${(props) => props.theme.palette.common.black};
   cursor: default;
   flex: 1 1 100%;
-  margin: 0 0 3% 0;
 `

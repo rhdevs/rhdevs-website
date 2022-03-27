@@ -38,7 +38,7 @@ function InputField(props: Props) {
     common: { white },
     primary,
   } = { ...theme.palette }
-  const { input, h2 } = { ...theme.typography.fontSize }
+  const { h2, body } = { ...theme.typography.fontSize }
 
   const warningLabelText = warningLabelTexts[`${type}`]
 
@@ -55,7 +55,7 @@ function InputField(props: Props) {
       </InputFieldHeader>
       <TextInput
         pattern={pattern.source} // for css side rendering
-        fontType={input}
+        fontType={body}
         {...register(title, { required: required, pattern: pattern })}
       />
     </InputFieldContainer>

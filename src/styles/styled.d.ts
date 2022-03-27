@@ -17,21 +17,14 @@ declare module 'styled-components' {
         gray: ColourCode
       }
       primary: ColourCode
-      secondary: ColourCode
-      danger: ColourCode
     }
     typography: {
       main: string
       fontSize: {
-        body: FontType
-        input: FontType
-        sectionTitle: FontType
-        sectionText: FontType
         h1: FontType
         h2: FontType
         h3: FontType
-        previewTitle: FontType
-        h4: FontType
+        body: FontType
       }
     }
   }

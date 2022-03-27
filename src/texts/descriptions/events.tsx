@@ -1,6 +1,7 @@
 import RHDevs from '../../assets/RHDevs-Logo-EventsPage.svg'
 import UPGRHADEimg from '../../assets/UPGRHADE-Logo-EventsPage.svg'
 import InterHallimg from '../../assets/InterHall-Logo-EventsPage.svg'
+import { PRIMARY_COLOUR } from '../../styles/Theme'
 
 const InterHackathonDesc = (
   <>
@@ -18,7 +19,7 @@ const InterHackathonDesc = (
     <br />
     <br />
     Projects can be viewed{' '}
-    <a style={{ color: '#10BCBC' }} href="https://nus-inter-hall-hack.devpost.com/project-gallery">
+    <a style={{ color: PRIMARY_COLOUR }} href="https://nus-inter-hall-hack.devpost.com/project-gallery">
       here
     </a>
   </>
@@ -44,7 +45,7 @@ const upgRHadeDesc = (
     <br />
     <br />
     Results can be viewed{' '}
-    <a style={{ color: '#10BCBC' }} href="https://www.instagram.com/p/CFrijU4Hw8H/?utm_medium=share_sheet">
+    <a style={{ color: PRIMARY_COLOUR }} href="https://www.instagram.com/p/CFrijU4Hw8H/?utm_medium=share_sheet">
       here
     </a>
   </>
