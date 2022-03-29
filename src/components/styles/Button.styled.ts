@@ -1,12 +1,11 @@
 import styled, { FontType } from 'styled-components'
 import { fontTypeCss } from '../../styles/index.styled'
 
-export const BaseButton = styled.div<{ fontType: FontType; isActive?: boolean }>`
+export const BaseButton = styled.button<{ fontType: FontType; isActive?: boolean }>`
   width: fit-content;
   justify-content: center;
   align-items: center;
-  .ant-btn-text {
-    color: ${(props) => props.theme.palette.common.white};
+  color: ${(props) => props.theme.palette.common.white};
     ${fontTypeCss}
     border: 0;
     border-bottom: transparent 2px solid;
@@ -22,11 +21,11 @@ export const BaseButton = styled.div<{ fontType: FontType; isActive?: boolean }>
       );
       background-repeat: no-repeat;
       background-size: calc(100% - 18px) 2px;
-    }}
+    }
     ${(props) => {
       if (props.isActive) {
         return `
-        .ant-btn-text {
+        
           background-position: 50% 1.2em;
           color: ${props.theme.palette.primary};
           background-image: linear-gradient(
@@ -40,7 +39,7 @@ export const BaseButton = styled.div<{ fontType: FontType; isActive?: boolean }>
         `
       }
       return `
-        color: ${props.theme.palette.primary}
+        color: ${props.theme.palette.common.white}
       `
     }}
   }
