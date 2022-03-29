@@ -19,11 +19,12 @@ function Button(props: Props) {
   const { isActive } = props
   return (
     <BaseButton
-      onClick={() => (props.link === null ? undefined : window.open(props.link, '_blank'))}
+      onClick={() => window.open(props.link, '_blank')}
       isActive={isActive}
       type={props.htmlType}
       fontType={props.fontType}
     >
+      {/* eslint-disable-next-line security/detect-non-literal-fs-filename */}
       {props.text}
     </BaseButton>
   )

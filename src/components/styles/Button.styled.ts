@@ -5,6 +5,7 @@ export const BaseButton = styled.button<{ fontType: FontType; isActive?: boolean
   width: fit-content;
   justify-content: center;
   align-items: center;
+  margin-right: 2em;
   color: ${(props) => props.theme.palette.common.white};
   ${fontTypeCss}
   border: 0;
