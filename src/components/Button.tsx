@@ -18,7 +18,7 @@ const defaultProps = {
 function Button(props: Props) {
   return (
     <BaseButton
-      onClick={() => window.open(props.link, '_blank')}
+      onClick={() => (props.link === null ? undefined : window.open(props.link, '_blank'))}
       hasActive={props.hasActive}
       type={props.htmlType}
       fontType={props.fontType}
