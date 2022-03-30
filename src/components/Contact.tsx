@@ -14,7 +14,7 @@ function ContactForm() {
     formState: { errors },
   } = useForm({ mode: 'onChange' })
   const theme = useTheme()
-  const { h2 } = { ...theme.typography.fontSize }
+  const { body } = { ...theme.typography.fontSize }
 
   const onSubmit = (data: FieldValues) => {
     axios({
@@ -38,7 +38,7 @@ function ContactForm() {
       <InputField type="text" title="Name" error={errors.Name} register={register} pattern={nameRegex} required />
       <InputField type="email" title="Email" error={errors.Email} register={register} pattern={emailRegex} required />
       <InputField type="text" title="Message" error={errors.Message} register={register} required />
-      <Button htmlType="submit" text="Submit" fontType={h2} />
+      <Button htmlType="submit" text="Submit" fontType={body} hasActive />
     </FormContainer>
   )
 }
