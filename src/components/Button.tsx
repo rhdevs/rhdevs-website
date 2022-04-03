@@ -4,21 +4,21 @@ import { BaseButton } from './styles/Button.styled'
 type Props = {
   text: string
   hasActive?: boolean
-  link?: string | undefined
-  htmlType?: 'button' | 'submit' | 'reset' | undefined
+  link?: string
+  htmlType?: 'button' | 'submit' | 'reset'
   fontType: FontType
 }
 
 const defaultProps = {
   hasActive: false,
-  link: null,
-  htmlType: 'submit',
+  link: undefined,
+  htmlType: undefined,
 }
 
 function Button(props: Props) {
   return (
     <BaseButton
-      onClick={() => (props.link === null ? undefined : window.open(props.link, '_blank'))}
+      onClick={() => props.link && window.open(props.link, '_blank')}
       hasActive={props.hasActive}
       type={props.htmlType}
       fontType={props.fontType}
