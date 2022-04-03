@@ -1,4 +1,5 @@
 import { useTheme } from 'styled-components'
+import Button from 'src/components/Button'
 import ContactForm from '../../components/Contact'
 import {
   MainContainer,
@@ -8,7 +9,6 @@ import {
   SectionContainer,
   SectionTitle,
   SectionContent,
-  ContactLink,
   Logo,
 } from './styles/Contact.styled'
 import { contactHeaders, contactMethods, socialMedia } from '../../texts/common/rhdevsInfo'
@@ -32,9 +32,7 @@ export default function Contact() {
             <SectionTitle fontType={h2}>{socialMedia.title}</SectionTitle>
             <SectionContent>
               {socialMedia.items.map((item) => (
-                <ContactLink fontType={body} href={socialMedia.links[item]} target="_blank">
-                  {item}
-                </ContactLink>
+                <Button link={socialMedia.links[item]} htmlType="button" fontType={body} text={item} />
               ))}
             </SectionContent>
           </SectionContainer>

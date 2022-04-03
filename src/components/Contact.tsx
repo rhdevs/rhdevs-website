@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { useTheme } from 'styled-components'
 import { FieldValues, useForm } from 'react-hook-form'
 import InputField from './InputField'
-import SubmitButton from './SubmitButton'
+import Button from './Button'
 import { emailRegex, nameRegex } from '../texts/errors/formErrors'
 
 import { FormContainer } from './styles/FormContainer.styled'
@@ -12,6 +13,8 @@ function ContactForm() {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: 'onChange' })
+  const theme = useTheme()
+  const { body } = { ...theme.typography.fontSize }
 
   const onSubmit = (data: FieldValues) => {
     axios({
@@ -35,7 +38,7 @@ function ContactForm() {
       <InputField type="text" title="Name" error={errors.Name} register={register} pattern={nameRegex} required />
       <InputField type="email" title="Email" error={errors.Email} register={register} pattern={emailRegex} required />
       <InputField type="text" title="Message" error={errors.Message} register={register} required />
-      <SubmitButton text="Submit" />
+      <Button htmlType="submit" text="Submit" fontType={body} hasActive />
     </FormContainer>
   )
 }
